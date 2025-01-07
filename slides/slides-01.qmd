@@ -352,12 +352,6 @@ iClicker cloud join link: https://join.iclicker.com/HTRZ
 
 # Logistics
 
-## Surveys
-
-- Please complete the "Getting to know you" survey on [Canvas]().
-<!-- - TODO: Also, please complete the anonymous restaurant survey on Qualtrics [here](https://ubc.ca1.qualtrics.com/jfe/form/SV_73VuZiuwM1eDVrw).
-  - We will try to analyze this data set in the coming weeks.  -->
-
 ## About this course
 
 ::: {.callout-important}
@@ -476,7 +470,7 @@ x
 - A "finalized" version will be pushed to [GitHub](https://github.com/UBC-CS/cpsc330-2024W2) and the [Jupyter book](https://ubc-cs.github.io/cpsc330-2024W2/README.html) right before each class.
 - Each instructor will have slightly adapted versions of notes to present slides during lectures.  
 - You will find the link to these slides in our repository: 
-[https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures](https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures)
+[https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures](https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures).
 
 ## Grades
 
@@ -518,7 +512,8 @@ but you can find some useful Python resources [here](https://github.com/UBC-CS/c
 
 <br><br>
 
-## Checklist for you before the next class
+## Checklist for you before the next class {.smaller}
+
 
 - [ ] Are you able to access course [Canvas](https://canvas.ubc.ca/courses/153207) shell? 
 - [ ] Are you able to access [course Piazza](https://piazza.com/class/m4ujp0s4xgm5o5)?
@@ -526,5 +521,12 @@ but you can find some useful Python resources [here](https://github.com/UBC-CS/c
     - **Please join Gradescope through the Canvas.**
 - [ ] Are you able to access [iClicker Cloud](https://join.iclicker.com/HTRZ) for this course?
 - [ ] Did you follow the setup instructions [here](https://ubc-cs.github.io/cpsc330-2024W2/docs/setup.html) to create a course conda environment on your computer?
-- [ ] Did you complete the "Getting to know you" survey on Canvas?
-- [ ] Are you almost finished or at least started with homework 1?
+- [ ] Did you complete the [syllabus quiz](https://us.prairielearn.com/pl/course_instance/172119/assessment/2494388) on Prairilearn?  (Due date: Friday, January 24th at 11:59pm)
+- [ ] Are you almost finished or at least started with homework 1? (Due: Tuesday, January 14th at 11:59pm)
+
+## Summary {.smaller}
+
+- Machine learning is increasingly being applied across various fields.
+- In supervised learning, we are given a set of observations ($X$) and their corresponding targets ($y$) and we wish to find a model function that relates $X$ to $y$.
+- Machine learning is a different paradigm for problem solving. Very often it reduces the time you spend programming and helps customizing and scaling your products.
+- Before applying machine learning to a problem, it's always advisable to assess whether a given problem is suitable for a machine learning solution or not.

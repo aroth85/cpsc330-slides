@@ -151,7 +151,7 @@
     "href": "slides/slides-01.html#building-a-regression-model",
     "title": "Lecture 1: Introduction to CPSC 330",
     "section": "Building a regression model",
-    "text": "Building a regression model\n\nfrom lightgbm.sklearn import LGBMRegressor\n\nX_train, y_train = train_df.drop(columns= [\"target\"]), train_df[\"target\"]\nX_test, y_test = test_df.drop(columns= [\"target\"]), train_df[\"target\"]\n\nmodel = LGBMRegressor()\nmodel.fit(X_train, y_train);\n\n[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000485 seconds.\nYou can set `force_row_wise=true` to remove the overhead.\nAnd if memory is not enough, you can set `force_col_wise=true`.\n[LightGBM] [Info] Total Bins 2333\n[LightGBM] [Info] Number of data points in the train set: 17290, number of used features: 18\n[LightGBM] [Info] Start training from score 539762.702545"
+    "text": "Building a regression model\n\nfrom lightgbm.sklearn import LGBMRegressor\n\nX_train, y_train = train_df.drop(columns= [\"target\"]), train_df[\"target\"]\nX_test, y_test = test_df.drop(columns= [\"target\"]), train_df[\"target\"]\n\nmodel = LGBMRegressor()\nmodel.fit(X_train, y_train);\n\n[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000356 seconds.\nYou can set `force_row_wise=true` to remove the overhead.\nAnd if memory is not enough, you can set `force_col_wise=true`.\n[LightGBM] [Info] Total Bins 2333\n[LightGBM] [Info] Number of data points in the train set: 17290, number of used features: 18\n[LightGBM] [Info] Start training from score 539762.702545"
   },
   {
     "objectID": "slides/slides-01.html#predicting-prices-of-unseen-houses",
@@ -173,13 +173,6 @@
     "title": "Lecture 1: Introduction to CPSC 330",
     "section": "❓❓ Questions for you",
     "text": "❓❓ Questions for you\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are True (iClicker)\n\n\nPredicting spam is an example of machine learning.\n\n\nPredicting housing prices is not an example of machine learning.\n\n\nFor problems such as spelling correction, translation, face recognition, spam identification, if you are a domain expert, it’s usually faster and scalable to come up with a robust set of rules manually rather than building a machine learning model.\n\n\nIf you are asked to write a program to find all prime numbers up to a limit, it is better to implement one of the algorithms for doing so rather than using machine learning.\n\n\nGoogle News is likely be using machine learning to organize news."
-  },
-  {
-    "objectID": "slides/slides-01.html#surveys",
-    "href": "slides/slides-01.html#surveys",
-    "title": "Lecture 1: Introduction to CPSC 330",
-    "section": "Surveys",
-    "text": "Surveys\n\nPlease complete the “Getting to know you” survey on Canvas."
   },
   {
     "objectID": "slides/slides-01.html#about-this-course",
@@ -263,7 +256,7 @@
     "href": "slides/slides-01.html#lecture-notes",
     "title": "Lecture 1: Introduction to CPSC 330",
     "section": "Lecture notes",
-    "text": "Lecture notes\n\nAll the lectures are available here.\nWhile the lecture notes are largely fixed, there may be small changes over the course of the term.\nA “finalized” version will be pushed to GitHub and the Jupyter book right before each class.\nEach instructor will have slightly adapted versions of notes to present slides during lectures.\n\nYou will find the link to these slides in our repository: https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures"
+    "text": "Lecture notes\n\nAll the lectures are available here.\nWhile the lecture notes are largely fixed, there may be small changes over the course of the term.\nA “finalized” version will be pushed to GitHub and the Jupyter book right before each class.\nEach instructor will have slightly adapted versions of notes to present slides during lectures.\n\nYou will find the link to these slides in our repository: https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures."
   },
   {
     "objectID": "slides/slides-01.html#grades",
@@ -298,7 +291,14 @@
     "href": "slides/slides-01.html#checklist-for-you-before-the-next-class",
     "title": "Lecture 1: Introduction to CPSC 330",
     "section": "Checklist for you before the next class",
-    "text": "Checklist for you before the next class\n\nAre you able to access course Canvas shell?\nAre you able to access course Piazza?\nAre you able to access Gradescope? (If not, refer to the Gradescope Student Guide.)\n\nPlease join Gradescope through the Canvas.\n\nAre you able to access iClicker Cloud for this course?\nDid you follow the setup instructions here to create a course conda environment on your computer?\nDid you complete the “Getting to know you” survey on Canvas?\nAre you almost finished or at least started with homework 1?"
+    "text": "Checklist for you before the next class\n\nAre you able to access course Canvas shell?\nAre you able to access course Piazza?\nAre you able to access Gradescope? (If not, refer to the Gradescope Student Guide.)\n\nPlease join Gradescope through the Canvas.\n\nAre you able to access iClicker Cloud for this course?\nDid you follow the setup instructions here to create a course conda environment on your computer?\nDid you complete the syllabus quiz on Prairilearn? (Due date: Friday, January 24th at 11:59pm)\nAre you almost finished or at least started with homework 1? (Due: Tuesday, January 14th at 11:59pm)"
+  },
+  {
+    "objectID": "slides/slides-01.html#summary",
+    "href": "slides/slides-01.html#summary",
+    "title": "Lecture 1: Introduction to CPSC 330",
+    "section": "Summary",
+    "text": "Summary\n\nMachine learning is increasingly being applied across various fields.\nIn supervised learning, we are given a set of observations (X) and their corresponding targets (y) and we wish to find a model function that relates X to y.\nMachine learning is a different paradigm for problem solving. Very often it reduces the time you spend programming and helps customizing and scaling your products.\nBefore applying machine learning to a problem, it’s always advisable to assess whether a given problem is suitable for a machine learning solution or not."
   },
   {
     "objectID": "lecture-02.html",
