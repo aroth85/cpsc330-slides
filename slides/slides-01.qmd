@@ -95,7 +95,6 @@ Eva is among one of you. She has some experience in Python programming. She know
 
 - Introduce yourself to your neighbour. 
 - Since we're going to spend the semester with each other, I would like to know you a bit better. 
-- Please fill out [Getting to know you survey](https://canvas.ubc.ca/courses/153207/quizzes) when you get a chance.
 
 ## Asking questions during class
 You are welcome to ask questions by raising your hand.
