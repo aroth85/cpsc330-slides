@@ -1,0 +1,51 @@
+project:  
+  type: website
+  preview:
+    port: 12345
+  render:
+    - "./*.qmd"
+    - "slides/*.qmd"
+  resources:
+    - slides
+
+website:
+  title: "CPSC 330"
+  description: "Slides for CPSC 330 Section 4"
+  site-url: https://aroth85.github.io/cpsc330-slides/
+
+  repo-url: https://github.com/aroth85/cpsc330-slides/
+  repo-subdir: website
+  
+  navbar:
+    title: "CPSC 330 Section 4"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: lectures.qmd
+        text: Lectures
+  
+  page-navigation: true
+  
+  sidebar:
+    - id: lecture
+      contents:
+        - lectures.qmd
+        - lecture-01.qmd  
+        - lecture-02.qmd  
+format:
+  html:
+    theme: [zephyr]
+    toc: false
+    lightbox: true
+          
+editor:
+  render-on-save: true
+
+execute:
+  freeze: auto
+
+publish:
+  gh-pages:
+    name: "gh-pages"
+    branch: main
+    path: website
