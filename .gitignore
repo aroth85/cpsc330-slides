@@ -1,3 +1,4 @@
 website/_freeze
 website/_site
 website/.quarto
+*__pycache__*
