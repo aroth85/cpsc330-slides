@@ -446,7 +446,7 @@ Andrew Roth
 <li>Contact information
 <ul>
 <li>Email: aroth@cs.ubc.ca</li>
-<li>Office: ICCS 237</li>
+<li>Office: ICCS 359</li>
 </ul></li>
 </ul>
 </div></div>
@@ -497,7 +497,7 @@ Andrew Roth
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Output</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="1b3967c5" class="cell" data-execution_count="2">
+<div id="61efc7d5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>sms_df <span class="op">=</span> pd.read_csv(DATA_DIR <span class="op">+</span> <span class="st">"spam.csv"</span>, encoding<span class="op">=</span><span class="st">"latin-1"</span>)</span>
 <span id="cb1-2"><a></a>sms_df <span class="op">=</span> sms_df.drop(columns <span class="op">=</span> [<span class="st">"Unnamed: 2"</span>, <span class="st">"Unnamed: 3"</span>, <span class="st">"Unnamed: 4"</span>])</span>
 <span id="cb1-3"><a></a>sms_df <span class="op">=</span> sms_df.rename(columns<span class="op">=</span>{<span class="st">"v1"</span>: <span class="st">"target"</span>, <span class="st">"v2"</span>: <span class="st">"sms"</span>})</span>
@@ -508,7 +508,7 @@ Andrew Roth
 </div>
 <div id="tabset-1-2">
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="54be0fa3" class="cell" data-execution_count="3">
+<div id="010d39a7" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -567,7 +567,7 @@ Andrew Roth
 <ul>
 <li>There are several packages that help us perform machine learning.</li>
 </ul>
-<div id="4f513476" class="cell" data-execution_count="4">
+<div id="549f99c1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>X_train, y_train <span class="op">=</span> train_df[<span class="st">"sms"</span>], train_df[<span class="st">"target"</span>]</span>
 <span id="cb2-2"><a></a>X_test, y_test <span class="op">=</span> test_df[<span class="st">"sms"</span>], test_df[<span class="st">"target"</span>]</span>
 <span id="cb2-3"><a></a>clf <span class="op">=</span> make_pipeline(</span>
@@ -582,37 +582,37 @@ Andrew Roth
 <ul>
 <li>Now use the trained model to predict targets of unseen messages:</li>
 </ul>
-<div id="08d8c8ad" class="cell" data-execution_count="5">
+<div id="92de6501" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <style type="text/css">
-#T_5969b_row0_col0, #T_5969b_row1_col0, #T_5969b_row2_col0, #T_5969b_row3_col0 {
+#T_f0814_row0_col0, #T_f0814_row1_col0, #T_f0814_row2_col0, #T_f0814_row3_col0 {
   text-align: left;
 }
 </style>
 
-<table id="T_5969b" class="caption-top" data-quarto-postprocess="true">
+<table id="T_f0814" class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_5969b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">sms</th>
+<th id="T_f0814_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">sms</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_5969b_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">3245</td>
-<td id="T_5969b_row0_col0" class="data row0 col0">Funny fact Nobody teaches volcanoes 2 erupt, tsunamis 2 arise, hurricanes 2 sway aroundn no 1 teaches hw 2 choose a wife Natural disasters just happens</td>
+<td id="T_f0814_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">3245</td>
+<td id="T_f0814_row0_col0" class="data row0 col0">Funny fact Nobody teaches volcanoes 2 erupt, tsunamis 2 arise, hurricanes 2 sway aroundn no 1 teaches hw 2 choose a wife Natural disasters just happens</td>
 </tr>
 <tr class="even">
-<td id="T_5969b_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">944</td>
-<td id="T_5969b_row1_col0" class="data row1 col0">I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one me the less expensive ones</td>
+<td id="T_f0814_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">944</td>
+<td id="T_f0814_row1_col0" class="data row1 col0">I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one me the less expensive ones</td>
 </tr>
 <tr class="odd">
-<td id="T_5969b_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">1044</td>
-<td id="T_5969b_row2_col0" class="data row2 col0">We know someone who you know that fancies you. Call 09058097218 to find out who. POBox 6, LS15HB 150p</td>
+<td id="T_f0814_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">1044</td>
+<td id="T_f0814_row2_col0" class="data row2 col0">We know someone who you know that fancies you. Call 09058097218 to find out who. POBox 6, LS15HB 150p</td>
 </tr>
 <tr class="even">
-<td id="T_5969b_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">2484</td>
-<td id="T_5969b_row3_col0" class="data row3 col0">Only if you promise your getting out as SOON as you can. And you'll text me in the morning to let me know you made it in ok.</td>
+<td id="T_f0814_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">2484</td>
+<td id="T_f0814_row3_col0" class="data row3 col0">Only if you promise your getting out as SOON as you can. And you'll text me in the morning to let me know you made it in ok.</td>
 </tr>
 </tbody>
 </table>
@@ -622,7 +622,7 @@ Andrew Roth
 <section id="predicting-on-unseen-data" class="slide level2 smaller center">
 <h2>Predicting on unseen data</h2>
 <p><strong>The model is accurately predicting labels for the unseen text messages above!</strong></p>
-<div id="1cf07ed8" class="cell" data-execution_count="6">
+<div id="d2081669" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>pred_dict <span class="op">=</span> {</span>
 <span id="cb3-2"><a></a>    <span class="st">"sms"</span>: X_test[<span class="dv">0</span>:<span class="dv">4</span>],</span>
 <span id="cb3-3"><a></a>    <span class="st">"spam_predictions"</span>: clf.predict(X_test[<span class="dv">0</span>:<span class="dv">4</span>]),</span>
@@ -775,7 +775,7 @@ A field of study that gives computers the ability to learn without being explici
 <li>We can also use machine learning to predict labels of given images using a technique called <strong>transfer learning</strong>.</li>
 </ul>
 <div class="scroll-container" style="overflow-y: scroll; height: 600px;">
-<div id="56acd739" class="cell" data-execution_count="7">
+<div id="eac36924" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -842,7 +842,7 @@ Walker hound, Walker foxhound              0.582
 <section id="predicting-housing-prices" class="slide level2 smaller center">
 <h2>Predicting housing prices</h2>
 <p>Suppose we want to predict housing prices given a number of attributes associated with houses. The target here is <strong>continuous</strong> and not <strong>discrete</strong>.</p>
-<div id="2c251695" class="cell" data-execution_count="8">
+<div id="c53dd83f" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -981,7 +981,7 @@ Walker hound, Walker foxhound              0.582
 </section>
 <section id="building-a-regression-model" class="slide level2 center">
 <h2>Building a regression model</h2>
-<div id="21879740" class="cell" data-execution_count="9">
+<div id="e41ea42a" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">from</span> lightgbm.sklearn <span class="im">import</span> LGBMRegressor</span>
 <span id="cb8-2"><a></a></span>
 <span id="cb8-3"><a></a>X_train, y_train <span class="op">=</span> train_df.drop(columns<span class="op">=</span> [<span class="st">"target"</span>]), train_df[<span class="st">"target"</span>]</span>
@@ -990,9 +990,8 @@ Walker hound, Walker foxhound              0.582
 <span id="cb8-6"><a></a>model <span class="op">=</span> LGBMRegressor()</span>
 <span id="cb8-7"><a></a>model.fit(X_train, y_train)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000356 seconds.
-You can set `force_row_wise=true` to remove the overhead.
-And if memory is not enough, you can set `force_col_wise=true`.
+<pre><code>[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.000304 seconds.
+You can set `force_col_wise=true` to remove the overhead.
 [LightGBM] [Info] Total Bins 2333
 [LightGBM] [Info] Number of data points in the train set: 17290, number of used features: 18
 [LightGBM] [Info] Start training from score 539762.702545</code></pre>
@@ -1001,7 +1000,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 </section>
 <section id="predicting-prices-of-unseen-houses" class="slide level2 smaller center">
 <h2>Predicting prices of unseen houses</h2>
-<div id="d3c97d8f" class="cell" data-execution_count="10">
+<div id="921eb934" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1313,13 +1312,13 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <li>When you open a Jupyter notebook in one of these apps, the document is “live”, meaning you can run the code.</li>
 </ul>
 <p>For example:</p>
-<div id="86ace586" class="cell" data-execution_count="11">
+<div id="44d845be" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="a6052d57" class="cell" data-execution_count="12">
+<div id="199a733f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb12-2"><a></a>x[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">9999</span></span>
 <span id="cb12-3"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

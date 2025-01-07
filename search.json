@@ -18,7 +18,7 @@
     "href": "slides/slides-01.html#meet-your-instructor",
     "title": "Lecture 1: Introduction to CPSC 330",
     "section": "Meet your instructor",
-    "text": "Meet your instructor\n\n\n\n\n\nAndrew Roth\nI am an Assistant Professor Departments of Computer Science and Pathology & Laboratory Medicine.\nI received my Ph.D. in Bioinformatics at UBC.\nMy research uses statistical machine learning methods to study cancer.\nContact information\n\nEmail: aroth@cs.ubc.ca\nOffice: ICCS 237"
+    "text": "Meet your instructor\n\n\n\n\n\nAndrew Roth\nI am an Assistant Professor Departments of Computer Science and Pathology & Laboratory Medicine.\nI received my Ph.D. in Bioinformatics at UBC.\nMy research uses statistical machine learning methods to study cancer.\nContact information\n\nEmail: aroth@cs.ubc.ca\nOffice: ICCS 359"
   },
   {
     "objectID": "slides/slides-01.html#meet-eva-a-fictitious-persona",
@@ -151,7 +151,7 @@
     "href": "slides/slides-01.html#building-a-regression-model",
     "title": "Lecture 1: Introduction to CPSC 330",
     "section": "Building a regression model",
-    "text": "Building a regression model\n\nfrom lightgbm.sklearn import LGBMRegressor\n\nX_train, y_train = train_df.drop(columns= [\"target\"]), train_df[\"target\"]\nX_test, y_test = test_df.drop(columns= [\"target\"]), train_df[\"target\"]\n\nmodel = LGBMRegressor()\nmodel.fit(X_train, y_train);\n\n[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000356 seconds.\nYou can set `force_row_wise=true` to remove the overhead.\nAnd if memory is not enough, you can set `force_col_wise=true`.\n[LightGBM] [Info] Total Bins 2333\n[LightGBM] [Info] Number of data points in the train set: 17290, number of used features: 18\n[LightGBM] [Info] Start training from score 539762.702545"
+    "text": "Building a regression model\n\nfrom lightgbm.sklearn import LGBMRegressor\n\nX_train, y_train = train_df.drop(columns= [\"target\"]), train_df[\"target\"]\nX_test, y_test = test_df.drop(columns= [\"target\"]), train_df[\"target\"]\n\nmodel = LGBMRegressor()\nmodel.fit(X_train, y_train);\n\n[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.000304 seconds.\nYou can set `force_col_wise=true` to remove the overhead.\n[LightGBM] [Info] Total Bins 2333\n[LightGBM] [Info] Number of data points in the train set: 17290, number of used features: 18\n[LightGBM] [Info] Start training from score 539762.702545"
   },
   {
     "objectID": "slides/slides-01.html#predicting-prices-of-unseen-houses",

@@ -72,7 +72,7 @@ From this lecture, you will be able to
 - My research uses statistical machine learning methods to study cancer.
 - Contact information
     - Email: aroth@cs.ubc.ca
-    - Office: ICCS 237
+    - Office: ICCS 359
 :::
 
 ::::
