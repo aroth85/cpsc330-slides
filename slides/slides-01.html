@@ -423,8 +423,8 @@ Andrew Roth
 <p><br>
 </p>
 <ul>
-<li>TODO: Course Jupyter book: https://ubc-cs.github.io/cpsc330-2024W2</li>
-<li>Course GitHub repository: <a href="https://github.students.cs.ubc.ca/CPSC330-2024W-T2/cpsc330-2024W2">https://github.students.cs.ubc.ca/CPSC330-2024W-T2/cpsc330-2024W2</a></li>
+<li>Course Jupyter book: <a href="https://ubc-cs.github.io/cpsc330-2024W2/README.html">https://ubc-cs.github.io/cpsc330-2024W2/README.html</a></li>
+<li>Course GitHub repository: <a href="https://github.com/UBC-CS/cpsc330-2024W2">https://github.com/UBC-CS/cpsc330-2024W2</a></li>
 </ul>
 </section>
 <section>
@@ -441,7 +441,7 @@ Andrew Roth
 <ul>
 <li>Andrew Roth</li>
 <li>I am an Assistant Professor Departments of Computer Science and Pathology &amp; Laboratory Medicine.</li>
-<li>I did my Ph.D.&nbsp;in Bioinformatics at UBC.</li>
+<li>I received my Ph.D.&nbsp;in Bioinformatics at UBC.</li>
 <li>My research uses statistical machine learning methods to study cancer.</li>
 <li>Contact information
 <ul>
@@ -497,17 +497,19 @@ Andrew Roth
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Output</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="246c2776" class="cell" data-execution_count="2">
+<div id="ed210db5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>sms_df <span class="op">=</span> pd.read_csv(DATA_DIR <span class="op">+</span> <span class="st">"spam.csv"</span>, encoding<span class="op">=</span><span class="st">"latin-1"</span>)</span>
 <span id="cb1-2"><a></a>sms_df <span class="op">=</span> sms_df.drop(columns <span class="op">=</span> [<span class="st">"Unnamed: 2"</span>, <span class="st">"Unnamed: 3"</span>, <span class="st">"Unnamed: 4"</span>])</span>
 <span id="cb1-3"><a></a>sms_df <span class="op">=</span> sms_df.rename(columns<span class="op">=</span>{<span class="st">"v1"</span>: <span class="st">"target"</span>, <span class="st">"v2"</span>: <span class="st">"sms"</span>})</span>
-<span id="cb1-4"><a></a>train_df, test_df <span class="op">=</span> train_test_split(sms_df, test_size<span class="op">=</span><span class="fl">0.10</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a></a>train_df, test_df <span class="op">=</span> train_test_split(</span>
+<span id="cb1-5"><a></a>    sms_df, test_size<span class="op">=</span><span class="fl">0.10</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb1-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="9294aadb" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="f7939585" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="207">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
@@ -565,21 +567,68 @@ Andrew Roth
 <ul>
 <li>There are several packages that help us perform machine learning.</li>
 </ul>
-<div id="d00298e2" class="cell" data-execution_count="4">
+<div id="9a193653" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>X_train, y_train <span class="op">=</span> train_df[<span class="st">"sms"</span>], train_df[<span class="st">"target"</span>]</span>
 <span id="cb2-2"><a></a>X_test, y_test <span class="op">=</span> test_df[<span class="st">"sms"</span>], test_df[<span class="st">"target"</span>]</span>
-<span id="cb2-3"><a></a>clf <span class="op">=</span> make_pipeline(CountVectorizer(max_features<span class="op">=</span><span class="dv">5000</span>), LogisticRegression(max_iter<span class="op">=</span><span class="dv">5000</span>))</span>
-<span id="cb2-4"><a></a>clf.fit(X_train, y_train)<span class="op">;</span> <span class="co"># Training the model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a></a>clf <span class="op">=</span> make_pipeline(</span>
+<span id="cb2-4"><a></a>    CountVectorizer(max_features<span class="op">=</span><span class="dv">5000</span>), </span>
+<span id="cb2-5"><a></a>    LogisticRegression(max_iter<span class="op">=</span><span class="dv">5000</span>)</span>
+<span id="cb2-6"><a></a>)</span>
+<span id="cb2-7"><a></a>clf.fit(X_train, y_train)<span class="op">;</span> <span class="co"># Training the model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="unseen-messages" class="slide level2 center">
+<section id="unseen-messages" class="slide level2 smaller center">
 <h2>Unseen messages</h2>
 <ul>
 <li>Now use the trained model to predict targets of unseen messages:</li>
 </ul>
-<div class="scroll-container" style="overflow-y: scroll; height: 600px;">
-<div id="58d43fd3" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="2a7f314e" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="209">
+<style type="text/css">
+#T_a61ee_row0_col0, #T_a61ee_row1_col0, #T_a61ee_row2_col0, #T_a61ee_row3_col0 {
+  text-align: left;
+}
+</style>
+
+<table id="T_a61ee" class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_a61ee_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">sms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_a61ee_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">3245</td>
+<td id="T_a61ee_row0_col0" class="data row0 col0">Funny fact Nobody teaches volcanoes 2 erupt, tsunamis 2 arise, hurricanes 2 sway aroundn no 1 teaches hw 2 choose a wife Natural disasters just happens</td>
+</tr>
+<tr class="even">
+<td id="T_a61ee_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">944</td>
+<td id="T_a61ee_row1_col0" class="data row1 col0">I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one me the less expensive ones</td>
+</tr>
+<tr class="odd">
+<td id="T_a61ee_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">1044</td>
+<td id="T_a61ee_row2_col0" class="data row2 col0">We know someone who you know that fancies you. Call 09058097218 to find out who. POBox 6, LS15HB 150p</td>
+</tr>
+<tr class="even">
+<td id="T_a61ee_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">2484</td>
+<td id="T_a61ee_row3_col0" class="data row3 col0">Only if you promise your getting out as SOON as you can. And you'll text me in the morning to let me know you made it in ok.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="predicting-on-unseen-data" class="slide level2 smaller center">
+<h2>Predicting on unseen data</h2>
+<p><strong>The model is accurately predicting labels for the unseen text messages above!</strong></p>
+<div id="37b32815" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>pred_dict <span class="op">=</span> {</span>
+<span id="cb3-2"><a></a>    <span class="st">"sms"</span>: X_test[<span class="dv">0</span>:<span class="dv">4</span>],</span>
+<span id="cb3-3"><a></a>    <span class="st">"spam_predictions"</span>: clf.predict(X_test[<span class="dv">0</span>:<span class="dv">4</span>]),</span>
+<span id="cb3-4"><a></a>}</span>
+<span id="cb3-5"><a></a>pd.DataFrame(pred_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="210">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -600,75 +649,34 @@ Andrew Roth
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">sms</th>
+<th data-quarto-table-cell-role="th">spam_predictions</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">3245</td>
 <td>Funny fact Nobody teaches volcanoes 2 erupt, tsunamis 2 arise, hurricanes 2 sway aroundn no 1 teaches hw 2 choose a wife Natural disasters just happens</td>
+<td>ham</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">944</td>
 <td>I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one m...</td>
+<td>ham</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">1044</td>
 <td>We know someone who you know that fancies you. Call 09058097218 to find out who. POBox 6, LS15HB 150p</td>
+<td>spam</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2484</td>
 <td>Only if you promise your getting out as SOON as you can. And you'll text me in the morning to let me know you made it in ok.</td>
+<td>ham</td>
 </tr>
 </tbody>
 </table>
 
 </div>
-</div>
-</div>
-</div>
-</section>
-<section id="predicting-on-unseen-data" class="slide level2 smaller center">
-<h2>Predicting on unseen data</h2>
-<p><strong>The model is accurately predicting labels for the unseen text messages above!</strong></p>
-<div id="e1a9f49f" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
-<style type="text/css">
-#T_6e601_row0_col0, #T_6e601_row0_col1, #T_6e601_row1_col0, #T_6e601_row1_col1, #T_6e601_row2_col0, #T_6e601_row2_col1, #T_6e601_row3_col0, #T_6e601_row3_col1 {
-  text-align: left;
-}
-</style>
-
-<table id="T_6e601" class="caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_6e601_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">sms</th>
-<th id="T_6e601_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">spam_predictions</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td id="T_6e601_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">3245</td>
-<td id="T_6e601_row0_col0" class="data row0 col0">Funny fact Nobody teaches volcanoes 2 erupt, tsunamis 2 arise, hurricanes 2 sway aroundn no 1 teaches hw 2 choose a wife Natural disasters just happens</td>
-<td id="T_6e601_row0_col1" class="data row0 col1">ham</td>
-</tr>
-<tr class="even">
-<td id="T_6e601_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">944</td>
-<td id="T_6e601_row1_col0" class="data row1 col0">I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one me the less expensive ones</td>
-<td id="T_6e601_row1_col1" class="data row1 col1">ham</td>
-</tr>
-<tr class="odd">
-<td id="T_6e601_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">1044</td>
-<td id="T_6e601_row2_col0" class="data row2 col0">We know someone who you know that fancies you. Call 09058097218 to find out who. POBox 6, LS15HB 150p</td>
-<td id="T_6e601_row2_col1" class="data row2 col1">spam</td>
-</tr>
-<tr class="even">
-<td id="T_6e601_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">2484</td>
-<td id="T_6e601_row3_col0" class="data row3 col0">Only if you promise your getting out as SOON as you can. And you'll text me in the morning to let me know you made it in ok.</td>
-<td id="T_6e601_row3_col1" class="data row3 col1">ham</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </section>
@@ -709,10 +717,9 @@ A field of study that gives computers the ability to learn without being explici
 <li>Finding the distance between two nodes in a graph</li>
 </ul>
 </section>
-<section id="types-of-machine-learning" class="slide level2 center">
+<section id="types-of-machine-learning" class="slide level2 smaller center">
 <h2>Types of machine learning</h2>
 <p>Here are some typical learning problems.</p>
-<div class="scroll-container" style="overflow-y: scroll; height: 700px;">
 <ul>
 <li><strong>Supervised learning</strong> (<a href="https://support.google.com/a/answer/2368132?hl=en">Gmail spam filtering</a>)
 <ul>
@@ -732,9 +739,8 @@ A field of study that gives computers the ability to learn without being explici
 <li>Predict the “rating” or “preference” a user would give to an item.</li>
 </ul></li>
 </ul>
-</div>
 </section>
-<section id="what-is-supervised-learning" class="slide level2 center">
+<section id="what-is-supervised-learning" class="slide level2 smaller center">
 <h2>What is supervised learning?</h2>
 <ul>
 <li>Training data comprises a set of observations (<span class="math inline"><em>X</em></span>) and their corresponding targets (<span class="math inline"><em>y</em></span>).</li>
@@ -747,12 +753,9 @@ A field of study that gives computers the ability to learn without being explici
 </figure>
 </div>
 </section>
-<section id="evas-questions" class="slide level2 center">
+<section id="evas-questions" class="slide level2 smaller center">
 <h2>🤔 Eva’s questions</h2>
-<p><br>
-</p>
 <p>At this point, Eva is wondering about many questions.</p>
-<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
 <ul>
 <li>How are we exactly “learning” whether a message is spam and ham?</li>
 <li>Are we expected to get correct predictions for all possible messages? How does it predict the label for a message it has not seen before?<br>
@@ -763,17 +766,16 @@ A field of study that gives computers the ability to learn without being explici
 </li>
 <li>Would it be useful to know how confident the model is about the predictions rather than just a yes or a no?</li>
 </ul>
-</div>
 <p><br></p>
 <p>It’s great to think about these questions right now. But Eva has to be patient. By the end of this course you’ll know answers to many of these questions!</p>
 </section>
-<section id="predicting-labels-of-a-given-image" class="slide level2 center">
+<section id="predicting-labels-of-a-given-image" class="slide level2 smaller center">
 <h2>Predicting labels of a given image</h2>
 <ul>
 <li>We can also use machine learning to predict labels of given images using a technique called <strong>transfer learning</strong>.</li>
 </ul>
 <div class="scroll-container" style="overflow-y: scroll; height: 600px;">
-<div id="fff4be52" class="cell" data-execution_count="7">
+<div id="c0856254" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -837,11 +839,11 @@ Walker hound, Walker foxhound              0.582
 </div>
 </div>
 </section>
-<section id="predicting-housing-prices" class="slide level2 center">
+<section id="predicting-housing-prices" class="slide level2 smaller center">
 <h2>Predicting housing prices</h2>
 <p>Suppose we want to predict housing prices given a number of attributes associated with houses. The target here is <strong>continuous</strong> and not <strong>discrete</strong>.</p>
-<div id="d8afa10f" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="610057af" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="212">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
@@ -979,16 +981,16 @@ Walker hound, Walker foxhound              0.582
 </section>
 <section id="building-a-regression-model" class="slide level2 center">
 <h2>Building a regression model</h2>
-<div id="ed352c4a" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">from</span> lightgbm.sklearn <span class="im">import</span> LGBMRegressor</span>
-<span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a>X_train, y_train <span class="op">=</span> train_df.drop(columns<span class="op">=</span> [<span class="st">"target"</span>]), train_df[<span class="st">"target"</span>]</span>
-<span id="cb7-4"><a></a>X_test, y_test <span class="op">=</span> test_df.drop(columns<span class="op">=</span> [<span class="st">"target"</span>]), train_df[<span class="st">"target"</span>]</span>
-<span id="cb7-5"><a></a></span>
-<span id="cb7-6"><a></a>model <span class="op">=</span> LGBMRegressor()</span>
-<span id="cb7-7"><a></a>model.fit(X_train, y_train)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="170a24e5" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">from</span> lightgbm.sklearn <span class="im">import</span> LGBMRegressor</span>
+<span id="cb8-2"><a></a></span>
+<span id="cb8-3"><a></a>X_train, y_train <span class="op">=</span> train_df.drop(columns<span class="op">=</span> [<span class="st">"target"</span>]), train_df[<span class="st">"target"</span>]</span>
+<span id="cb8-4"><a></a>X_test, y_test <span class="op">=</span> test_df.drop(columns<span class="op">=</span> [<span class="st">"target"</span>]), train_df[<span class="st">"target"</span>]</span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a>model <span class="op">=</span> LGBMRegressor()</span>
+<span id="cb8-7"><a></a>model.fit(X_train, y_train)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000423 seconds.
+<pre><code>[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000485 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 2333
@@ -997,10 +999,10 @@ And if memory is not enough, you can set `force_col_wise=true`.
 </div>
 </div>
 </section>
-<section id="predicting-prices-of-unseen-houses" class="slide level2 center">
+<section id="predicting-prices-of-unseen-houses" class="slide level2 smaller center">
 <h2>Predicting prices of unseen houses</h2>
-<div id="c8dd390d" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="d43112af" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="214">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
@@ -1116,7 +1118,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 </div>
 <p>We are predicting continuous values here as apposed to discrete values in <code>spam</code> vs.&nbsp;<code>ham</code> example.</p>
 </section>
-<section id="machine-learning-workflow" class="slide level2 center">
+<section id="machine-learning-workflow" class="slide level2 smaller center">
 <h2>Machine learning workflow</h2>
 <p>Supervised machine learning is quite flexible; it can be used on a variety of problems and different kinds of data. Here is a typical workflow of a supervised machine learning systems.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1128,7 +1130,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <p>We will build machine learning pipelines in this course, focusing on some of the steps above.</p>
 <p><br><br></p>
 </section>
-<section id="questions-for-you" class="slide level2 center">
+<section id="questions-for-you" class="slide level2 smaller center">
 <h2>❓❓ Questions for you</h2>
 <p>iClicker cloud join link: https://join.iclicker.com/HTRZ</p>
 <h3 id="select-all-of-the-following-statements-which-are-true-iclicker">Select all of the following statements which are <strong>True</strong> (iClicker)</h3>
@@ -1149,15 +1151,17 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <li>Google News is likely be using machine learning to organize news. <br><br><br><br></li>
 </ol></li>
 </ul>
+</section></section>
+<section>
+<section id="logistics" class="title-slide slide level1 center">
+<h1>Logistics</h1>
+
 </section>
 <section id="surveys" class="slide level2 center">
 <h2>Surveys</h2>
 <ul>
-<li>Please complete the “Getting to know you” survey on <a href="">Canvas</a>.</li>
-<li>TODO: Also, please complete the anonymous restaurant survey on Qualtrics <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_73VuZiuwM1eDVrw">here</a>.
-<ul>
-<li>We will try to analyze this data set in the coming weeks.</li>
-</ul></li>
+<li>Please complete the “Getting to know you” survey on <a href="">Canvas</a>. <!-- - TODO: Also, please complete the anonymous restaurant survey on Qualtrics [here](https://ubc.ca1.qualtrics.com/jfe/form/SV_73VuZiuwM1eDVrw).
+  - We will try to analyze this data set in the coming weeks.  --></li>
 </ul>
 </section>
 <section id="about-this-course" class="slide level2 center">
@@ -1171,7 +1175,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>TODO: Course website: <a href="https://github.com/UBC-CS/cpsc330-2024W1">https://github.com/UBC-CS/cpsc330-2024W1</a> is the most important link. Please read everything on this GitHub page!</p>
+<p>Course website: <a href="https://github.com/UBC-CS/cpsc330-2024W2">https://github.com/UBC-CS/cpsc330-2024W2</a> is the most important link. Please read everything on this GitHub page!</p>
 </div>
 </div>
 </div>
@@ -1184,14 +1188,14 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>Make sure you go through the syllabus thoroughly and complete the syllabus quiz before Monday, Sept 19th at 11:59pm.</p>
+<p>Make sure you go through the syllabus thoroughly and complete the syllabus quiz before Friday, Jan 24th at 11:59pm.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="cpsc-330-vs.-340" class="slide level2 center">
 <h2>CPSC 330 vs.&nbsp;340</h2>
-<p>TODO: Read <a href="https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/330_vs_340.md">https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/330_vs_340.md</a> which explains the difference between two courses.</p>
+<p>Read <a href="https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/330_vs_340.md">https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/330_vs_340.md</a> which explains the difference between two courses.</p>
 <p><strong>TLDR:</strong></p>
 <ul>
 <li>340: how do ML models work?</li>
@@ -1212,24 +1216,26 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>TODO: Please go through <a href="https://github.com/UBC-CS/cpsc330-2024W1/blob/master/docs/course_info.md#registration">this document</a> carefully before contacting your instructors about these issues. Even then, we are very unlikely to be able to help with registration, waitlist or prerequisite issues.</p>
+<p>Please go through <a href="https://github.com/UBC-CS/cpsc330-2024W2/blob/master/docs/course_info.md#registration">this document</a> carefully before contacting your instructors about these issues. Even then, we are very unlikely to be able to help with registration, waitlist or prerequisite issues.</p>
 </div>
 </div>
 </div>
 <ul>
-<li>TODO: If you are on waitlist and if you’d like to try your chances, you should be able to access <a href="https://canvas.ubc.ca/courses/149122">Canvas</a> and Piazza.<br>
+<li>If you are on waitlist and if you’d like to try your chances, you should be able to access <a href="https://canvas.ubc.ca/courses/153207">Canvas</a> and <a href="https://piazza.com/class/m4ujp0s4xgm5o5">Piazza</a>.<br>
 </li>
-<li>If you’re unable to make it this time, there will be two sections of this course offered next semester and then again in the summer.</li>
+<li>If you’re unable to make it this time, this course will be offered in the summer.</li>
 </ul>
 </section>
-<section id="lecture-format" class="slide level2 center">
+<section id="lecture-format" class="slide level2 smaller center">
 <h2>Lecture format</h2>
 <ul>
-<li>In person lectures T/Th.</li>
+<li>In person lectures Tu/Th.</li>
 <li>Sometimes there will be videos to watch before lecture. You will find the list of pre-watch videos in the schedule on the course webpage.</li>
 <li>We will also try to work on some questions and exercises together during the class.</li>
 <li>All materials will be posted in this GitHub repository.</li>
-<li>Weekly tutorials will be <strong>office hour format</strong> run by the TAs and are <strong>completely optional</strong>.
+<li>Weekly Tu tutorial be <strong>office hours format</strong> run by the TAs.</li>
+<li>Weekly Th/Fr tutorials will be <strong>worksheet format</strong> run by the TAs.</li>
+<li>Tutorials are <strong>completely optional</strong>.
 <ul>
 <li>You do not need to be registered in a tutorial.</li>
 <li>You can attend whatever tutorials or office hours your want, regardless of in which/whether you’re registered.</li>
@@ -1239,8 +1245,12 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <section id="home-work-assignments" class="slide level2 center">
 <h2>Home work assignments</h2>
 <ul>
-<li>First homework assignment is due <strong>this coming Tuesday</strong>, September 10, midnight. This is a relatively straightforward assignment on Python. If you struggle with this assignment then that could be a sign that you will struggle later on in the course.<br>
+<li>First homework assignment is due <strong>this coming Tuesday</strong>, January 14, midnight.
+<ul>
+<li>This is a relatively straightforward assignment on Python.</li>
+<li>If you struggle with this assignment then that could be a sign that you will struggle later on in the course.<br>
 </li>
+</ul></li>
 <li>You must do the first two homework assignments on your own.</li>
 </ul>
 </section>
@@ -1249,11 +1259,6 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <ul>
 <li>We’ll have two self-scheduled midterms and one final in Computer-based Testing Facility (CBTF).</li>
 </ul>
-</section>
-<section id="course-calendar" class="slide level2 center">
-<h2>Course calendar</h2>
-<p>Here is our course Calendar. Make sure you check it on a regular basis:</p>
-<p>TODO: <a href="https://htmlpreview.github.io/?https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/calendar.html">https://htmlpreview.github.io/?https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/calendar.html</a></p>
 </section>
 <section id="course-structure" class="slide level2 center">
 <h2>Course structure</h2>
@@ -1266,7 +1271,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <ul>
 <li>Weeks 2, 3, 4, 5, 6, 7, 8</li>
 </ul></li>
-<li>Part II: Unsupervised learning, transfer learning, common special cases, midterm 1
+<li>Part II: Unsupervised learning, transfer learning, common special cases, midterm 2
 <ul>
 <li>Weeks 8, 9, 10, 11, 12</li>
 </ul></li>
@@ -1280,7 +1285,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <section id="code-of-conduct" class="slide level2 center">
 <h2>Code of conduct</h2>
 <ul>
-<li>TODO: Our main forum for getting help will be <a href="https://piazza.com/ubc.ca/winterterm12024/cpsc_v3301011021032024w1">Piazza</a>.</li>
+<li>Our main forum for getting help will be <a href="https://piazza.com/class/m4ujp0s4xgm5o5">Piazza</a>.</li>
 </ul>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -1291,7 +1296,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>TODO: Please read <a href="https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/asking_for_help.md">this entire document about asking for help</a>. <strong>TLDR:</strong> Be nice.</p>
+<p>Please read <a href="https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/asking_for_help.md">this entire document about asking for help</a>. <strong>TLDR:</strong> Be nice.</p>
 </div>
 </div>
 </div>
@@ -1315,17 +1320,17 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <li>When you open a Jupyter notebook in one of these apps, the document is “live”, meaning you can run the code.</li>
 </ul>
 <p>For example:</p>
-<div id="2041d05e" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="c3609f0b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="215">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="c8d1f802" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb11-2"><a></a>x[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">9999</span></span>
-<span id="cb11-3"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="66e61042" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb12-2"><a></a>x[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">9999</span></span>
+<span id="cb12-3"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="216">
 <pre><code>[9999, 2, 3]</code></pre>
 </div>
 </div>
@@ -1334,7 +1339,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <h2>Jupyter</h2>
 <ul>
 <li>By default, Jupyter prints out the result of the last line of code, so you don’t need as many <code>print</code> statements.</li>
-<li>In addition to the “live” notebooks, Jupyter notebooks can be statically rendered in the web browser, e.g.&nbsp;<a href="https://github.com/UBC-CS/cpsc330-2024W1/blob/main/lectures/01_intro.ipynb">this</a>.
+<li>In addition to the “live” notebooks, Jupyter notebooks can be statically rendered in the web browser.
 <ul>
 <li>This can be convenient for quick read-only access, without needing to launch the Jupyter notebook/lab application.</li>
 <li>But you need to launch the app properly to interact with the notebooks.</li>
@@ -1344,19 +1349,19 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <section id="lecture-notes" class="slide level2 center">
 <h2>Lecture notes</h2>
 <ul>
-<li>All the lectures from last year are <a href="https://ubc-cs.github.io/cpsc330-2023W1/README.html">available here</a>.</li>
-<li>We cannot promise anything will stay the same from last year to this year, so read them in advance at your own risk.</li>
-<li>A “finalized” version will be pushed to <a href="https://github.com/UBC-CS/cpsc330-2024W1">GitHub</a> and the <a href="https://ubc-cs.github.io/cpsc330-2024W1/README.html">Jupyter book</a> right before each class.</li>
+<li>All the lectures are <a href="https://ubc-cs.github.io/cpsc330-2024W2/README.html">available here</a>.</li>
+<li>While the lecture notes are largely fixed, there may be small changes over the course of the term.</li>
+<li>A “finalized” version will be pushed to <a href="https://github.com/UBC-CS/cpsc330-2024W2">GitHub</a> and the <a href="https://ubc-cs.github.io/cpsc330-2024W2/README.html">Jupyter book</a> right before each class.</li>
 <li>Each instructor will have slightly adapted versions of notes to present slides during lectures.<br>
 </li>
-<li>You will find the link to these slides in our repository: https://github.com/UBC-CS/cpsc330-2024W1/tree/main/lectures/102-Varada-lectures</li>
+<li>You will find the link to these slides in our repository: <a href="https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures">https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures</a></li>
 </ul>
 </section>
 <section id="grades" class="slide level2 center">
 <h2>Grades</h2>
 <ul>
-<li>The grading breakdown is <a href="https://github.com/UBC-CS/cpsc330-2024W1/blob/main/syllabus.md#grading-scheme">here</a>.</li>
-<li>The policy on challenging grades is <a href="https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/grades.md">here</a>.</li>
+<li>The grading breakdown is <a href="https://github.com/UBC-CS/cpsc330-2024W2/blob/main/syllabus.md#grading-scheme">here</a>.</li>
+<li>The policy on challenging grades is <a href="https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/grades.md">here</a>.</li>
 </ul>
 </section></section>
 <section>
@@ -1375,7 +1380,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <section id="course-conda-environment" class="slide level2 center">
 <h2>Course <code>conda</code> environment</h2>
 <ul>
-<li>Follow the setup instructions <a href="https://ubc-cs.github.io/cpsc330-2024W1/docs/setup.html">here</a> to create a course <code>conda</code> environment on your computer.</li>
+<li>Follow the setup instructions <a href="https://ubc-cs.github.io/cpsc330-2024W2/docs/setup.html">here</a> to create a course <code>conda</code> environment on your computer.</li>
 <li>If you do not have your computer with you, you can partner up with someone and set up your own computer later.</li>
 </ul>
 </section>
@@ -1400,7 +1405,7 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>We do not have time to teach all the Python we need but you can find some useful Python resources <a href="https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/resources.md">here</a>.</p>
+<p>We do not have time to teach all the Python we need but you can find some useful Python resources <a href="https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/resources.md">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1409,13 +1414,15 @@ And if memory is not enough, you can set `force_col_wise=true`.
 <section id="checklist-for-you-before-the-next-class" class="slide level2 center">
 <h2>Checklist for you before the next class</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Are you able to access course <a href="https://canvas.ubc.ca/courses/149122">Canvas</a> shell?</label></li>
-<li><label><input type="checkbox">Are you able to access <a href="https://piazza.com/ubc.ca/winterterm12024/cpsc_v3301011021032024w1">course Piazza</a>?</label></li>
-<li><label><input type="checkbox">Are you able to access <a href="https://www.gradescope.ca/courses/18608">Gradescope</a>? (If not, refer to the <a href="https://lthub.ubc.ca/guides/gradescope-student-guide/">Gradescope Student Guide</a>.)</label></li>
-<li><label><input type="checkbox">Are you able to access <a href="https://join.iclicker.com/VYFJ">iClicker Cloud</a> for this course?</label></li>
-<li><label><input type="checkbox">Did you follow the setup instructions <a href="https://ubc-cs.github.io/cpsc330-2024W1/docs/setup.html">here</a> to create a course conda environment on your computer?</label></li>
+<li><label><input type="checkbox">Are you able to access course <a href="https://canvas.ubc.ca/courses/153207">Canvas</a> shell?</label></li>
+<li><label><input type="checkbox">Are you able to access <a href="https://piazza.com/class/m4ujp0s4xgm5o5">course Piazza</a>?</label></li>
+<li><label><input type="checkbox">Are you able to access Gradescope? (If not, refer to the <a href="https://lthub.ubc.ca/guides/gradescope-student-guide/">Gradescope Student Guide</a>.)</label>
+<ul>
+<li><strong>Please join Gradescope through the Canvas.</strong></li>
+</ul></li>
+<li><label><input type="checkbox">Are you able to access <a href="https://join.iclicker.com/HTRZ">iClicker Cloud</a> for this course?</label></li>
+<li><label><input type="checkbox">Did you follow the setup instructions <a href="https://ubc-cs.github.io/cpsc330-2024W2/docs/setup.html">here</a> to create a course conda environment on your computer?</label></li>
 <li><label><input type="checkbox">Did you complete the “Getting to know you” survey on Canvas?</label></li>
-<li><label><input type="checkbox">Did you complete the anonymous <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_73VuZiuwM1eDVrw">restaurant survey on Qualtrics</a>?</label></li>
 <li><label><input type="checkbox">Are you almost finished or at least started with homework 1?</label></li>
 </ul>
 

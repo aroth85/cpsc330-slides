@@ -52,8 +52,8 @@ From this lecture, you will be able to
 ## CPSC 330 website
 \
 
-- TODO: Course Jupyter book: https://ubc-cs.github.io/cpsc330-2024W2
-- Course GitHub repository: [https://github.students.cs.ubc.ca/CPSC330-2024W-T2/cpsc330-2024W2](https://github.students.cs.ubc.ca/CPSC330-2024W-T2/cpsc330-2024W2)
+- Course Jupyter book: [https://ubc-cs.github.io/cpsc330-2024W2/README.html](https://ubc-cs.github.io/cpsc330-2024W2/README.html)
+- Course GitHub repository: [https://github.com/UBC-CS/cpsc330-2024W2](https://github.com/UBC-CS/cpsc330-2024W2)
 
 # 🤝 Introductions 🤝 {.middle}
 
@@ -68,7 +68,7 @@ From this lecture, you will be able to
 ::: {.column width="80%"}
 - Andrew Roth
 - I am an Assistant Professor Departments of Computer Science and Pathology & Laboratory Medicine.
-- I did my Ph.D. in Bioinformatics at UBC. 
+- I received my Ph.D. in Bioinformatics at UBC. 
 - My research uses statistical machine learning methods to study cancer.
 - Contact information
     - Email: aroth@cs.ubc.ca
@@ -126,7 +126,9 @@ There is also [a reflection Google Document](https://docs.google.com/document/d/
 sms_df = pd.read_csv(DATA_DIR + "spam.csv", encoding="latin-1")
 sms_df = sms_df.drop(columns = ["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"])
 sms_df = sms_df.rename(columns={"v1": "target", "v2": "sms"})
-train_df, test_df = train_test_split(sms_df, test_size=0.10, random_state=42)
+train_df, test_df = train_test_split(
+    sms_df, test_size=0.10, random_state=42
+)
 ```
 
 ### Output
@@ -158,32 +160,33 @@ HTML(train_df.head().to_html(index=False))
 #| echo: true
 X_train, y_train = train_df["sms"], train_df["target"]
 X_test, y_test = test_df["sms"], test_df["target"]
-clf = make_pipeline(CountVectorizer(max_features=5000), LogisticRegression(max_iter=5000))
+clf = make_pipeline(
+    CountVectorizer(max_features=5000), 
+    LogisticRegression(max_iter=5000)
+)
 clf.fit(X_train, y_train); # Training the model
 ```
 
-## Unseen messages
+## Unseen messages {.smaller}
 
 - Now use the trained model to predict targets of unseen messages:
 
-::: {.scroll-container style="overflow-y: scroll; height: 600px;"}
 
 ```{python}
-pd.DataFrame(X_test[0:4])
+pd.DataFrame(X_test[0:4]).style.set_properties(**{"text-align": "left"})
 ```
-:::
 
 ## Predicting on unseen data {.smaller}
 
 **The model is accurately predicting labels for the unseen text messages above!**
 
 ```{python}
+#| echo: true
 pred_dict = {
     "sms": X_test[0:4],
     "spam_predictions": clf.predict(X_test[0:4]),
 }
-pred_df = pd.DataFrame(pred_dict)
-pred_df.style.set_properties(**{"text-align": "left"})
+pd.DataFrame(pred_dict)
 ```
 
 ## A different way to solve problems 
@@ -219,11 +222,9 @@ Discuss with your neighbour for which of the following problems you would use ma
 - Given an image, automatically identifying and labeling objects in the image
 - Finding the distance between two nodes in a graph 
 
-## Types of machine learning
+## Types of machine learning {.smaller}
 
 Here are some typical learning problems. 
-
-::: {.scroll-container style="overflow-y: scroll; height: 700px;"}
 
 - **Supervised learning** ([Gmail spam filtering](https://support.google.com/a/answer/2368132?hl=en))
     - Training a model from input data and its corresponding targets to predict targets for new examples.     
@@ -234,9 +235,7 @@ Here are some typical learning problems.
 - Recommendation systems ([Amazon item recommendation system](https://www.cs.umd.edu/~samir/498/Amazon-Recommendations.pdf))
     - Predict the "rating" or "preference" a user would give to an item.    
 
-:::
-
-## What is supervised learning? 
+## What is supervised learning? {.smaller}
 
 - Training data comprises a set of observations ($X$) and their corresponding targets ($y$). 
 - We wish to find a model function $f$ that relates $X$ to $y$.
@@ -245,12 +244,10 @@ Here are some typical learning problems.
 ![](img/sup-learning.png){.nostretch fig-align="center" width="700px"}
 
 
-## 🤔 Eva's questions
-\
+## 🤔 Eva's questions {.smaller}
 
 At this point, Eva is wondering about many questions. 
 
-::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
 
 - How are we exactly "learning" whether a message is spam and ham? 
 - Are we expected to get correct predictions for all possible messages? How does it predict the label for a message it has not seen before?  
@@ -259,14 +256,12 @@ At this point, Eva is wondering about many questions.
 - If you want to use this model in the wild, how do you know how reliable it is?  
 - Would it be useful to know how confident the model is about the predictions rather than just a yes or a no?
 
-:::
-
 <br>
 
 It's great to think about these questions right now. But Eva has to be patient. By the end of this course you'll know answers to many of these questions!  
 
 
-## Predicting labels of a given image 
+## Predicting labels of a given image {.smaller}
 
 - We can also use machine learning to predict labels of given images using a technique called **transfer learning**. 
 
@@ -292,7 +287,7 @@ for img_path in images:
 
 :::
 
-## Predicting housing prices
+## Predicting housing prices {.smaller}
 
 Suppose we want to predict housing prices given a number of attributes associated with houses. The target here is **continuous** and not **discrete**. 
 
@@ -317,7 +312,7 @@ model = LGBMRegressor()
 model.fit(X_train, y_train);
 ```
 
-## Predicting prices of unseen houses
+## Predicting prices of unseen houses {.smaller}
 
 ```{python}
 pred_df = pd.DataFrame(
@@ -330,7 +325,7 @@ HTML(df_concat.to_html(index=False))
 
 We are predicting continuous values here as apposed to discrete values in `spam` vs. `ham` example. 
 
-## Machine learning workflow 
+## Machine learning workflow {.smaller}
 
 Supervised machine learning is quite flexible; it can be used on a variety of problems and different kinds of data. Here is a typical workflow of a supervised machine learning systems.  
 
@@ -342,7 +337,7 @@ We will build machine learning pipelines in this course, focusing on some of the
 
 <br><br>
 
-## ❓❓ Questions for you
+## ❓❓ Questions for you {.smaller}
 
 iClicker cloud join link: https://join.iclicker.com/HTRZ
 
@@ -355,25 +350,27 @@ iClicker cloud join link: https://join.iclicker.com/HTRZ
 - (E) Google News is likely be using machine learning to organize news. 
 <br><br><br><br>
 
+# Logistics
+
 ## Surveys
 
 - Please complete the "Getting to know you" survey on [Canvas]().
-- TODO: Also, please complete the anonymous restaurant survey on Qualtrics [here](https://ubc.ca1.qualtrics.com/jfe/form/SV_73VuZiuwM1eDVrw).
-  - We will try to analyze this data set in the coming weeks. 
+<!-- - TODO: Also, please complete the anonymous restaurant survey on Qualtrics [here](https://ubc.ca1.qualtrics.com/jfe/form/SV_73VuZiuwM1eDVrw).
+  - We will try to analyze this data set in the coming weeks.  -->
 
 ## About this course
 
 ::: {.callout-important}
-TODO: Course website: [https://github.com/UBC-CS/cpsc330-2024W1](https://github.com/UBC-CS/cpsc330-2024W1) is the most important link. Please read everything on this GitHub page!
+Course website: [https://github.com/UBC-CS/cpsc330-2024W2](https://github.com/UBC-CS/cpsc330-2024W2) is the most important link. Please read everything on this GitHub page!
 :::
 
 ::: {.callout-important}
-Make sure you go through the syllabus thoroughly and complete the syllabus quiz before Monday, Sept 19th at 11:59pm. 
+Make sure you go through the syllabus thoroughly and complete the syllabus quiz before Friday, Jan 24th at 11:59pm. 
 :::
 
 ## CPSC 330 vs. 340
 
-TODO: Read [https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/330_vs_340.md](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/330_vs_340.md)
+Read [https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/330_vs_340.md](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/330_vs_340.md)
 which explains the difference between two courses.  
 
 **TLDR:**
@@ -387,35 +384,34 @@ which explains the difference between two courses.
 ## Registration, waitlist and prerequisites
 
 ::: {.callout-important}
-TODO: Please go through [this document](https://github.com/UBC-CS/cpsc330-2024W1/blob/master/docs/course_info.md#registration) carefully before contacting your instructors about these issues. Even then, we are very unlikely to be able to help with registration, waitlist or prerequisite issues.
+Please go through [this document](https://github.com/UBC-CS/cpsc330-2024W2/blob/master/docs/course_info.md#registration) carefully before contacting your instructors about these issues. Even then, we are very unlikely to be able to help with registration, waitlist or prerequisite issues.
 :::
 
-- TODO: If you are on waitlist and if you'd like to try your chances, you should be able to access [Canvas](https://canvas.ubc.ca/courses/149122) and Piazza.  
-- If you're unable to make it this time, there will be two sections of this course offered next semester and then again in the summer.
+- If you are on waitlist and if you'd like to try your chances, you should be able to access [Canvas](https://canvas.ubc.ca/courses/153207) and [Piazza](https://piazza.com/class/m4ujp0s4xgm5o5).  
+- If you're unable to make it this time, this course will be offered in the summer.
 
-## Lecture format
+## Lecture format {.smaller}
 
-- In person lectures T/Th.
+- In person lectures Tu/Th.
 - Sometimes there will be videos to watch before lecture. You will find the list of pre-watch videos in the schedule on the course webpage.
 - We will also try to work on some questions and exercises together during the class. 
 - All materials will be posted in this GitHub repository. 
-- Weekly tutorials will be **office hour format** run by the TAs and are **completely optional**.
+- Weekly Tu tutorial be **office hours format** run by the TAs.
+- Weekly Th/Fr tutorials will be **worksheet format** run by the TAs.
+- Tutorials are **completely optional**.
   - You do not need to be registered in a tutorial.
   - You can attend whatever tutorials or office hours your want, regardless of in which/whether you're registered.
 
 ## Home work assignments
-- First homework assignment is due **this coming Tuesday**, September 10, midnight. This is a relatively straightforward assignment on Python. If you struggle with this assignment then that could be a sign that you will struggle later on in the course.    
+- First homework assignment is due **this coming Tuesday**, January 14, midnight. 
+    - This is a relatively straightforward assignment on Python. 
+    - If you struggle with this assignment then that could be a sign that you will struggle later on in the course.    
 - You must do the first two homework assignments on your own.
 
 ## Exams 
 
 - We'll have two self-scheduled midterms and one final in Computer-based Testing Facility (CBTF). 
 
-## Course calendar
-
-Here is our course Calendar. Make sure you check it on a regular basis: 
-
-TODO: [https://htmlpreview.github.io/?https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/calendar.html](https://htmlpreview.github.io/?https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/calendar.html)
 
 ## Course structure
 
@@ -423,7 +419,7 @@ TODO: [https://htmlpreview.github.io/?https://github.com/UBC-CS/cpsc330-2024W1/b
   - Week 1 
 - Part I: ML fundamentals, preprocessing, midterm 1
   - Weeks 2, 3, 4, 5, 6, 7, 8
-- Part II: Unsupervised learning, transfer learning, common special cases, midterm 1
+- Part II: Unsupervised learning, transfer learning, common special cases, midterm 2
   - Weeks 8, 9, 10, 11, 12
 - Part III: Communication and ethics
   - ML skills are not beneficial if you can't use them responsibly and communicate your results. In this module we'll talk about these aspects. 
@@ -431,10 +427,10 @@ TODO: [https://htmlpreview.github.io/?https://github.com/UBC-CS/cpsc330-2024W1/b
 
 ## Code of conduct
 
-- TODO: Our main forum for getting help will be [Piazza](https://piazza.com/ubc.ca/winterterm12024/cpsc_v3301011021032024w1).
+- Our main forum for getting help will be [Piazza](https://piazza.com/class/m4ujp0s4xgm5o5).
 
 ::: {.callout-important}
-TODO: Please read [this entire document about asking for help](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/asking_for_help.md).
+Please read [this entire document about asking for help](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/asking_for_help.md).
 **TLDR:** Be nice.
 :::
 
@@ -469,25 +465,25 @@ x
 ## Jupyter 
 
 - By default, Jupyter prints out the result of the last line of code, so you don't need as many `print` statements.
-- In addition to the "live" notebooks, Jupyter notebooks can be statically rendered in the web browser, e.g. [this](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/lectures/01_intro.ipynb).
+- In addition to the "live" notebooks, Jupyter notebooks can be statically rendered in the web browser.
   - This can be convenient for quick read-only access, without needing to launch the Jupyter notebook/lab application.
   - But you need to launch the app properly to interact with the notebooks.
 
 ## Lecture notes
 
-- All the lectures from last year are [available here](https://ubc-cs.github.io/cpsc330-2023W1/README.html).
-- We cannot promise anything will stay the same from last year to this year, so read them in advance at your own risk.
-- A "finalized" version will be pushed to [GitHub](https://github.com/UBC-CS/cpsc330-2024W1) and the [Jupyter book](https://ubc-cs.github.io/cpsc330-2024W1/README.html) right before each class.
+- All the lectures are [available here](https://ubc-cs.github.io/cpsc330-2024W2/README.html).
+- While the lecture notes are largely fixed, there may be small changes over the course of the term.
+- A "finalized" version will be pushed to [GitHub](https://github.com/UBC-CS/cpsc330-2024W2) and the [Jupyter book](https://ubc-cs.github.io/cpsc330-2024W2/README.html) right before each class.
 - Each instructor will have slightly adapted versions of notes to present slides during lectures.  
 - You will find the link to these slides in our repository: 
-https://github.com/UBC-CS/cpsc330-2024W1/tree/main/lectures/102-Varada-lectures
+[https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures](https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures)
 
 ## Grades
 
-- The grading breakdown is [here](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/syllabus.md#grading-scheme). 
-- The policy on challenging grades is [here](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/grades.md).
+- The grading breakdown is [here](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/syllabus.md#grading-scheme). 
+- The policy on challenging grades is [here](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/grades.md).
 
-# Setting up your computer for the course 
+# Setting up your computer for the course
 
 ## Recommended browser and tools
 
@@ -498,7 +494,7 @@ In this course, we will primarily be using `Python` , `git`, `GitHub`, `Canvas`,
 
 ## Course `conda` environment
 
-- Follow the setup instructions [here](https://ubc-cs.github.io/cpsc330-2024W1/docs/setup.html) to create a course `conda` environment on your computer. 
+- Follow the setup instructions [here](https://ubc-cs.github.io/cpsc330-2024W2/docs/setup.html) to create a course `conda` environment on your computer. 
 - If you do not have your computer with you, you can partner up with someone and set up your own computer later.
 
 ## Python requirements/resources
@@ -517,18 +513,18 @@ Homework 1 is all about Python.
 
 :::{.callout-note}
 We do not have time to teach all the Python we need 
-but you can find some useful Python resources [here](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/docs/resources.md).  
+but you can find some useful Python resources [here](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/docs/resources.md).  
 :::
 
 <br><br>
 
 ## Checklist for you before the next class
 
-- [ ] Are you able to access course [Canvas](https://canvas.ubc.ca/courses/149122) shell? 
-- [ ] Are you able to access [course Piazza](https://piazza.com/ubc.ca/winterterm12024/cpsc_v3301011021032024w1)?
-- [ ] Are you able to access [Gradescope](https://www.gradescope.ca/courses/18608)? (If not, refer to the [Gradescope Student Guide](https://lthub.ubc.ca/guides/gradescope-student-guide/).)
-- [ ] Are you able to access [iClicker Cloud](https://join.iclicker.com/VYFJ) for this course?
-- [ ] Did you follow the setup instructions [here](https://ubc-cs.github.io/cpsc330-2024W1/docs/setup.html) to create a course conda environment on your computer?
+- [ ] Are you able to access course [Canvas](https://canvas.ubc.ca/courses/153207) shell? 
+- [ ] Are you able to access [course Piazza](https://piazza.com/class/m4ujp0s4xgm5o5)?
+- [ ] Are you able to access Gradescope? (If not, refer to the [Gradescope Student Guide](https://lthub.ubc.ca/guides/gradescope-student-guide/).)
+    - **Please join Gradescope through the Canvas.**
+- [ ] Are you able to access [iClicker Cloud](https://join.iclicker.com/HTRZ) for this course?
+- [ ] Did you follow the setup instructions [here](https://ubc-cs.github.io/cpsc330-2024W2/docs/setup.html) to create a course conda environment on your computer?
 - [ ] Did you complete the "Getting to know you" survey on Canvas?
-- [ ] Did you complete the anonymous [restaurant survey on Qualtrics](https://ubc.ca1.qualtrics.com/jfe/form/SV_73VuZiuwM1eDVrw)?
 - [ ] Are you almost finished or at least started with homework 1?
