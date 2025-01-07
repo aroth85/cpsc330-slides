@@ -1,0 +1,16 @@
+---
+title: Welcome
+---
+
+
+Welcome to CPSC330! Here, you'll find slides for CPSC 330 Section 204. 
+These slides are based on the notes present [here](https://github.com/UBC-CS/cpsc330-2024W2). 
+
+- **Class times** 🕘
+    11 am to 12:20 pm
+
+- **Where?** 📍
+    [Geography Building (GEOG) - 212](https://learningspaces.ubc.ca/classrooms/geog-212), 1984 West Mall, Vancouver, BC V6T 1Z2
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1693.2281986146445!2d-123.25777533094939!3d49.265522173850634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673f765982f7f%3A0x1ad82f37b7659aaf!2sUBC%20Geography%20Building!5e1!3m2!1sen!2sca!4v1736207239032!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
