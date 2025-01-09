@@ -45,6 +45,7 @@ DATA_DIR = 'data/'
 
 ## Announcements 
 
+- Slide link [https://aroth85.github.io/cpsc330-slides](https://aroth85.github.io/cpsc330-slides)
 - Things due this week 
     - Homework 1 (hw1): Due Jan 14 11:59pm 
 - Homework 2 (hw2) has been released (Due: Jan 20, 11:59pm)
@@ -52,8 +53,6 @@ DATA_DIR = 'data/'
 - You can find the tentative due dates for all deliverables [here](https://github.com/UBC-CS/cpsc330-2024W2).
 - Please monitor Piazza (especially pinned posts and instructor posts) for announcements. 
 - I'll assume that you've watched the pre-lecture videos.
-- Slide link [https://aroth85.github.io/cpsc330-slides](https://aroth85.github.io/cpsc330-slides)
-  - git repo https://github.com/aroth85/cpsc330-slides
 
 ## Suggested workflow for working with Jupyter Notebooks {.smaller}
 

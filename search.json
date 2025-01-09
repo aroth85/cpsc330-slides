@@ -4,7 +4,7 @@
     "href": "slides/slides-02.html#announcements",
     "title": "Lecture 2: Terminology, Baselines, Decision Trees",
     "section": "Announcements",
-    "text": "Announcements\n\nThings due this week\n\nHomework 1 (hw1): Due Jan 14 11:59pm\n\nHomework 2 (hw2) has been released (Due: Jan 20, 11:59pm)\n\nThere is some autograding in this homework.\n\nYou can find the tentative due dates for all deliverables here.\nPlease monitor Piazza (especially pinned posts and instructor posts) for announcements.\nI’ll assume that you’ve watched the pre-lecture videos.\nSlide link https://aroth85.github.io/cpsc330-slides\n\ngit repo https://github.com/aroth85/cpsc330-slides"
+    "text": "Announcements\n\nSlide link https://aroth85.github.io/cpsc330-slides\nThings due this week\n\nHomework 1 (hw1): Due Jan 14 11:59pm\n\nHomework 2 (hw2) has been released (Due: Jan 20, 11:59pm)\n\nThere is some autograding in this homework.\n\nYou can find the tentative due dates for all deliverables here.\nPlease monitor Piazza (especially pinned posts and instructor posts) for announcements.\nI’ll assume that you’ve watched the pre-lecture videos."
   },
   {
     "objectID": "slides/slides-02.html#suggested-workflow-for-working-with-jupyter-notebooks",
