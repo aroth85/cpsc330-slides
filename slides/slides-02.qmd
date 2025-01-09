@@ -211,8 +211,10 @@ toy_happiness_df
 - In order to train a model we need to separate $X$ and $y$ from the dataframe. 
 ```{python}
 #| echo: true
-X = toy_happiness_df.drop(columns=["happy?"]) # Extract the feature set by removing the target column "happy?"
-y = toy_happiness_df["happy?"] # Extract the target variable "happy?"
+# Extract the feature set by removing the target column "happy?"
+X = toy_happiness_df.drop(columns=["happy?"])
+# Extract the target variable "happy?"
+y = toy_happiness_df["happy?"]
 ```
 
 

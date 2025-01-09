@@ -123,7 +123,7 @@
     "href": "slides/slides-02.html#separating-x-and-y",
     "title": "Lecture 2: Terminology, Baselines, Decision Trees",
     "section": "Separating X and y",
-    "text": "Separating X and y\n\nIn order to train a model we need to separate X and y from the dataframe.\n\n\nX = toy_happiness_df.drop(columns=[\"happy?\"]) # Extract the feature set by removing the target column \"happy?\"\ny = toy_happiness_df[\"happy?\"] # Extract the target variable \"happy?\""
+    "text": "Separating X and y\n\nIn order to train a model we need to separate X and y from the dataframe.\n\n\n# Extract the feature set by removing the target column \"happy?\"\nX = toy_happiness_df.drop(columns=[\"happy?\"])\n# Extract the target variable \"happy?\"\ny = toy_happiness_df[\"happy?\"]"
   },
   {
     "objectID": "slides/slides-02.html#baseline",
