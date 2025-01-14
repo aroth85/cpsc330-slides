@@ -1,0 +1,21 @@
+---
+title: "Lecture 3: ML fundamentals"
+description: "Supervised Machine Learning Fundamentals"
+description-short: "Generalization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule"
+
+editor: { render-on-save: true }
+---
+
+## Slides
+
+{{< revealjs "slides/slides-03.html" height="600px" class="ratio ratio-16x9" >}}
+
+
+## Outline
+
+
+- Generalization, data splitting
+- Cross-validation
+- Overfitting, underfitting, the fundamental tradeoff
+- The golden rule
+

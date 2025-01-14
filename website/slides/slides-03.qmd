@@ -1,0 +1,498 @@
+---
+title: 'CPSC 330 Lecture 3: ML fundamentals'
+author: "Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)"
+description: Supervised Machine Learning Fundamentals
+description-short: 'generalization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule'
+format:
+  revealjs:
+    slide-number: true
+    theme:
+      - slides.scss
+    smaller: true
+    center: true
+    logo: img/UBC-CS-logo.png
+    resources:
+      - data/
+      - img/
+---
+
+```{python}
+#| echo: false
+from IPython.display import HTML
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+
+import os
+import sys
+
+import IPython
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pathlib
+
+sys.path.append(os.path.join("code"))
+from plotting_functions import *
+from utils import *
+
+# Classifiers
+%matplotlib inline
+pd.set_option("display.max_colwidth", 200)
+plt.rcParams["font.size"] = 16
+DATA_DIR = pathlib.Path("data")
+```
+
+
+## Announcements 
+
+- Homework 2 (hw2) (Due: Jan 20, 11:59pm)
+  - You are welcome to broadly discuss it with your classmates but final answers and submissions must be your own.
+  - Group submissions are not allowed for this assignment.
+- Advice on keeping up with the material
+  - Practice!
+  - Make sure you run the lecture notes on your laptop and experiment with the code. 
+  - Start early on homework assignments.
+- If you are still on the waitlist, it’s your responsibility to keep up with the material and submit assignments.
+- Last day to drop without a W standing: Jan 17
+
+
+## Learning outcomes
+
+From this lecture, you will be able to 
+
+- Explain how decision boundaries change with the `max_depth` hyperparameter and this relates to model complexity
+- Explain the concept of generalization
+- Explain how and why we split data for training
+- Describe the fundamental tradeoff between training score and the train-test gap
+- State the golden rule
+
+## Big picture {.smaller}
+
+In machine learning we want to learn a mapping function from labeled data so that we can predict labels of **unlabeled** data. 
+
+For example, suppose we want to build a spam filtering system.  We will take a large number of spam/non-spam messages from the past, learn patterns associated with spam/non-spam from them, and predict whether **a new incoming message** in someone's inbox is spam or non-spam based on these patterns. 
+
+So we want to learn from the past but ultimately we want to apply it on the **future** email messages.
+
+## Review of decision boundaries {.smaller}
+
+Select the TRUE statement.
+
+- (A) The decision boundary in the image below could come from a decision tree.
+- (B) The decision boundary in the image below could **not** come from a decision tree.
+- (C) There is not enough information to determine if a decision tree could create this boundary.
+
+```{python}
+#| echo: False
+from sklearn.linear_model import LogisticRegression
+from sklearn.inspection import DecisionBoundaryDisplay
+toy_happiness_df = pd.read_csv(DATA_DIR.joinpath("toy_job_happiness.csv"))
+X = toy_happiness_df.drop(columns=["happy?"])
+y = toy_happiness_df["happy?"]
+X_subset = X[["supportive_colleagues", "salary"]]
+model = LogisticRegression(random_state=1)
+model.fit(X_subset, y)
+disp = DecisionBoundaryDisplay.from_estimator(
+    model, X_subset, cmap=plt.cm.RdYlBu, xlabel="supportive_colleagues", ylabel="salary", ylim=50000, response_method="predict",
+)
+c = dict(zip(y.unique(), ["b", "r"]))
+c = [c[x] for x in y]
+disp.ax_.scatter(X["supportive_colleagues"], X["salary"], c=c, edgecolor="k")
+disp.ax_.set_ylim(50000, 160000)
+```
+
+# Generalization
+
+## Running example
+
+```{python}
+classification_df = pd.read_csv(DATA_DIR.joinpath("quiz2-grade-toy-classification.csv"))
+classification_df.head(4)
+```
+
+## Setup
+
+```{python}
+#| echo: true
+X = classification_df.drop(["quiz2"], axis=1)
+y = classification_df["quiz2"]
+X_subset = X[["lab4", "quiz1"]]  # Let's consider a subset of the data for visualization
+X_subset.head(4)
+```
+
+## Depth = 1
+
+```{python}
+depth = 1
+model = DecisionTreeClassifier(max_depth=depth)
+model.fit(X_subset.values, y)
+plot_tree_decision_boundary_and_tree(
+    model, X_subset, y, x_label="lab4", y_label="quiz1", fontsize=15
+)
+```
+
+
+## Depth = 2
+
+```{python}
+depth = 2
+model = DecisionTreeClassifier(max_depth=depth)
+model.fit(X_subset.values, y)
+plot_tree_decision_boundary_and_tree(
+    model, X_subset, y, x_label="lab4", y_label="quiz1", fontsize=12
+)
+```
+
+## Depth = 6
+
+```{python}
+depth = 6
+model = DecisionTreeClassifier(max_depth=depth)
+model.fit(X_subset.values, y)
+plot_tree_decision_boundary_and_tree(
+    model, X_subset, y, x_label="lab4", y_label="quiz1", fontsize=8
+)
+```
+
+## Complex models decrease training error
+
+```{python}
+max_depths = np.arange(1, 18)
+errors = []
+for max_depth in max_depths:
+    error = 1 - DecisionTreeClassifier(max_depth=max_depth).fit(X_subset, y).score(
+        X_subset, y
+    )
+    errors.append(error)
+plt.plot(max_depths, errors)
+plt.xlabel("Max depth")
+plt.ylabel("Training error");
+```
+
+## Question
+
+- How to pick the best depth? 
+- How can we make sure that the model we have built would do reasonably well on new data in the wild when it's deployed? 
+- Which of the following rules learned by the decision tree algorithm are likely to generalize better to new data? 
+
+> Rule 1: If class_attendance == 1 then grade is A+. 
+
+> Rule 2: If lab3 > 83.5 and quiz1 <= 83.5 and lab2 <= 88 then quiz2 grade is A+
+
+Think about these questions on your own or discuss them with your friend/neighbour.
+
+
+## Generalization: Fundamental goal of ML
+
+> **To generalize beyond what we see in the training examples**
+
+We only have access to limited amount of training data and we want to learn a mapping function which would predict targets reasonably well for examples beyond this training data. 
+
+
+## Generalizing to unseen data
+
+- What prediction would you expect for each image?   
+
+![](img/generalization-predict.png)
+
+
+## Training error vs. Generalization error 
+
+- Given a model $M$, in ML, people usually talk about two kinds of errors of $M$. 
+    1. Error on the training data: $error_{training}(M)$ 
+    2. Error on the entire distribution $D$ of data: $error_{D}(M)$
+- We are interested in the error on the entire distribution
+
+. . .
+
+... But we do not have access to the entire distribution 😞
+
+# Data splitting
+
+## How to approximate generalization error? 
+
+A common way is **data splitting**. 
+
+::: {.incremental}
+- Keep aside some randomly selected portion from the training data.
+- `fit` (train) a model on the training portion only. 
+- `score` (assess) the trained model on this set aside data to get a sense of how well the model would be able to generalize.
+- Pretend that the kept aside data is representative of the real distribution $D$ of data. 
+:::
+
+## Train/test split
+
+![](img/train-test-split.png)
+
+
+## `train_test_split`
+
+```{python}
+#| echo: true
+from sklearn.model_selection import train_test_split
+# 80%-20% train test split on X and y
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=99
+) 
+```
+
+```{python}
+# Print shapes
+shape_dict = {
+    "Data portion": ["X", "y", "X_train", "y_train", "X_test", "y_test"],
+    "Shape": [
+        X.shape,
+        y.shape,
+        X_train.shape,
+        y_train.shape,
+        X_test.shape,
+        y_test.shape,
+    ],
+}
+shape_df = pd.DataFrame(shape_dict)
+HTML(shape_df.to_html(index=False))
+```
+
+## Training vs test error (`max_depth=2`)
+
+```{python}
+model = DecisionTreeClassifier(max_depth=2)
+model.fit(X_train, y_train)
+custom_plot_tree(model, feature_names=X_train.columns.tolist(), fontsize=15, impurity=False)
+```
+
+```{python}
+print("Train error:   %0.3f" % (1 - model.score(X_train, y_train)))
+print("Test error:   %0.3f" % (1 - model.score(X_test, y_test)))
+```
+
+## Training vs test error (`max_depth=6`)
+
+```{python}
+model = DecisionTreeClassifier(max_depth=6)
+model.fit(X_train, y_train)
+custom_plot_tree(model, feature_names=X_train.columns.tolist(), fontsize=8, impurity=False)
+```
+
+```{python}
+print("Train error:   %0.3f" % (1 - model.score(X_train, y_train)))
+print("Test error:   %0.3f" % (1 - model.score(X_test, y_test)))
+```
+
+## Train/validation/test split
+
+- Sometimes it's a good idea to have a separate data for hyperparameter tuning.
+
+![](img/train-valid-test-split.png)
+
+
+## Summary of train, validation, test, and deployment data
+
+|         | `fit` | `score` | `predict` |
+|----------|-------|---------|-----------|
+| Train    | ✔️      | ✔️      | ✔️         |
+| Validation |      | ✔️      | ✔️         |
+| Test    |       |  once   | once         |
+| Deployment    |       |       | ✔️         |
+
+. . .
+
+You can typically expect $E_{train} < E_{validation} < E_{test} < E_{deployment}$.
+
+## iClicker 3.1
+
+Clicker cloud join link: **https://join.iclicker.com/VYFJ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) A decision tree model with no depth (the default `max_depth` in `sklearn`) is likely to perform very well on the deployment data.
+- (B) Data splitting helps us assess how well our model would generalize.
+- (C) Deployment data is scored only once.
+- (D) Validation data could be used for hyperparameter optimization.
+- (E) It’s recommended that data be shuffled before splitting it into train and test sets.
+
+# Cross validation
+
+## Problems with single train/validation split
+
+- If your dataset is small you might end up with a tiny training and/or validation set.
+- You might be unlucky with your splits such that they don't align well or don't well represent your test data.
+
+![](img/train-valid-test-split.png)
+
+## Cross-validation to the rescue!!
+
+- Split the data into $k$ folds ($k>2$, often $k=10$). In the picture below $k=4$.
+- Each "fold" gets a turn at being the validation set.
+
+![](img/cross-validation.png)
+
+
+## Cross-validation using `scikit-learn`
+
+```{python}
+#| echo: true
+from sklearn.model_selection import cross_val_score, cross_validate
+model = DecisionTreeClassifier(max_depth=4)
+cv_scores = cross_val_score(model, X_train, y_train, cv=4)
+cv_scores
+```
+
+<br>
+
+```{python}
+print(f"Average cross-validation score = {np.mean(cv_scores):.2f}")
+print(f"Standard deviation of cross-validation score = {np.std(cv_scores):.2f}")
+```
+
+<br>
+
+. . .
+
+```{python}
+#| echo: true
+cv_errors = 1 - cv_scores
+```
+
+<br>
+
+```{python}
+print(f"Average cross-validation error = {np.mean(cv_errors):.2f}")
+print(f"Standard deviation of cross-validation error = {np.std(cv_errors):.2f}")
+```
+
+
+## Under the hood
+
+- Cross-validation doesn't shuffle the data; it's done in `train_test_split`.
+
+```{python}
+mglearn.plots.plot_cross_validation()
+```
+
+## Our typical supervised learning set up is as follows: 
+
+::: {.incremental}
+- We are given training data with features `X` and target `y`
+- We split the data into train and test portions: `X_train, y_train, X_test, y_test`
+- We carry out hyperparameter optimization using cross-validation on the train portion: `X_train` and `y_train`. 
+- We assess our best performing model on the test portion: `X_test` and `y_test`.  
+- What we care about is the **test error**, which tells us how well our model can be generalized.
+:::
+
+# The golden rule
+
+## Types of errors
+
+Imagine that your train and validation errors do not align with each other. How do you diagnose the problem?  
+
+We're going to think about 4 types of errors:
+
+- $E_\textrm{train}$ is your training error (or mean train error from cross-validation).
+- $E_\textrm{valid}$ is your validation error (or mean validation error from cross-validation).
+- $E_\textrm{test}$ is your test error.
+- $E_\textrm{best}$ is the best possible error you could get for a given problem.
+
+## Underfitting
+
+```{python}
+#| echo: true
+model = DecisionTreeClassifier(max_depth=1)  # decision stump
+scores = cross_validate(model, X_train, y_train, cv=4, return_train_score=True)
+```
+
+```{python}
+print("Train error:   %0.3f" % (1 - np.mean(scores["train_score"])))
+print("Validation error:   %0.3f" % (1 - np.mean(scores["test_score"])))
+```
+
+## Overfitting 
+
+```{python}
+#| echo: true
+model = DecisionTreeClassifier(max_depth=6)
+scores = cross_validate(model, X_train, y_train, cv=4, return_train_score=True)
+```
+
+```{python}
+print("Train error:   %0.3f" % (1 - np.mean(scores["train_score"])))
+print("Validation error:   %0.3f" % (1 - np.mean(scores["test_score"])))
+```
+
+## The "fundamental tradeoff" of supervised learning:
+
+
+**As you increase model complexity, $E_\textrm{train}$ tends to go down but $E_\textrm{valid}-E_\textrm{train}$ tends to go up.**
+
+
+## Bias vs variance tradeoff 
+
+- The fundamental trade-off is also called the bias/variance tradeoff in supervised machine learning.
+
+**Bias**
+: the tendency to consistently learn the same wrong thing (high bias corresponds to underfitting)
+
+**Variance** 
+: the tendency to learn random things irrespective of the real signal (high variance corresponds to overfitting)
+
+## How to pick a model that would generalize better?
+
+- We want to avoid both underfitting and overfitting. 
+- We want to be consistent with the training data but we don't to rely too much on it. 
+
+![](img/malp_0201.png) 
+
+There are many subtleties here and there is no perfect answer but a  common practice is to pick the model with minimum cross-validation error.
+
+<font size="2">[source](https://learning.oreilly.com/library/view/introduction-to-machine/9781449369880/ch02.html#relation-of-model-complexity-to-dataset-size)</font>
+
+
+## The golden rule <a name="4"></a>
+
+- Even though we care the most about test error **THE TEST DATA CANNOT INFLUENCE THE TRAINING PHASE IN ANY WAY**. 
+- We have to be very careful not to violate it while developing our ML pipeline. 
+- Even experts end up breaking it sometimes which leads to misleading results and lack of generalization on the real data. 
+
+## Here is the workflow we'll generally follow. 
+
+::: {.incremental}
+
+- **Splitting**: Before doing anything, split the data `X` and `y` into `X_train`, `X_test`, `y_train`, `y_test` or `train_df` and `test_df` using `train_test_split`. 
+
+- **Select the best model using cross-validation**: Use `cross_validate` with `return_train_score = True` so that we can get access to training scores in each fold. (If we want to plot train vs validation error plots, for instance.) 
+
+- **Scoring on test data**: Finally score on the test data with the chosen hyperparameters to examine the generalization performance.
+
+:::
+
+. . .
+
+**Again, there are many subtleties here we'll discuss the golden rule multiple times throughout the course.**  
+
+## iClicker 3.2
+
+Clicker cloud join link: **https://join.iclicker.com/VYFJ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) $k$-fold cross-validation calls fit $k$ times
+- (B) We use cross-validation to get a more robust estimate of model performance.
+- (C) If the mean train accuracy is much higher than the mean cross-validation accuracy it's likely to be a case of overfitting.
+- (D) The fundamental tradeoff of ML states that as training error goes down, validation error goes up.
+- (E) A decision stump on a complicated classification problem is likely to underfit.
+
+
+
+## What we learned today?
+
+- Importance of generalization in supervised machine learning
+- Data splitting as a way to approximate generalization error
+- Train, test, validation, deployment data
+- Cross-validation
+- Overfitting, underfitting, the fundamental tradeoff, and the golden rule.
+
+## Class demo (Time permitting)
+
+Copy this notebook to your working directory and follow along.
+
+[https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb](https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures/class_demos/204-Andy-lectures/demo_03-ml-fundamentals.ipynb)

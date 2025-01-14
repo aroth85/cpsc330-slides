@@ -1,8 +1,7 @@
-
 ---
 title: 'Lecture 2: Terminology, Baselines, Decision Trees'
 author: "Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)"
-description: Terminology, decision Trees
+description: terminology, baselines, decision trees
 
 format:
     revealjs:
@@ -45,6 +44,7 @@ DATA_DIR = 'data/'
 
 ## Announcements 
 
+- Slide link [https://aroth85.github.io/cpsc330-slides](https://aroth85.github.io/cpsc330-slides)
 - Things due this week 
     - Homework 1 (hw1): Due Jan 14 11:59pm 
 - Homework 2 (hw2) has been released (Due: Jan 20, 11:59pm)
@@ -52,8 +52,6 @@ DATA_DIR = 'data/'
 - You can find the tentative due dates for all deliverables [here](https://github.com/UBC-CS/cpsc330-2024W2).
 - Please monitor Piazza (especially pinned posts and instructor posts) for announcements. 
 - I'll assume that you've watched the pre-lecture videos.
-- Slide link [https://aroth85.github.io/cpsc330-slides](https://aroth85.github.io/cpsc330-slides)
-  - git repo https://github.com/aroth85/cpsc330-slides
 
 ## Suggested workflow for working with Jupyter Notebooks {.smaller}
 
@@ -212,8 +210,10 @@ toy_happiness_df
 - In order to train a model we need to separate $X$ and $y$ from the dataframe. 
 ```{python}
 #| echo: true
-X = toy_happiness_df.drop(columns=["happy?"]) # Extract the feature set by removing the target column "happy?"
-y = toy_happiness_df["happy?"] # Extract the target variable "happy?"
+# Extract the feature set by removing the target column "happy?"
+X = toy_happiness_df.drop(columns=["happy?"])
+# Extract the target variable "happy?"
+y = toy_happiness_df["happy?"]
 ```
 
 
@@ -393,7 +393,7 @@ disp.ax_.scatter(X["supportive_colleagues"], X["salary"], c=c, edgecolor="k")
 disp.ax_.set_ylim(50000, 160000)
 ```
 
-## What we learned today
+## What we learned today?
 
 - There is a lot of terminology and jargon used in ML.
 - Steps to train a supervised machine learning model.
