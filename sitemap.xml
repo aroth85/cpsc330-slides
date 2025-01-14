@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aroth85.github.io/cpsc330-slides/slides/slides-02.html</loc>
-    <lastmod>2025-01-09T18:25:33.844Z</lastmod>
+    <loc>https://aroth85.github.io/cpsc330-slides/slides/slides-03.html</loc>
+    <lastmod>2025-01-14T00:28:32.241Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aroth85.github.io/cpsc330-slides/slides/slides-01.html</loc>
+    <lastmod>2025-01-07T18:19:20.675Z</lastmod>
   </url>
   <url>
     <loc>https://aroth85.github.io/cpsc330-slides/lecture-02.html</loc>
@@ -10,7 +14,7 @@
   </url>
   <url>
     <loc>https://aroth85.github.io/cpsc330-slides/lectures.html</loc>
-    <lastmod>2025-01-07T00:14:45.064Z</lastmod>
+    <lastmod>2025-01-12T21:10:41.885Z</lastmod>
   </url>
   <url>
     <loc>https://aroth85.github.io/cpsc330-slides/index.html</loc>
@@ -21,7 +25,11 @@
     <lastmod>2025-01-07T00:14:45.064Z</lastmod>
   </url>
   <url>
-    <loc>https://aroth85.github.io/cpsc330-slides/slides/slides-01.html</loc>
-    <lastmod>2025-01-07T18:19:20.675Z</lastmod>
+    <loc>https://aroth85.github.io/cpsc330-slides/lecture-03.html</loc>
+    <lastmod>2025-01-12T21:11:51.761Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aroth85.github.io/cpsc330-slides/slides/slides-02.html</loc>
+    <lastmod>2025-01-13T23:50:36.922Z</lastmod>
   </url>
 </urlset>

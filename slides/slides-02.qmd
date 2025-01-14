@@ -1,8 +1,7 @@
-
 ---
 title: 'Lecture 2: Terminology, Baselines, Decision Trees'
 author: "Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)"
-description: Terminology, decision Trees
+description: terminology, baselines, decision trees
 
 format:
     revealjs:
@@ -394,7 +393,7 @@ disp.ax_.scatter(X["supportive_colleagues"], X["salary"], c=c, edgecolor="k")
 disp.ax_.set_ylim(50000, 160000)
 ```
 
-## What we learned today
+## What we learned today?
 
 - There is a lot of terminology and jargon used in ML.
 - Steps to train a supervised machine learning model.
