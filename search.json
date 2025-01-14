@@ -4,7 +4,7 @@
     "href": "slides/slides-03.html#announcements",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Announcements",
-    "text": "Announcements\n\nHomework 2 (hw2) has been released (Due: Jan 20, 11:59pm)\n\nYou are welcome to broadly discuss it with your classmates but final answers and submissions must be your own.\nGroup submissions are not allowed for this assignment.\n\nAdvice on keeping up with the material\n\nPractice!\nMake sure you run the lecture notes on your laptop and experiment with the code.\nStart early on homework assignments.\n\nIf you are still on the waitlist, it’s your responsibility to keep up with the material and submit assignments.\nLast day to drop without a W standing: Jan 17"
+    "text": "Announcements\n\nHomework 2 (hw2) (Due: Jan 20, 11:59pm)\n\nYou are welcome to broadly discuss it with your classmates but final answers and submissions must be your own.\nGroup submissions are not allowed for this assignment.\n\nAdvice on keeping up with the material\n\nPractice!\nMake sure you run the lecture notes on your laptop and experiment with the code.\nStart early on homework assignments.\n\nIf you are still on the waitlist, it’s your responsibility to keep up with the material and submit assignments.\nLast day to drop without a W standing: Jan 17"
   },
   {
     "objectID": "slides/slides-03.html#learning-outcomes",
@@ -130,7 +130,7 @@
     "href": "slides/slides-03.html#training-vs-test-error-max_depth6",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Training vs test error (max_depth=6)",
-    "text": "Training vs test error (max_depth=6)\n\n\n\n\n\n\n\n\n\n\n\nTrain error:   0.000\nTest error:   0.600"
+    "text": "Training vs test error (max_depth=6)\n\n\n\n\n\n\n\n\n\n\n\nTrain error:   0.000\nTest error:   0.800"
   },
   {
     "objectID": "slides/slides-03.html#trainvalidationtest-split",
@@ -172,7 +172,7 @@
     "href": "slides/slides-03.html#cross-validation-using-scikit-learn",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Cross-validation using scikit-learn",
-    "text": "Cross-validation using scikit-learn\n\nfrom sklearn.model_selection import cross_val_score, cross_validate\nmodel = DecisionTreeClassifier(max_depth=4)\ncv_scores = cross_val_score(model, X_train, y_train, cv=4)\ncv_scores\n\narray([0.75, 0.75, 0.5 , 0.75])\n\n\n\n\n\nAverage cross-validation score = 0.69\nStandard deviation of cross-validation score = 0.11\n\n\n\n\n\ncv_errors = 1 - cv_scores\n\n\n\n\nAverage cross-validation error = 0.31\nStandard deviation of cross-validation error = 0.11"
+    "text": "Cross-validation using scikit-learn\n\nfrom sklearn.model_selection import cross_val_score, cross_validate\nmodel = DecisionTreeClassifier(max_depth=4)\ncv_scores = cross_val_score(model, X_train, y_train, cv=4)\ncv_scores\n\narray([0.5 , 0.75, 0.5 , 0.5 ])\n\n\n\n\n\nAverage cross-validation score = 0.56\nStandard deviation of cross-validation score = 0.11\n\n\n\n\n\ncv_errors = 1 - cv_scores\n\n\n\n\nAverage cross-validation error = 0.44\nStandard deviation of cross-validation error = 0.11"
   },
   {
     "objectID": "slides/slides-03.html#under-the-hood",
@@ -207,7 +207,7 @@
     "href": "slides/slides-03.html#overfitting",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Overfitting",
-    "text": "Overfitting\n\nmodel = DecisionTreeClassifier(max_depth=6)\nscores = cross_validate(model, X_train, y_train, cv=4, return_train_score=True)\n\n\n\nTrain error:   0.000\nValidation error:   0.375"
+    "text": "Overfitting\n\nmodel = DecisionTreeClassifier(max_depth=6)\nscores = cross_validate(model, X_train, y_train, cv=4, return_train_score=True)\n\n\n\nTrain error:   0.000\nValidation error:   0.312"
   },
   {
     "objectID": "slides/slides-03.html#the-fundamental-tradeoff-of-supervised-learning",
@@ -263,7 +263,7 @@
     "href": "slides/slides-03.html#class-demo-time-permitting",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Class demo (Time permitting)",
-    "text": "Class demo (Time permitting)\nCopy this notebook to your working directory and follow along.\nhttps://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb"
+    "text": "Class demo (Time permitting)\nCopy this notebook to your working directory and follow along.\nhttps://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb"
   },
   {
     "objectID": "slides/slides-01.html#learning-outcomes",

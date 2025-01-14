@@ -45,7 +45,7 @@ DATA_DIR = pathlib.Path("data")
 
 ## Announcements 
 
-- Homework 2 (hw2) has been released (Due: Jan 20, 11:59pm)
+- Homework 2 (hw2) (Due: Jan 20, 11:59pm)
   - You are welcome to broadly discuss it with your classmates but final answers and submissions must be your own.
   - Group submissions are not allowed for this assignment.
 - Advice on keeping up with the material
@@ -95,7 +95,7 @@ model.fit(X_subset, y)
 disp = DecisionBoundaryDisplay.from_estimator(
     model, X_subset, cmap=plt.cm.RdYlBu, xlabel="supportive_colleagues", ylabel="salary", ylim=50000, response_method="predict",
 )
-c = dict(zip(y.unique(), ["r", "b"]))
+c = dict(zip(y.unique(), ["b", "r"]))
 c = [c[x] for x in y]
 disp.ax_.scatter(X["supportive_colleagues"], X["salary"], c=c, edgecolor="k")
 disp.ax_.set_ylim(50000, 160000)
@@ -495,4 +495,4 @@ Clicker cloud join link: **https://join.iclicker.com/VYFJ**
 
 Copy this notebook to your working directory and follow along.
 
-[https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb](https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures/class_demos/204-Andy-lectures/demo_03-ml-fundamentals.ipynb)
+[https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb)
