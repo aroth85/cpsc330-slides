@@ -301,7 +301,7 @@ You can typically expect $E_{train} < E_{validation} < E_{test} < E_{deployment}
 
 ## iClicker 3.1
 
-Clicker cloud join link: **https://join.iclicker.com/VYFJ**
+iClicker cloud join link: https://join.iclicker.com/HTRZ
 
 **Select all of the following statements which are TRUE.**
 
@@ -471,7 +471,7 @@ There are many subtleties here and there is no perfect answer but a  common prac
 
 ## iClicker 3.2
 
-Clicker cloud join link: **https://join.iclicker.com/VYFJ**
+iClicker cloud join link: https://join.iclicker.com/HTRZ
 
 **Select all of the following statements which are TRUE.**
 
@@ -495,4 +495,4 @@ Clicker cloud join link: **https://join.iclicker.com/VYFJ**
 
 Copy this notebook to your working directory and follow along.
 
-[https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb](https://github.com/UBC-CS/cpsc330-2024W2/tree/main/lectures/class_demos/204-Andy-lectures/demo_03-ml-fundamentals.ipynb)
+[https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb)

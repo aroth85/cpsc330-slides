@@ -93,7 +93,7 @@ def plot_knn_clf(X_train, y_train, X_test, n_neighbors=1, class_names=['class 0'
             )    
     plt.show()
 
-def plot_knn_decision_boundaries(X_train, y_train, k_values = [1,11,100]):
+def plot_knn_decision_boundaries(X_train, y_train, k_values = [1,11,100], verbose=True):
     fig, axes = plt.subplots(1, len(k_values), figsize=(15, 4))
 
     for n_neighbors, ax in zip(k_values, axes):
@@ -106,13 +106,17 @@ def plot_knn_decision_boundaries(X_train, y_train, k_values = [1,11,100]):
             clf, X_train.to_numpy(), fill=True, eps=0.5, ax=ax, alpha=0.4
         )
         mglearn.discrete_scatter(X_train.iloc[:, 0], X_train.iloc[:, 1], y_train, ax=ax)
-        title = "n_neighbors={}\n train score={}, valid score={}".format(
-            n_neighbors, round(mean_train_score, 2), round(mean_valid_score, 2)
-        )
+        if verbose:
+            title = "n_neighbors={}\n train score={}, valid score={}".format(
+                n_neighbors, round(mean_train_score, 2), round(mean_valid_score, 2)
+            )
+        else:
+            title = f"n_neighbors={n_neighbors}"
         ax.set_title(title)
         ax.set_xlabel("longitude")
         ax.set_ylabel("latitude")
-    axes[0].legend(loc=1);    
+    if verbose:
+        axes[0].legend(loc=1);    
 
 def plot_train_test_points(X_train, y_train, X_test, class_names=['class 0','class 1'], test_format='star'):
     training_points = mglearn.discrete_scatter(X_train[:, 0], X_train[:, 1], y_train)
@@ -142,7 +146,7 @@ def plot_support_vectors(svm, X, y):
     
 
 
-def plot_svc_gamma(param_grid, X_train, y_train, x_label="longitude", y_label='latitude'): 
+def plot_svc_gamma(param_grid, X_train, y_train, x_label="longitude", y_label='latitude', verbose=True): 
     fig, axes = plt.subplots(1, len(param_grid), figsize=(len(param_grid)*5, 4))
     for gamma, ax in zip(param_grid, axes):
         clf = SVC(gamma=gamma)
@@ -154,15 +158,19 @@ def plot_svc_gamma(param_grid, X_train, y_train, x_label="longitude", y_label='l
             clf, X_train, fill=True, eps=0.5, ax=ax, alpha=0.4
         )
         mglearn.discrete_scatter(X_train[:, 0], X_train[:, 1], y_train, ax=ax)
-        title = "gamma={}\n train score={}, valid score={}".format(
-            gamma, round(mean_train_score, 2), round(mean_valid_score, 2)
-        )
+        if verbose:
+            title = "gamma={}\n train score={}, valid score={}".format(
+                gamma, round(mean_train_score, 2), round(mean_valid_score, 2)
+            )
+        else:
+            title = f"gamma={gamma}"
         ax.set_title(title)
         ax.set_xlabel(x_label)
         ax.set_ylabel(y_label)
-    axes[0].legend(loc=1);    
+    if verbose:
+        axes[0].legend(loc=1);    
     
-def plot_svc_C(param_grid, X_train, y_train, x_label="longitude", y_label='latitude'): 
+def plot_svc_C(param_grid, X_train, y_train, x_label="longitude", y_label='latitude', verbose=True): 
     fig, axes = plt.subplots(1, len(param_grid), figsize=(len(param_grid)*5, 4))
     for C, ax in zip(param_grid, axes):
         clf = SVC(C=C, gamma=0.01)
@@ -174,15 +182,17 @@ def plot_svc_C(param_grid, X_train, y_train, x_label="longitude", y_label='latit
             clf, X_train, fill=True, eps=0.5, ax=ax, alpha=0.4
         )
         mglearn.discrete_scatter(X_train[:, 0], X_train[:, 1], y_train, ax=ax)
-        title = "C={}\n train score={}, valid score={}".format(
-            C, round(mean_train_score, 2), round(mean_valid_score, 2)
-        )
+        if verbose:
+            title = "C={}\n train score={}, valid score={}".format(
+                C, round(mean_train_score, 2), round(mean_valid_score, 2)
+            )
+        else:
+            title = f"C={C}"
         ax.set_title(title)
         ax.set_xlabel(x_label)
         ax.set_ylabel(y_label)
-    axes[0].legend(loc=1);    
-    
-
+    if verbose:
+        axes[0].legend(loc=1);    
 
 
 def make_bracket(s, xy, textxy, width, ax):
