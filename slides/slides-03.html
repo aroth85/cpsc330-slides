@@ -454,7 +454,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 <li>There is not enough information to determine if a decision tree could create this boundary.</li>
 </ol></li>
 </ul>
-<div id="a2f6da9e" class="cell" data-execution_count="2">
+<div id="e4a3ba00" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -471,7 +471,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </section>
 <section id="running-example" class="slide level2 center">
 <h2>Running example</h2>
-<div id="a0801e99" class="cell" data-execution_count="3">
+<div id="3f0ddc3d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <style scoped="">
@@ -556,7 +556,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </section>
 <section id="setup" class="slide level2 center">
 <h2>Setup</h2>
-<div id="132dc3ee" class="cell" data-execution_count="4">
+<div id="58ecfef0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>X <span class="op">=</span> classification_df.drop([<span class="st">"quiz2"</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb1-2"><a></a>y <span class="op">=</span> classification_df[<span class="st">"quiz2"</span>]</span>
 <span id="cb1-3"><a></a>X_subset <span class="op">=</span> X[[<span class="st">"lab4"</span>, <span class="st">"quiz1"</span>]]  <span class="co"># Let's consider a subset of the data for visualization</span></span>
@@ -615,7 +615,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </section>
 <section id="depth-1" class="slide level2 center">
 <h2>Depth = 1</h2>
-<div id="ebf7dc42" class="cell" data-execution_count="5">
+<div id="f9826500" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -627,7 +627,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </section>
 <section id="depth-2" class="slide level2 center">
 <h2>Depth = 2</h2>
-<div id="a8478024" class="cell" data-execution_count="6">
+<div id="6d9a7b59" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -639,7 +639,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </section>
 <section id="depth-6" class="slide level2 center">
 <h2>Depth = 6</h2>
-<div id="24c2912a" class="cell" data-execution_count="7">
+<div id="63890a70" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -651,7 +651,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </section>
 <section id="complex-models-decrease-training-error" class="slide level2 center">
 <h2>Complex models decrease training error</h2>
-<div id="f18e566f" class="cell" data-execution_count="8">
+<div id="ee5c64b2" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -727,14 +727,14 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 <img data-src="img/train-test-split.png" class="r-stretch"></section>
 <section id="train_test_split" class="slide level2 center">
 <h2><code>train_test_split</code></h2>
-<div id="ad5258ea" class="cell" data-execution_count="9">
+<div id="eb5cb8da" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb2-2"><a></a><span class="co"># 80%-20% train test split on X and y</span></span>
 <span id="cb2-3"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
 <span id="cb2-4"><a></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">99</span></span>
 <span id="cb2-5"><a></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="392d2009" class="cell" data-execution_count="10">
+<div id="6a268426" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -775,7 +775,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </section>
 <section id="training-vs-test-error-max_depth2" class="slide level2 center">
 <h2>Training vs test error (<code>max_depth=2</code>)</h2>
-<div id="9c19d0bd" class="cell" data-execution_count="11">
+<div id="40e2fe7a" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -784,7 +784,7 @@ Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)
 </div>
 </div>
 </div>
-<div id="654b42a2" class="cell" data-execution_count="12">
+<div id="33164422" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
 <pre><code>Train error:   0.125
 Test error:   0.400</code></pre>
@@ -793,7 +793,7 @@ Test error:   0.400</code></pre>
 </section>
 <section id="training-vs-test-error-max_depth6" class="slide level2 center">
 <h2>Training vs test error (<code>max_depth=6</code>)</h2>
-<div id="f86b612e" class="cell" data-execution_count="13">
+<div id="c9f771b7" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -802,10 +802,10 @@ Test error:   0.400</code></pre>
 </div>
 </div>
 </div>
-<div id="c4060ca0" class="cell" data-execution_count="14">
+<div id="1d2ea78c" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-stdout">
 <pre><code>Train error:   0.000
-Test error:   0.800</code></pre>
+Test error:   0.600</code></pre>
 </div>
 </div>
 </section>
@@ -860,7 +860,7 @@ Test error:   0.800</code></pre>
 </section>
 <section id="iclicker-3.1" class="slide level2 center">
 <h2>iClicker 3.1</h2>
-<p>Clicker cloud join link: <strong>https://join.iclicker.com/VYFJ</strong></p>
+<p>iClicker cloud join link: https://join.iclicker.com/HTRZ</p>
 <p><strong>Select all of the following statements which are TRUE.</strong></p>
 <ul>
 <li><ol type="A">
@@ -903,32 +903,32 @@ Test error:   0.800</code></pre>
 <img data-src="img/cross-validation.png" class="r-stretch"></section>
 <section id="cross-validation-using-scikit-learn" class="slide level2 center">
 <h2>Cross-validation using <code>scikit-learn</code></h2>
-<div id="263eb871" class="cell" data-execution_count="15">
+<div id="f1da1e13" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score, cross_validate</span>
 <span id="cb5-2"><a></a>model <span class="op">=</span> DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb5-3"><a></a>cv_scores <span class="op">=</span> cross_val_score(model, X_train, y_train, cv<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb5-4"><a></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>array([0.5 , 0.75, 0.5 , 0.5 ])</code></pre>
+<pre><code>array([0.5 , 0.75, 0.5 , 0.75])</code></pre>
 </div>
 </div>
 <p><br></p>
-<div id="2ce778fb" class="cell" data-execution_count="16">
+<div id="d6f5dd73" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-stdout">
-<pre><code>Average cross-validation score = 0.56
-Standard deviation of cross-validation score = 0.11</code></pre>
+<pre><code>Average cross-validation score = 0.62
+Standard deviation of cross-validation score = 0.12</code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="fragment">
-<div id="75d914cc" class="cell" data-execution_count="17">
+<div id="701bdc38" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>cv_errors <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<div id="30a477a9" class="cell" data-execution_count="18">
+<div id="1b87e75a" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-stdout">
-<pre><code>Average cross-validation error = 0.44
-Standard deviation of cross-validation error = 0.11</code></pre>
+<pre><code>Average cross-validation error = 0.38
+Standard deviation of cross-validation error = 0.12</code></pre>
 </div>
 </div>
 </div>
@@ -938,7 +938,7 @@ Standard deviation of cross-validation error = 0.11</code></pre>
 <ul>
 <li>Cross-validation doesn’t shuffle the data; it’s done in <code>train_test_split</code>.</li>
 </ul>
-<div id="ba68d937" class="cell" data-execution_count="19">
+<div id="b3b4399d" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -979,11 +979,11 @@ Standard deviation of cross-validation error = 0.11</code></pre>
 </section>
 <section id="underfitting" class="slide level2 center">
 <h2>Underfitting</h2>
-<div id="a703617a" class="cell" data-execution_count="20">
+<div id="a29f58fd" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>model <span class="op">=</span> DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">1</span>)  <span class="co"># decision stump</span></span>
 <span id="cb10-2"><a></a>scores <span class="op">=</span> cross_validate(model, X_train, y_train, cv<span class="op">=</span><span class="dv">4</span>, return_train_score<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2546786b" class="cell" data-execution_count="21">
+<div id="3228c0e7" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-stdout">
 <pre><code>Train error:   0.229
 Validation error:   0.438</code></pre>
@@ -992,14 +992,14 @@ Validation error:   0.438</code></pre>
 </section>
 <section id="overfitting" class="slide level2 center">
 <h2>Overfitting</h2>
-<div id="c68e3f87" class="cell" data-execution_count="22">
+<div id="a599cb5b" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>model <span class="op">=</span> DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">6</span>)</span>
 <span id="cb12-2"><a></a>scores <span class="op">=</span> cross_validate(model, X_train, y_train, cv<span class="op">=</span><span class="dv">4</span>, return_train_score<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e2e11bad" class="cell" data-execution_count="23">
+<div id="557fe931" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
 <pre><code>Train error:   0.000
-Validation error:   0.312</code></pre>
+Validation error:   0.438</code></pre>
 </div>
 </div>
 </section>
@@ -1056,7 +1056,7 @@ the tendency to learn random things irrespective of the real signal (high varian
 </section>
 <section id="iclicker-3.2" class="slide level2 center">
 <h2>iClicker 3.2</h2>
-<p>Clicker cloud join link: <strong>https://join.iclicker.com/VYFJ</strong></p>
+<p>iClicker cloud join link: https://join.iclicker.com/HTRZ</p>
 <p><strong>Select all of the following statements which are TRUE.</strong></p>
 <ul>
 <li><ol type="A">

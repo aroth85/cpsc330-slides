@@ -130,7 +130,7 @@
     "href": "slides/slides-03.html#training-vs-test-error-max_depth6",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Training vs test error (max_depth=6)",
-    "text": "Training vs test error (max_depth=6)\n\n\n\n\n\n\n\n\n\n\n\nTrain error:   0.000\nTest error:   0.800"
+    "text": "Training vs test error (max_depth=6)\n\n\n\n\n\n\n\n\n\n\n\nTrain error:   0.000\nTest error:   0.600"
   },
   {
     "objectID": "slides/slides-03.html#trainvalidationtest-split",
@@ -151,7 +151,7 @@
     "href": "slides/slides-03.html#iclicker-3.1",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "iClicker 3.1",
-    "text": "iClicker 3.1\nClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nA decision tree model with no depth (the default max_depth in sklearn) is likely to perform very well on the deployment data.\n\n\nData splitting helps us assess how well our model would generalize.\n\n\nDeployment data is scored only once.\n\n\nValidation data could be used for hyperparameter optimization.\n\n\nIt’s recommended that data be shuffled before splitting it into train and test sets."
+    "text": "iClicker 3.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nA decision tree model with no depth (the default max_depth in sklearn) is likely to perform very well on the deployment data.\n\n\nData splitting helps us assess how well our model would generalize.\n\n\nDeployment data is scored only once.\n\n\nValidation data could be used for hyperparameter optimization.\n\n\nIt’s recommended that data be shuffled before splitting it into train and test sets."
   },
   {
     "objectID": "slides/slides-03.html#problems-with-single-trainvalidation-split",
@@ -172,7 +172,7 @@
     "href": "slides/slides-03.html#cross-validation-using-scikit-learn",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Cross-validation using scikit-learn",
-    "text": "Cross-validation using scikit-learn\n\nfrom sklearn.model_selection import cross_val_score, cross_validate\nmodel = DecisionTreeClassifier(max_depth=4)\ncv_scores = cross_val_score(model, X_train, y_train, cv=4)\ncv_scores\n\narray([0.5 , 0.75, 0.5 , 0.5 ])\n\n\n\n\n\nAverage cross-validation score = 0.56\nStandard deviation of cross-validation score = 0.11\n\n\n\n\n\ncv_errors = 1 - cv_scores\n\n\n\n\nAverage cross-validation error = 0.44\nStandard deviation of cross-validation error = 0.11"
+    "text": "Cross-validation using scikit-learn\n\nfrom sklearn.model_selection import cross_val_score, cross_validate\nmodel = DecisionTreeClassifier(max_depth=4)\ncv_scores = cross_val_score(model, X_train, y_train, cv=4)\ncv_scores\n\narray([0.5 , 0.75, 0.5 , 0.75])\n\n\n\n\n\nAverage cross-validation score = 0.62\nStandard deviation of cross-validation score = 0.12\n\n\n\n\n\ncv_errors = 1 - cv_scores\n\n\n\n\nAverage cross-validation error = 0.38\nStandard deviation of cross-validation error = 0.12"
   },
   {
     "objectID": "slides/slides-03.html#under-the-hood",
@@ -207,7 +207,7 @@
     "href": "slides/slides-03.html#overfitting",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Overfitting",
-    "text": "Overfitting\n\nmodel = DecisionTreeClassifier(max_depth=6)\nscores = cross_validate(model, X_train, y_train, cv=4, return_train_score=True)\n\n\n\nTrain error:   0.000\nValidation error:   0.312"
+    "text": "Overfitting\n\nmodel = DecisionTreeClassifier(max_depth=6)\nscores = cross_validate(model, X_train, y_train, cv=4, return_train_score=True)\n\n\n\nTrain error:   0.000\nValidation error:   0.438"
   },
   {
     "objectID": "slides/slides-03.html#the-fundamental-tradeoff-of-supervised-learning",
@@ -249,7 +249,7 @@
     "href": "slides/slides-03.html#iclicker-3.2",
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "iClicker 3.2",
-    "text": "iClicker 3.2\nClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\n\\(k\\)-fold cross-validation calls fit \\(k\\) times\n\n\nWe use cross-validation to get a more robust estimate of model performance.\n\n\nIf the mean train accuracy is much higher than the mean cross-validation accuracy it’s likely to be a case of overfitting.\n\n\nThe fundamental tradeoff of ML states that as training error goes down, validation error goes up.\n\n\nA decision stump on a complicated classification problem is likely to underfit."
+    "text": "iClicker 3.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\n\\(k\\)-fold cross-validation calls fit \\(k\\) times\n\n\nWe use cross-validation to get a more robust estimate of model performance.\n\n\nIf the mean train accuracy is much higher than the mean cross-validation accuracy it’s likely to be a case of overfitting.\n\n\nThe fundamental tradeoff of ML states that as training error goes down, validation error goes up.\n\n\nA decision stump on a complicated classification problem is likely to underfit."
   },
   {
     "objectID": "slides/slides-03.html#what-we-learned-today",
@@ -264,6 +264,398 @@
     "title": "CPSC 330 Lecture 3: ML fundamentals",
     "section": "Class demo (Time permitting)",
     "text": "Class demo (Time permitting)\nCopy this notebook to your working directory and follow along.\nhttps://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_03-ml-fundamentals.ipynb"
+  },
+  {
+    "objectID": "slides/slides-04.html#announcements",
+    "href": "slides/slides-04.html#announcements",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Announcements",
+    "text": "Announcements\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\n\nHomework 2 due Jan 20\nSyllabus quiz due date Jan 24\nThe lecture notes within these notebooks align with the content presented in the videos. Even though we do not cover all the content from these notebooks during lectures, it’s your responsibility to go through them on your own."
+  },
+  {
+    "objectID": "slides/slides-04.html#learning-outcomes",
+    "href": "slides/slides-04.html#learning-outcomes",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nFrom this lecture, you will be able to\n\nDescribe the curse of dimensionality\nExplain the notion of similarity-based algorithms\nDescribe how \\(k\\)-NNs and SVMs with RBF kernel work\nDescribe the effects of hyper-parameters for \\(k\\)-NNs and SVMs"
+  },
+  {
+    "objectID": "slides/slides-04.html#recap",
+    "href": "slides/slides-04.html#recap",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Recap",
+    "text": "Recap\nWhich of the following scenarios do NOT necessarily imply overfitting?\n\n\nTraining accuracy is 0.98 while validation accuracy is 0.60.\n\n\nThe model is too specific to the training data.\n\n\nThe decision boundary of a classifier is wiggly and highly irregular.\n\n\nTraining and validation accuracies are both approximately 0.88."
+  },
+  {
+    "objectID": "slides/slides-04.html#recap-1",
+    "href": "slides/slides-04.html#recap-1",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Recap",
+    "text": "Recap\nWhich of the following statements about overfitting is true?\n\n\nOverfitting is always beneficial for model performance on unseen data.\n\n\nSome degree of overfitting is common in most real-world problems.\n\n\nOverfitting ensures the model will perform well in real-world scenarios.\n\n\nOverfitting occurs when the model learns the training data too closely, including its noise and outliers."
+  },
+  {
+    "objectID": "slides/slides-04.html#recap-2",
+    "href": "slides/slides-04.html#recap-2",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Recap",
+    "text": "Recap\nHow might one address the issue of underfitting in a machine learning model.\n\n\nIntroduce more noise to the training data.\n\n\nRemove features that might be relevant to the prediction.\n\n\nIncrease the model’s complexity, possibly by adding more parameter or features\n\n\nUse a smaller dataset for training."
+  },
+  {
+    "objectID": "slides/slides-04.html#overfitting-and-underfitting",
+    "href": "slides/slides-04.html#overfitting-and-underfitting",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Overfitting and underfitting",
+    "text": "Overfitting and underfitting\n\nAn overfit model matches the training set so closely that it fails to make correct predictions on new unseen data.\n\nAn underfit model is too simple and does not even make good predictions on the training data\n\n\nSource"
+  },
+  {
+    "objectID": "slides/slides-04.html#recap-3",
+    "href": "slides/slides-04.html#recap-3",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Recap",
+    "text": "Recap\n\nWhy do we split the data? What are train/valid/test splits?\nWhat are the benefits of cross-validation?\nWhat’s the fundamental trade-off in supervised machine learning?\nWhat is the golden rule of machine learning?"
+  },
+  {
+    "objectID": "slides/slides-04.html#cross-validation",
+    "href": "slides/slides-04.html#cross-validation",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Cross validation",
+    "text": "Cross validation"
+  },
+  {
+    "objectID": "slides/slides-04.html#summary-of-train-validation-test-and-deployment-data",
+    "href": "slides/slides-04.html#summary-of-train-validation-test-and-deployment-data",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Summary of train, validation, test, and deployment data",
+    "text": "Summary of train, validation, test, and deployment data\n\n\n\n\nfit\nscore\npredict\n\n\n\n\nTrain\n✔️\n✔️\n✔️\n\n\nValidation\n\n✔️\n✔️\n\n\nTest\n\nonce\nonce\n\n\nDeployment\n\n\n✔️"
+  },
+  {
+    "objectID": "slides/slides-04.html#recap-the-fundamental-tradeoff",
+    "href": "slides/slides-04.html#recap-the-fundamental-tradeoff",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Recap: The fundamental tradeoff",
+    "text": "Recap: The fundamental tradeoff\nAs you increase the model complexity, training score tends to go up and the gap between train and validation scores tends to go up."
+  },
+  {
+    "objectID": "slides/slides-04.html#motivation",
+    "href": "slides/slides-04.html#motivation",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Motivation",
+    "text": "Motivation"
+  },
+  {
+    "objectID": "slides/slides-04.html#general-idea-of-k-nearest-neighbours-algorithm",
+    "href": "slides/slides-04.html#general-idea-of-k-nearest-neighbours-algorithm",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "General idea of \\(k\\)-nearest neighbours algorithm",
+    "text": "General idea of \\(k\\)-nearest neighbours algorithm"
+  },
+  {
+    "objectID": "slides/slides-04.html#geometric-view-of-tabular-data-and-dimensions",
+    "href": "slides/slides-04.html#geometric-view-of-tabular-data-and-dimensions",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Geometric view of tabular data and dimensions",
+    "text": "Geometric view of tabular data and dimensions\n\nX_spotify.shape\n\n(2017, 13)\n\n\n\n\n\n\n\n\n\n\n\nacousticness\ndanceability\nduration_ms\nenergy\ninstrumentalness\nkey\nliveness\nloudness\nmode\nspeechiness\ntempo\ntime_signature\nvalence\n\n\n\n\n0\n0.0102\n0.833\n204600\n0.434\n0.021900\n2\n0.1650\n-8.795\n1\n0.4310\n150.062\n4.0\n0.286\n\n\n1\n0.1990\n0.743\n326933\n0.359\n0.006110\n1\n0.1370\n-10.401\n1\n0.0794\n160.083\n4.0\n0.588\n\n\n2\n0.0344\n0.838\n185707\n0.412\n0.000234\n2\n0.1590\n-7.148\n1\n0.2890\n75.044\n4.0\n0.173\n\n\n3\n0.6040\n0.494\n199413\n0.338\n0.510000\n5\n0.0922\n-15.236\n1\n0.0261\n86.468\n4.0\n0.230\n\n\n4\n0.1800\n0.678\n392893\n0.561\n0.512000\n5\n0.4390\n-11.648\n0\n0.0694\n174.004\n4.0\n0.904"
+  },
+  {
+    "objectID": "slides/slides-04.html#distance-between-feature-vectors",
+    "href": "slides/slides-04.html#distance-between-feature-vectors",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Distance between feature vectors",
+    "text": "Distance between feature vectors\n\nA common way to calculate the distance between vectors is calculating the Euclidean distance.\nThe euclidean distance between vectors \\(u = &lt;u_1, u_2, \\dots, u_n&gt;\\) and \\(v = &lt;v_1, v_2, \\dots, v_n&gt;\\) is defined as:\n\n\\[distance(u, v) = \\sqrt{\\sum_{i =1}^{n} (u_i - v_i)^2}\\]"
+  },
+  {
+    "objectID": "slides/slides-04.html#k-nns-example",
+    "href": "slides/slides-04.html#k-nns-example",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "\\(k\\)-NNs example",
+    "text": "\\(k\\)-NNs example"
+  },
+  {
+    "objectID": "slides/slides-04.html#k-nns-n1",
+    "href": "slides/slides-04.html#k-nns-n1",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "\\(k\\)-NNs (n=1)",
+    "text": "\\(k\\)-NNs (n=1)\n\n\nn_neighbors 1"
+  },
+  {
+    "objectID": "slides/slides-04.html#k-nns-n3",
+    "href": "slides/slides-04.html#k-nns-n3",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "\\(k\\)-NNs (n=3)",
+    "text": "\\(k\\)-NNs (n=3)\n\n\nn_neighbors 3"
+  },
+  {
+    "objectID": "slides/slides-04.html#kneighborsclassifier",
+    "href": "slides/slides-04.html#kneighborsclassifier",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "KNeighborsClassifier",
+    "text": "KNeighborsClassifier\n\nfor k in [1, 3]:\n    neigh = KNeighborsClassifier(n_neighbors=k)\n    neigh.fit(X_small_cities, y_small_cities)\n    print(\n        \"Prediction of the black dot with %d neighbours: %s\"\n        % (k, neigh.predict(test_point))\n    )\n\nPrediction of the black dot with 1 neighbours: ['USA']\nPrediction of the black dot with 3 neighbours: ['Canada']"
+  },
+  {
+    "objectID": "slides/slides-04.html#effect-of-k",
+    "href": "slides/slides-04.html#effect-of-k",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Effect of \\(k\\)",
+    "text": "Effect of \\(k\\)"
+  },
+  {
+    "objectID": "slides/slides-04.html#iclicker-4.1",
+    "href": "slides/slides-04.html#iclicker-4.1",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "iClicker 4.1",
+    "text": "iClicker 4.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nAnalogy-based models find examples from the test set that are most similar to the query example we are predicting.\n\n\nEuclidean distance will always have a non-negative value.\n\n\nWith \\(k\\)-NN, setting the hyperparameter \\(k\\) to larger values typically reduces training error.\n\n\nSimilar to decision trees, \\(k\\)-NNs finds a small set of good features.\n\n\nIn \\(k\\)-NN, with \\(k &gt; 1\\), the classification of the closest neighbour to the test example always contributes the most to the prediction."
+  },
+  {
+    "objectID": "slides/slides-04.html#regression-with-k-nearest-neighbours-k-nns",
+    "href": "slides/slides-04.html#regression-with-k-nearest-neighbours-k-nns",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Regression with \\(k\\)-nearest neighbours (\\(k\\)-NNs)",
+    "text": "Regression with \\(k\\)-nearest neighbours (\\(k\\)-NNs)"
+  },
+  {
+    "objectID": "slides/slides-04.html#curse-of-dimensionality",
+    "href": "slides/slides-04.html#curse-of-dimensionality",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Curse of dimensionality",
+    "text": "Curse of dimensionality\n\nAffects all learners but especially bad for nearest-neighbour.\n\\(k\\)-NN usually works well when the number of dimensions \\(d\\) is small but things fall apart quickly as \\(d\\) goes up.\nIf there are many irrelevant attributes, \\(k\\)-NN is hopelessly confused because all of them contribute to finding similarity between examples.\nWith enough irrelevant attributes the accidental similarity swamps out meaningful similarity and \\(k\\)-NN is no better than random guessing."
+  },
+  {
+    "objectID": "slides/slides-04.html#overview",
+    "href": "slides/slides-04.html#overview",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Overview",
+    "text": "Overview\n\nSVM RBFs are more like weighted \\(k\\)-NNs.\n\nThe decision boundary is defined by a set of positive and negative examples and their weights together with their similarity measure.\nA test example is labeled positive if on average it looks more like positive examples than the negative examples.\n\nDifference between \\(k\\)-NNs and SVM RBFs\n\nSVM RBFs only remember the key examples (support vectors).\nSVMs use a different similarity metric which is called a “kernel”. A popular kernel is Radial Basis Functions (RBFs)\nThey usually perform better than \\(k\\)-NNs!"
+  },
+  {
+    "objectID": "slides/slides-04.html#decision-boundary-of-svms",
+    "href": "slides/slides-04.html#decision-boundary-of-svms",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Decision boundary of SVMs",
+    "text": "Decision boundary of SVMs"
+  },
+  {
+    "objectID": "slides/slides-04.html#support-vectors",
+    "href": "slides/slides-04.html#support-vectors",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Support vectors",
+    "text": "Support vectors\nThe decision boundary only depends on the support vectors."
+  },
+  {
+    "objectID": "slides/slides-04.html#relation-of-gamma-and-the-fundamental-trade-off",
+    "href": "slides/slides-04.html#relation-of-gamma-and-the-fundamental-trade-off",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Relation of gamma and the fundamental trade-off",
+    "text": "Relation of gamma and the fundamental trade-off"
+  },
+  {
+    "objectID": "slides/slides-04.html#relation-of-c-and-the-fundamental-trade-off",
+    "href": "slides/slides-04.html#relation-of-c-and-the-fundamental-trade-off",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Relation of C and the fundamental trade-off",
+    "text": "Relation of C and the fundamental trade-off"
+  },
+  {
+    "objectID": "slides/slides-04.html#iclicker-4.2",
+    "href": "slides/slides-04.html#iclicker-4.2",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "iClicker 4.2",
+    "text": "iClicker 4.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\n\\(k\\)-NN may perform poorly in high-dimensional space (say, d &gt; 1000).\n\n\nIn sklearn’s SVC classifier, large values of gamma tend to result in higher training score but probably lower validation score.\n\n\nIf we increase both gamma and C, we can’t be certain if the model becomes more complex or less complex."
+  },
+  {
+    "objectID": "slides/slides-04.html#similarity-based-algorithms",
+    "href": "slides/slides-04.html#similarity-based-algorithms",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Similarity-based algorithms",
+    "text": "Similarity-based algorithms\n\nUse similarity or distance metrics to predict targets.\nExamples: \\(k\\)-nearest neighbors, Support Vector Machines (SVMs) with RBF Kernel."
+  },
+  {
+    "objectID": "slides/slides-04.html#k-nearest-neighbours",
+    "href": "slides/slides-04.html#k-nearest-neighbours",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "\\(k\\)-nearest neighbours",
+    "text": "\\(k\\)-nearest neighbours\n\nClassifies an object based on the majority label among its \\(k\\) closest neighbors.\nMain hyperparameter: \\(k\\) or n_neighbors in sklearn\nDistance Metrics: Euclidean\nStrengths: Simple and intuitive, can learn complex decision boundaries\nChallenges: Sensitive to the choice of distance metric and scaling (coming up)."
+  },
+  {
+    "objectID": "slides/slides-04.html#curse-of-dimensionality-1",
+    "href": "slides/slides-04.html#curse-of-dimensionality-1",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Curse of dimensionality",
+    "text": "Curse of dimensionality\n\nAs dimensionality increases, the volume of the space increases exponentially, making the data sparse.\nDistance metrics lose meaning\n\nAccidental similarity swamps out meaningful similarity\nAll points become almost equidistant.\n\nOverfitting becomes likely: Harder to generalize with high-dimensional data.\nHow to deal with this?\n\nDimensionality reduction (PCA) (not covered in this course)\nFeature selection techniques."
+  },
+  {
+    "objectID": "slides/slides-04.html#svms-with-rbf-kernel",
+    "href": "slides/slides-04.html#svms-with-rbf-kernel",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "SVMs with RBF kernel",
+    "text": "SVMs with RBF kernel\n\nRBF Kernel: Radial Basis Function, a way to transform data into higher dimensions implicitly.\nStrengths\n\nEffective in high-dimensional and sparse data\nGood performance on non-linear problems.\n\nHyperparameters:\n\nC$: Regularization parameter (trade-off between correct classification of training examples and maximization of the decision margin).\n\\(\\gamma\\): Defines how far the influence of a single training example reaches."
+  },
+  {
+    "objectID": "slides/slides-04.html#intuition-of-c-and-gamma-in-svm-rbf",
+    "href": "slides/slides-04.html#intuition-of-c-and-gamma-in-svm-rbf",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Intuition of C and gamma in SVM RBF",
+    "text": "Intuition of C and gamma in SVM RBF\n\nC (Regularization): Controls the trade-off between perfect training accuracy and having a simpler decision boundary.\n\nHigh C: Strict, complex boundary (overfitting risk).\nLow C: More errors allowed, smoother boundary (generalizes better).\n\nGamma (Kernel Width): Controls the influence of individual data points.\n\nHigh Gamma: Points have local impact, complex boundary.\nLow Gamma: Points affect broader areas, smoother boundary.\n\nKey trade-off: Proper balance between C and gamma is crucial for avoiding overfitting or underfitting."
+  },
+  {
+    "objectID": "lecture-04.html",
+    "href": "lecture-04.html",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: $k$-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html#slides",
+    "href": "lecture-04.html#slides",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: $k$-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html#outline",
+    "href": "lecture-04.html#outline",
+    "title": "Lecture 4: \\(k\\)-nearest neighbours and SVM RBFs",
+    "section": "Outline",
+    "text": "Outline\n\nRecap\nSimilarity-based algorithms\n\\(k\\)-nearest neighbours intuitions\nCurse of dimensionality\nSVM with RBF kernel intuition\nInterpretation of C and gamma hyperparameters of SVM RBF",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: $k$-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html",
+    "href": "lecture-02.html",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html#slides",
+    "href": "lecture-02.html#slides",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html#outline",
+    "href": "lecture-02.html#outline",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "Outline",
+    "text": "Outline\n\nFeatures, target, examples, training\nParameters and hyperparameters\nDecision boundary\nClassification vs. regression\nInference vs. prediction\nAccuracy vs. error, baselines\nIntuition of decision trees",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: \\(k\\)-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Lectures",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "lectures.html#schedule",
+    "href": "lectures.html#schedule",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: \\(k\\)-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Lectures",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome to CPSC330! Here, you’ll find slides for CPSC 330 Section 204. These slides are based on the notes present here.\n\nClass times 🕘 11 am to 12:20 pm\nWhere? 📍 Geography Building (GEOG) - 212, 1984 West Mall, Vancouver, BC V6T 1Z2"
+  },
+  {
+    "objectID": "lecture-01.html",
+    "href": "lecture-01.html",
+    "title": "Lecture 1: Course introduction",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-01.html#slides",
+    "href": "lecture-01.html#slides",
+    "title": "Lecture 1: Course introduction",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-01.html#outline",
+    "href": "lecture-01.html#outline",
+    "title": "Lecture 1: Course introduction",
+    "section": "Outline",
+    "text": "Outline\n\nWhat is machine learning\nTypes of machine learning\nLearning to navigate through the course materials\nGetting familiar with the course policies",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html",
+    "href": "lecture-03.html",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html#slides",
+    "href": "lecture-03.html#slides",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html#outline",
+    "href": "lecture-03.html#outline",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "Outline",
+    "text": "Outline\n\nGeneralization, data splitting\nCross-validation\nOverfitting, underfitting, the fundamental tradeoff\nThe golden rule",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
   },
   {
     "objectID": "slides/slides-01.html#learning-outcomes",
@@ -565,134 +957,6 @@
     "title": "Lecture 1: Introduction to CPSC 330",
     "section": "Summary",
     "text": "Summary\n\nMachine learning is increasingly being applied across various fields.\nIn supervised learning, we are given a set of observations (X) and their corresponding targets (y) and we wish to find a model function that relates X to y.\nMachine learning is a different paradigm for problem solving. Very often it reduces the time you spend programming and helps customizing and scaling your products.\nBefore applying machine learning to a problem, it’s always advisable to assess whether a given problem is suitable for a machine learning solution or not."
-  },
-  {
-    "objectID": "lecture-02.html",
-    "href": "lecture-02.html",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html#slides",
-    "href": "lecture-02.html#slides",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html#outline",
-    "href": "lecture-02.html#outline",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "Outline",
-    "text": "Outline\n\nFeatures, target, examples, training\nParameters and hyperparameters\nDecision boundary\nClassification vs. regression\nInference vs. prediction\nAccuracy vs. error, baselines\nIntuition of decision trees",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lectures.html",
-    "href": "lectures.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Lectures",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "lectures.html#schedule",
-    "href": "lectures.html#schedule",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Lectures",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Welcome to CPSC330! Here, you’ll find slides for CPSC 330 Section 204. These slides are based on the notes present here.\n\nClass times 🕘 11 am to 12:20 pm\nWhere? 📍 Geography Building (GEOG) - 212, 1984 West Mall, Vancouver, BC V6T 1Z2"
-  },
-  {
-    "objectID": "lecture-01.html",
-    "href": "lecture-01.html",
-    "title": "Lecture 1: Course introduction",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-01.html#slides",
-    "href": "lecture-01.html#slides",
-    "title": "Lecture 1: Course introduction",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-01.html#outline",
-    "href": "lecture-01.html#outline",
-    "title": "Lecture 1: Course introduction",
-    "section": "Outline",
-    "text": "Outline\n\nWhat is machine learning\nTypes of machine learning\nLearning to navigate through the course materials\nGetting familiar with the course policies",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html",
-    "href": "lecture-03.html",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html#slides",
-    "href": "lecture-03.html#slides",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html#outline",
-    "href": "lecture-03.html#outline",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "Outline",
-    "text": "Outline\n\nGeneralization, data splitting\nCross-validation\nOverfitting, underfitting, the fundamental tradeoff\nThe golden rule",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
   },
   {
     "objectID": "slides/slides-02.html#announcements",
