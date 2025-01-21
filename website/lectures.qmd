@@ -18,6 +18,7 @@ listing:
       - lecture-02.qmd
       - lecture-03.qmd
       - lecture-04.qmd
+      - lecture-05.qmd
 ---
 
 ## Schedule
