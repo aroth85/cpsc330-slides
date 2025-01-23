@@ -217,22 +217,6 @@ text_pipeline = make_pipeline(
 
 # [Class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_05-06-preprocessing.ipynb)
 
-
-## (iClicker) Exercise 6.2
-iClicker cloud join link: **https://join.iclicker.com/HTRZ**
-
-Select all of the following statements which are TRUE.
-
-- (A) `handle_unknown="ignore"` would treat all unknown categories equally.
-- (B) As you increase the value for `max_features` hyperparameter of `CountVectorizer` the training score is likely to go up.
-- (C) Suppose you are encoding text data using `CountVectorizer`. If you encounter a word in the validation or the test split that's not available in the training data, we'll get an error.
-- (D) In the code below, inside `cross_validate`, each fold might have slightly different number of features (columns) in the fold.
-
-```python
-pipe = (CountVectorizer(), SVC())
-cross_validate(pipe, X_train, y_train)
-```
-
 # More preprocessing
 
 ## Remarks on preprocessing 
@@ -291,6 +275,23 @@ cross_validate(pipe, X_train, y_train)
   - Clustering or grouping categories manually 
   - Only considering top-N categories 
   - ...
+
+
+## (iClicker) Exercise 6.2
+iClicker cloud join link: **https://join.iclicker.com/HTRZ**
+
+Select all of the following statements which are TRUE.
+
+- (A) `handle_unknown="ignore"` would treat all unknown categories equally.
+- (B) As you increase the value for `max_features` hyperparameter of `CountVectorizer` the training score is likely to go up.
+- (C) Suppose you are encoding text data using `CountVectorizer`. If you encounter a word in the validation or the test split that's not available in the training data, we'll get an error.
+- (D) In the code below, inside `cross_validate`, each fold might have slightly different number of features (columns) in the fold.
+
+```python
+pipe = (CountVectorizer(), SVC())
+cross_validate(pipe, X_train, y_train)
+```
+
 
 ## Summary of lectures 5 and 6
 

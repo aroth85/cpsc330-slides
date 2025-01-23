@@ -595,13 +595,6 @@
     "text": "Incorporating text features in a machine learning pipeline\nfrom sklearn.feature_extraction.text import CountVectorizer\nfrom sklearn.svm import SVC\nfrom sklearn.pipeline import make_pipeline\n\ntext_pipeline = make_pipeline(\n    CountVectorizer(),\n    SVC()\n)"
   },
   {
-    "objectID": "slides/slides-06.html#iclicker-exercise-6.2",
-    "href": "slides/slides-06.html#iclicker-exercise-6.2",
-    "title": "Lecture 6: Column transformer and text features",
-    "section": "(iClicker) Exercise 6.2",
-    "text": "(iClicker) Exercise 6.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nhandle_unknown=\"ignore\" would treat all unknown categories equally.\n\n\nAs you increase the value for max_features hyperparameter of CountVectorizer the training score is likely to go up.\n\n\nSuppose you are encoding text data using CountVectorizer. If you encounter a word in the validation or the test split that’s not available in the training data, we’ll get an error.\n\n\nIn the code below, inside cross_validate, each fold might have slightly different number of features (columns) in the fold.\n\n\npipe = (CountVectorizer(), SVC())\ncross_validate(pipe, X_train, y_train)"
-  },
-  {
     "objectID": "slides/slides-06.html#remarks-on-preprocessing",
     "href": "slides/slides-06.html#remarks-on-preprocessing",
     "title": "Lecture 6: Column transformer and text features",
@@ -663,6 +656,13 @@
     "title": "Lecture 6: Column transformer and text features",
     "section": "Categorical variables with too many categories",
     "text": "Categorical variables with too many categories\n\nStrategies for categorical variables with too many categories:\n\nDimensionality reduction techniques\nBucketing categories into ‘others’\nClustering or grouping categories manually\nOnly considering top-N categories\n…"
+  },
+  {
+    "objectID": "slides/slides-06.html#iclicker-exercise-6.2",
+    "href": "slides/slides-06.html#iclicker-exercise-6.2",
+    "title": "Lecture 6: Column transformer and text features",
+    "section": "(iClicker) Exercise 6.2",
+    "text": "(iClicker) Exercise 6.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nhandle_unknown=\"ignore\" would treat all unknown categories equally.\n\n\nAs you increase the value for max_features hyperparameter of CountVectorizer the training score is likely to go up.\n\n\nSuppose you are encoding text data using CountVectorizer. If you encounter a word in the validation or the test split that’s not available in the training data, we’ll get an error.\n\n\nIn the code below, inside cross_validate, each fold might have slightly different number of features (columns) in the fold.\n\n\npipe = (CountVectorizer(), SVC())\ncross_validate(pipe, X_train, y_train)"
   },
   {
     "objectID": "slides/slides-06.html#summary-of-lectures-5-and-6",
