@@ -42,6 +42,14 @@ from plotting_functions import *
 from utils import *
 ```
 
+## Learning outcomes 
+
+- Understand how to use multiple types of features in a pipeline
+- Incorporate text features in a machine learning pipeline
+- Identify when it's appropriate to apply ordinal encoding vs one-hot encoding
+- Explain strategies to deal with categorical variables with too many categories 
+- Explain why text data needs a different treatment than categorical variables
+
 # Recap: Preprocessing mistakes
 
 ## Data 

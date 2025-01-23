@@ -504,6 +504,13 @@
     "text": "Announcements\n\nHW3 is due next week Monday, Feb 3rd, 11:59 pm.\n\nYou can work in pairs for this assignment."
   },
   {
+    "objectID": "slides/slides-06.html#learning-outcomes",
+    "href": "slides/slides-06.html#learning-outcomes",
+    "title": "Lecture 6: Column transformer and text features",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nUnderstand how to use multiple types of features in a pipeline\nIncorporate text features in a machine learning pipeline\nIdentify when it’s appropriate to apply ordinal encoding vs one-hot encoding\nExplain strategies to deal with categorical variables with too many categories\nExplain why text data needs a different treatment than categorical variables"
+  },
+  {
     "objectID": "slides/slides-06.html#data",
     "href": "slides/slides-06.html#data",
     "title": "Lecture 6: Column transformer and text features",
