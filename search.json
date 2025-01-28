@@ -679,233 +679,6 @@
     "text": "Summary of lectures 5 and 6\n\nMotivation for preprocessing\nCommon preprocessing steps\n\nImputation\nScaling\nOne-hot encoding\n\nGolden rule in the context of preprocessing\nBuilding simple supervised machine learning pipelines using sklearn.pipeline.make_pipeline.\nDefining transformers with multiple transformations ColumnTransformer\nDealing with text features\n\nBag of words representation: CountVectorizer"
   },
   {
-    "objectID": "lecture-06.html",
-    "href": "lecture-06.html",
-    "title": "Lecture 6: sklearn column transformer and text fearutres",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 6: `sklearn` column transformer and text fearutres"
-    ]
-  },
-  {
-    "objectID": "lecture-06.html#slides",
-    "href": "lecture-06.html#slides",
-    "title": "Lecture 6: sklearn column transformer and text fearutres",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 6: `sklearn` column transformer and text fearutres"
-    ]
-  },
-  {
-    "objectID": "lecture-06.html#outline",
-    "href": "lecture-06.html#outline",
-    "title": "Lecture 6: sklearn column transformer and text fearutres",
-    "section": "Outline",
-    "text": "Outline\n\nRecap\nColumn transformer\nArguments of one-hot encoder\nsklearn CountVectorizer\nIncorporating text features in the pipeline",
-    "crumbs": [
-      "Lectures",
-      "Lecture 6: `sklearn` column transformer and text fearutres"
-    ]
-  },
-  {
-    "objectID": "lecture-04.html",
-    "href": "lecture-04.html",
-    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 4: k-nearest neighbours and SVM RBFs"
-    ]
-  },
-  {
-    "objectID": "lecture-04.html#slides",
-    "href": "lecture-04.html#slides",
-    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 4: k-nearest neighbours and SVM RBFs"
-    ]
-  },
-  {
-    "objectID": "lecture-04.html#outline",
-    "href": "lecture-04.html#outline",
-    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
-    "section": "Outline",
-    "text": "Outline\n\nRecap\nSimilarity-based algorithms\n\\(k\\)-nearest neighbours intuitions\nCurse of dimensionality\nSVM with RBF kernel intuition\nInterpretation of C and gamma hyperparameters of SVM RBF",
-    "crumbs": [
-      "Lectures",
-      "Lecture 4: k-nearest neighbours and SVM RBFs"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html",
-    "href": "lecture-02.html",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html#slides",
-    "href": "lecture-02.html#slides",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html#outline",
-    "href": "lecture-02.html#outline",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "Outline",
-    "text": "Outline\n\nFeatures, target, examples, training\nParameters and hyperparameters\nDecision boundary\nClassification vs. regression\nInference vs. prediction\nAccuracy vs. error, baselines\nIntuition of decision trees",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lectures.html",
-    "href": "lectures.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Lectures",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "lectures.html#schedule",
-    "href": "lectures.html#schedule",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Lectures",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Welcome to CPSC330! Here, you’ll find slides for CPSC 330 Section 204. These slides are based on the notes present here.\n\nClass times 🕘 11 am to 12:20 pm\nWhere? 📍 Geography Building (GEOG) - 212, 1984 West Mall, Vancouver, BC V6T 1Z2"
-  },
-  {
-    "objectID": "lecture-01.html",
-    "href": "lecture-01.html",
-    "title": "Lecture 1: Course introduction",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-01.html#slides",
-    "href": "lecture-01.html#slides",
-    "title": "Lecture 1: Course introduction",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-01.html#outline",
-    "href": "lecture-01.html#outline",
-    "title": "Lecture 1: Course introduction",
-    "section": "Outline",
-    "text": "Outline\n\nWhat is machine learning\nTypes of machine learning\nLearning to navigate through the course materials\nGetting familiar with the course policies",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html",
-    "href": "lecture-03.html",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html#slides",
-    "href": "lecture-03.html#slides",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html#outline",
-    "href": "lecture-03.html#outline",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "Outline",
-    "text": "Outline\n\nGeneralization, data splitting\nCross-validation\nOverfitting, underfitting, the fundamental tradeoff\nThe golden rule",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-05.html",
-    "href": "lecture-05.html",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 5: Preprocessing and sklearn pipelines"
-    ]
-  },
-  {
-    "objectID": "lecture-05.html#slides",
-    "href": "lecture-05.html#slides",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 5: Preprocessing and sklearn pipelines"
-    ]
-  },
-  {
-    "objectID": "lecture-05.html#outline",
-    "href": "lecture-05.html#outline",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Outline",
-    "text": "Outline\n\nRecap\nPreprocessing motivation\nCommon transformations in sklearn\nsklearn transformers vs. Estimators\nThe golden rule in the feature transformations\nsklearn pipelines",
-    "crumbs": [
-      "Lectures",
-      "Lecture 5: Preprocessing and sklearn pipelines"
-    ]
-  },
-  {
     "objectID": "slides/slides-05.html#announcements",
     "href": "slides/slides-05.html#announcements",
     "title": "Lecture 5: Preprocessing and sklearn pipelines",
@@ -1037,6 +810,434 @@
     "title": "Lecture 5: Preprocessing and sklearn pipelines",
     "section": "(iClicker) Exercise 5.3",
     "text": "(iClicker) Exercise 5.3\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nYou can have scaling of numeric features, one-hot encoding of categorical features, and scikit-learn estimator within a single pipeline.\n\n\nOnce you have a scikit-learn pipeline object with an estimator as the last step, you can call fit, predict, and score on it.\n\n\nYou can carry out data splitting within scikit-learn pipeline.\n\n\nWe have to be careful of the order we put each transformation and model in a pipeline."
+  },
+  {
+    "objectID": "lecture-06.html",
+    "href": "lecture-06.html",
+    "title": "Lecture 6: sklearn column transformer and text fearutres",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 6: `sklearn` column transformer and text fearutres"
+    ]
+  },
+  {
+    "objectID": "lecture-06.html#slides",
+    "href": "lecture-06.html#slides",
+    "title": "Lecture 6: sklearn column transformer and text fearutres",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 6: `sklearn` column transformer and text fearutres"
+    ]
+  },
+  {
+    "objectID": "lecture-06.html#outline",
+    "href": "lecture-06.html#outline",
+    "title": "Lecture 6: sklearn column transformer and text fearutres",
+    "section": "Outline",
+    "text": "Outline\n\nRecap\nColumn transformer\nArguments of one-hot encoder\nsklearn CountVectorizer\nincorporating text features in the pipeline",
+    "crumbs": [
+      "Lectures",
+      "Lecture 6: `sklearn` column transformer and text fearutres"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html",
+    "href": "lecture-04.html",
+    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: k-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html#slides",
+    "href": "lecture-04.html#slides",
+    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: k-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html#outline",
+    "href": "lecture-04.html#outline",
+    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
+    "section": "Outline",
+    "text": "Outline\n\nRecap\nSimilarity-based algorithms\n\\(k\\)-nearest neighbours intuitions\nCurse of dimensionality\nSVM with RBF kernel intuition\nInterpretation of C and gamma hyperparameters of SVM RBF",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: k-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html",
+    "href": "lecture-02.html",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html#slides",
+    "href": "lecture-02.html#slides",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html#outline",
+    "href": "lecture-02.html#outline",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "Outline",
+    "text": "Outline\n\nFeatures, target, examples, training\nParameters and hyperparameters\nDecision boundary\nClassification vs. regression\nInference vs. prediction\nAccuracy vs. error, baselines\nIntuition of decision trees",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Lectures",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "lectures.html#schedule",
+    "href": "lectures.html#schedule",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Lectures",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome to CPSC330! Here, you’ll find slides for CPSC 330 Section 204. These slides are based on the notes present here.\n\nClass times 🕘 11 am to 12:20 pm\nWhere? 📍 Geography Building (GEOG) - 212, 1984 West Mall, Vancouver, BC V6T 1Z2"
+  },
+  {
+    "objectID": "lecture-01.html",
+    "href": "lecture-01.html",
+    "title": "Lecture 1: Course introduction",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-01.html#slides",
+    "href": "lecture-01.html#slides",
+    "title": "Lecture 1: Course introduction",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-01.html#outline",
+    "href": "lecture-01.html#outline",
+    "title": "Lecture 1: Course introduction",
+    "section": "Outline",
+    "text": "Outline\n\nWhat is machine learning\nTypes of machine learning\nLearning to navigate through the course materials\nGetting familiar with the course policies",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html",
+    "href": "lecture-03.html",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html#slides",
+    "href": "lecture-03.html#slides",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html#outline",
+    "href": "lecture-03.html#outline",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "Outline",
+    "text": "Outline\n\nGeneralization, data splitting\nCross-validation\nOverfitting, underfitting, the fundamental tradeoff\nThe golden rule",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-05.html",
+    "href": "lecture-05.html",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 5: Preprocessing and sklearn pipelines"
+    ]
+  },
+  {
+    "objectID": "lecture-05.html#slides",
+    "href": "lecture-05.html#slides",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 5: Preprocessing and sklearn pipelines"
+    ]
+  },
+  {
+    "objectID": "lecture-05.html#outline",
+    "href": "lecture-05.html#outline",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Outline",
+    "text": "Outline\n\nRecap\nPreprocessing motivation\nCommon transformations in sklearn\nsklearn transformers vs. Estimators\nThe golden rule in the feature transformations\nsklearn pipelines",
+    "crumbs": [
+      "Lectures",
+      "Lecture 5: Preprocessing and sklearn pipelines"
+    ]
+  },
+  {
+    "objectID": "lecture-07.html",
+    "href": "lecture-07.html",
+    "title": "Lecture 7: Linear models",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 7: Linear models"
+    ]
+  },
+  {
+    "objectID": "lecture-07.html#slides",
+    "href": "lecture-07.html#slides",
+    "title": "Lecture 7: Linear models",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 7: Linear models"
+    ]
+  },
+  {
+    "objectID": "lecture-07.html#outline",
+    "href": "lecture-07.html#outline",
+    "title": "Lecture 7: Linear models",
+    "section": "Outline",
+    "text": "Outline\n\nIntuition behind linear models\nLinear regression and logistic regression\nscikit-learn’s Ridge model\nPrediction probabilities\nInterpret model predictions using coefficients learned by a linear model\nParametric vs. non-parametric models",
+    "crumbs": [
+      "Lectures",
+      "Lecture 7: Linear models"
+    ]
+  },
+  {
+    "objectID": "slides/slides-07.html#announcements",
+    "href": "slides/slides-07.html#announcements",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Announcements",
+    "text": "Announcements\n\nImportant information about midterm 1\n\nhttps://piazza.com/class/m4ujp0s4xgm5o5/post/204\n\nHW3 is due next week Monday, Feb 3rd, 11:59 pm.\n\nYou can work in pairs for this assignment.\n\n\nWhere to find slides?\n\nhttps://aroth85.github.io/cpsc330-slides/lecture.html"
+  },
+  {
+    "objectID": "slides/slides-07.html#learning-outcomes",
+    "href": "slides/slides-07.html#learning-outcomes",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nFrom this lecture, students are expected to be able to:\n\nExplain the advantages of getting probability scores instead of hard predictions during classification\nExplain the general intuition behind linear models\nExplain the difference between linear regression and logistic regression\n\nExplain how predict works for linear regression\nExplain how can you interpret model predictions using coefficients learned by a linear model\nExplain the advantages and limitations of linear classifiers"
+  },
+  {
+    "objectID": "slides/slides-07.html#learning-outcomes-contd",
+    "href": "slides/slides-07.html#learning-outcomes-contd",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Learning outcomes (contd)",
+    "text": "Learning outcomes (contd)\n\nBroadly describe linear SVMs\nDemonstrate how the alpha hyperparameter of Ridge is related to the fundamental tradeoff\nUse scikit-learn’s Ridge model\nUse scikit-learn’s LogisticRegression model and predict_proba to get probability scores"
+  },
+  {
+    "objectID": "slides/slides-07.html#recap-dealing-with-text-features",
+    "href": "slides/slides-07.html#recap-dealing-with-text-features",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Recap: Dealing with text features",
+    "text": "Recap: Dealing with text features\n\nPreprocessing text to fit into machine learning models using text vectorization.\nBag of words representation"
+  },
+  {
+    "objectID": "slides/slides-07.html#recap-sklearn-countvectorizer",
+    "href": "slides/slides-07.html#recap-sklearn-countvectorizer",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Recap: sklearn CountVectorizer",
+    "text": "Recap: sklearn CountVectorizer\n\nUse scikit-learn’s CountVectorizer to encode text data\nCountVectorizer: Transforms text into a matrix of token counts\nImportant parameters:\n\nmax_features: Control the number of features used in the model\nmax_df, min_df: Control document frequency thresholds\nngram_range: Defines the range of n-grams to be extracted\nstop_words: Enables the removal of common words that are typically uninformative in most applications, such as “and”, “the”, etc."
+  },
+  {
+    "objectID": "slides/slides-07.html#recap-incorporating-text-features-in-a-machine-learning-pipeline",
+    "href": "slides/slides-07.html#recap-incorporating-text-features-in-a-machine-learning-pipeline",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Recap: Incorporating text features in a machine learning pipeline",
+    "text": "Recap: Incorporating text features in a machine learning pipeline\nfrom sklearn.feature_extraction.text import CountVectorizer\nfrom sklearn.svm import SVC\nfrom sklearn.pipeline import make_pipeline\n\ntext_pipeline = make_pipeline(\n    CountVectorizer(),\n    SVC()\n)"
+  },
+  {
+    "objectID": "slides/slides-07.html#iclicker-exercise-6.1",
+    "href": "slides/slides-07.html#iclicker-exercise-6.1",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "(iClicker) Exercise 6.1",
+    "text": "(iClicker) Exercise 6.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nYou could carry out cross-validation by passing a ColumnTransformer object to cross_validate.\n\n\nAfter applying column transformer, the order of the columns in the transformed data has to be the same as the order of the columns in the original data.\n\n\nAfter applying a column transformer, the transformed data is always going to be of different shape than the original data.\n\n\nWhen you call fit_transform on a ColumnTransformer object, you get a numpy ndarray."
+  },
+  {
+    "objectID": "slides/slides-07.html#iclicker-exercise-6.2",
+    "href": "slides/slides-07.html#iclicker-exercise-6.2",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "(iClicker) Exercise 6.2",
+    "text": "(iClicker) Exercise 6.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nhandle_unknown=\"ignore\" would treat all unknown categories equally.\n\n\nAs you increase the value for max_features hyperparameter of CountVectorizer the training score is likely to go up.\n\n\nSuppose you are encoding text data using CountVectorizer. If you encounter a word in the validation or the test split that’s not available in the training data, we’ll get an error.\n\n\nIn the code below, inside cross_validate, each fold might have slightly different number of features (columns) in the fold.\n\n\npipe = (CountVectorizer(), SVC())\ncross_validate(pipe, X_train, y_train)"
+  },
+  {
+    "objectID": "slides/slides-07.html#linear-models-1",
+    "href": "slides/slides-07.html#linear-models-1",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Linear models",
+    "text": "Linear models\n\n\n\nLinear models make an assumption that the relationship between X and y is linear.\nIn this case, with only one feature, our model is a straight line.\nWhat do we need to represent a line?\n\nSlope (\\(w_1\\)): Determines the angle of the line.\nY-intercept (\\(w_0\\)): Where the line crosses the y-axis.\n\n\n\n\n\n\n\n\n\n\n\n\n\nMaking predictions\n\n\\[ y_{hat} = w_1 \\times \\text{# hours studied} + w_0\\]"
+  },
+  {
+    "objectID": "slides/slides-07.html#ridge-vs.-linearregression",
+    "href": "slides/slides-07.html#ridge-vs.-linearregression",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Ridge vs. LinearRegression",
+    "text": "Ridge vs. LinearRegression\n\nOrdinary linear regression is sensitive to multicolinearity and overfitting\nMulticolinearity: Overlapping and redundant features. Most of the real-world datasets have colinear features.\n\nLinear regression may produce large and unstable coefficients in such cases.\nRidge adds a parameter to control the complexity of a model. Finds a line that balances fit and prevents overly large coefficients."
+  },
+  {
+    "objectID": "slides/slides-07.html#when-to-use-what",
+    "href": "slides/slides-07.html#when-to-use-what",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "When to use what?",
+    "text": "When to use what?\n\nLinearRegression\n\nWhen interpretability is key, and no multicollinearity exists\n\nRidge\n\nWhen you have multicollinearity (highly correlated features).\nWhen you want to prevent overfitting in linear models.\n\nIn this course, we’ll use Ridge."
+  },
+  {
+    "objectID": "slides/slides-07.html#iclicker-exercise-7.1",
+    "href": "slides/slides-07.html#iclicker-exercise-7.1",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "(iClicker) Exercise 7.1",
+    "text": "(iClicker) Exercise 7.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nIncreasing the hyperparameter alpha of Ridge is likely to decrease model complexity.\n\n\nRidge can be used with datasets that have multiple features.\n\n\nWith Ridge, we learn one coefficient per training example.\n\n\nIf you train a linear regression model on a 2-dimensional problem (2 features), the model will learn 3 parameters: one for each feature and one for the bias term."
+  },
+  {
+    "objectID": "slides/slides-07.html#logistic-regression",
+    "href": "slides/slides-07.html#logistic-regression",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nSuppose your target is binary: pass or fail\nLogistic regression is used for such binary classification tasks.\n\nLogistic regression predicts a probability that the given example belongs to a particular class.\nIt uses Sigmoid function to map any real-valued input into a value between 0 and 1, representing the probability of a specific outcome.\nA threshold (usually 0.5) is applied to the predicted probability to decide the final class label."
+  },
+  {
+    "objectID": "slides/slides-07.html#logistic-regression-decision-boundary",
+    "href": "slides/slides-07.html#logistic-regression-decision-boundary",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Logistic regression: Decision boundary",
+    "text": "Logistic regression: Decision boundary\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe decision boundary is the point on the x-axis where the corresponding predicted probability on the y-axis is 0.5."
+  },
+  {
+    "objectID": "slides/slides-07.html#decision-boundary-of-logistic-regression",
+    "href": "slides/slides-07.html#decision-boundary-of-logistic-regression",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Decision boundary of logistic regression",
+    "text": "Decision boundary of logistic regression"
+  },
+  {
+    "objectID": "slides/slides-07.html#parametric-vs.-non-parametric-models-high-level",
+    "href": "slides/slides-07.html#parametric-vs.-non-parametric-models-high-level",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Parametric vs. non-Parametric models (high-level)",
+    "text": "Parametric vs. non-Parametric models (high-level)\n\nImagine you are training a logistic regression model. For each of the following scenarios, identify how many parameters (weights and biases) will be learned.\nScenario 1: 100 features and 1,000 examples\nScenario 2: 100 features and 1 million examples"
+  },
+  {
+    "objectID": "slides/slides-07.html#parametric-vs.-non-parametric-models-high-level-1",
+    "href": "slides/slides-07.html#parametric-vs.-non-parametric-models-high-level-1",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Parametric vs. non-Parametric models (high-level)",
+    "text": "Parametric vs. non-Parametric models (high-level)\n\n\nParametric\n\nExamples: Logistic regression, linear regression, linear SVM\n\nModels with a fixed number of parameters, regardless of the dataset size\nSimple, computationally efficient, less prone to overfitting\nLess flexible, may not capture complex relationships\n\n\nNon parametric\n\nExamples: KNN, SVM RBF, Decision tree with no specific depth specified\nModels where the number of parameters grows with the dataset size. They do not assume a fixed form for the functions being learned.\nFlexible, can adapt to complex patterns\nComputationally expensive, risk of overfitting with noisy data"
+  },
+  {
+    "objectID": "slides/slides-07.html#iclicker-exercise-7.2",
+    "href": "slides/slides-07.html#iclicker-exercise-7.2",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "(iClicker) Exercise 7.2",
+    "text": "(iClicker) Exercise 7.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nIncreasing logistic regression’s C hyperparameter increases model complexity.\n\n\nThe raw output score can be used to calculate the probability score for a given prediction.\n\n\nFor linear classifier trained on \\(d\\) features, the decision boundary is a \\(d-1\\)-dimensional hyperparlane.\n\n\nA linear model is likely to be uncertain about the data points close to the decision boundary."
+  },
+  {
+    "objectID": "slides/slides-07.html#linear-svm",
+    "href": "slides/slides-07.html#linear-svm",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Linear SVM",
+    "text": "Linear SVM\n\nWe have seen non-linear SVM with RBF kernel before. This is the default SVC model in sklearn because it tends to work better in many cases.\nThere is also a linear SVM. You can pass kernel=\"linear\" to create a linear SVM.\npredict method of linear SVM and logistic regression works the same way.\nWe can get coef_ associated with the features and intercept_ using a Linear SVM model"
+  },
+  {
+    "objectID": "slides/slides-07.html#summary",
+    "href": "slides/slides-07.html#summary",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Summary",
+    "text": "Summary"
+  },
+  {
+    "objectID": "slides/slides-07.html#summary-of-linear-models",
+    "href": "slides/slides-07.html#summary-of-linear-models",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Summary of linear models",
+    "text": "Summary of linear models\n\nLinear regression is a linear model for regression whereas logistic regression is a linear model for classification.\nBoth these models learn one coefficient per feature, plus an intercept."
+  },
+  {
+    "objectID": "slides/slides-07.html#interpretation-of-coefficients-in-linear-models",
+    "href": "slides/slides-07.html#interpretation-of-coefficients-in-linear-models",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Interpretation of coefficients in linear models",
+    "text": "Interpretation of coefficients in linear models\n\nThe \\(j\\)th coefficient tells us how feature \\(j\\) affects the prediction\n\nif \\(w_j &gt; 0\\) then increasing \\(x_{ij}\\) moves us toward predicting \\(+1\\)\nif \\(w_j &lt; 0\\) then increasing \\(x_{ij}\\) moves us toward prediction \\(-1\\)\nif \\(w_j = 0\\) then the feature is not used in making a prediction"
+  },
+  {
+    "objectID": "slides/slides-07.html#importance-of-scaling",
+    "href": "slides/slides-07.html#importance-of-scaling",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Importance of scaling",
+    "text": "Importance of scaling\n\nWhen you are interpreting the model coefficients, scaling is crucial.\nIf you do not scale the data, features with smaller magnitude are going to get coefficients with bigger magnitude whereas features with bigger scale are going to get coefficients with smaller magnitude.\nThat said, when you scale the data, feature values become hard to interpret for humans!"
+  },
+  {
+    "objectID": "slides/slides-07.html#limitations-of-linear-models",
+    "href": "slides/slides-07.html#limitations-of-linear-models",
+    "title": "CPSC 330 Lecture 7: Linear models",
+    "section": "Limitations of linear models",
+    "text": "Limitations of linear models\n\nIs your data “linearly separable”? Can you draw a hyperplane between these datapoints that separates them with 0 error.\nIf the training examples can be separated by a linear decision rule, they are linearly separable."
   },
   {
     "objectID": "slides/slides-01.html#learning-outcomes",
