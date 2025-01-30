@@ -81,6 +81,23 @@ separates the classes is a $d-1$ dimensional hyperplane.
   - Higher `C` $\rightarrow$ more complex model meaning larger coefficients
   - Lower `C` $\rightarrow$ less complex model meaning smaller coefficients
 
+## Interpretation of coefficients in linear models 
+
+- The $j$th coefficient tells us how feature $j$ affects the prediction
+  - if $w_j > 0$ then increasing $x_{ij}$ moves us toward predicting $+1$
+  - if $w_j < 0$ then increasing $x_{ij}$ moves us toward prediction $-1$
+  - if $w_j = 0$ then the feature is not used in making a prediction
+
+## Importance of scaling 
+- When you are interpreting the model coefficients, scaling is crucial. 
+- If you do not scale the data, features with smaller magnitude are going to get coefficients with bigger magnitude whereas features with bigger scale are going to get coefficients with smaller magnitude.
+- That said, when you scale the data, feature values become hard to interpret for humans!
+
+## Limitations of linear models 
+
+- Is your data "linearly separable"? Can you draw a hyperplane between these datapoints that separates them with 0 error. 
+- If the training examples can be separated by a linear decision rule, they are **linearly separable**.
+
 
 ## Recap: `CountVectorizer` input 
 
@@ -407,13 +424,3 @@ If we instead used a 100-question test then:
 ## Discussion
 
 Let's say that, for a particular feature, the histograms of that feature are identical for the two target classes. Does that mean the feature is not useful for predicting the target class?
-
-# Looking Ahead
-
-## Group Work: Invention Activity
-
-So far we have looked only at `score` as a metric for evaluating our metrics.
-
-What else could be used as a possible metric? Think of what else might be important for machine learning practioners and stakeholders?
-
-In your group, brainstorm 4 alternative options:
