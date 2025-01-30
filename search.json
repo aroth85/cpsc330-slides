@@ -679,399 +679,6 @@
     "text": "Summary of lectures 5 and 6\n\nMotivation for preprocessing\nCommon preprocessing steps\n\nImputation\nScaling\nOne-hot encoding\n\nGolden rule in the context of preprocessing\nBuilding simple supervised machine learning pipelines using sklearn.pipeline.make_pipeline.\nDefining transformers with multiple transformations ColumnTransformer\nDealing with text features\n\nBag of words representation: CountVectorizer"
   },
   {
-    "objectID": "slides/slides-05.html#announcements",
-    "href": "slides/slides-05.html#announcements",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Announcements",
-    "text": "Announcements\n\nHW1 grades have been posted.\n\nSee syllabus about regrade request etiquette.\n\nHomework 1 solutions have been posted on Canvas under Files tab. Please do not share them with anyone or do not post them anywhere.\nSyllabus quiz is due Jan 24.\nHW3 should be available."
-  },
-  {
-    "objectID": "slides/slides-05.html#learning-outcomes",
-    "href": "slides/slides-05.html#learning-outcomes",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\nFrom this lecture, you will be able to\n\nExplain motivation for preprocessing in supervised machine learning;\nDiscuss golden rule in the context of feature transformations;\nIdentify when to implement feature transformations such as imputation, scaling, and one-hot encoding in a machine learning model development pipeline;\nUse sklearn transformers for applying feature transformations on your dataset;\nUse sklearn.pipeline.Pipeline and sklearn.pipeline.make_pipeline to build a preliminary machine learning pipeline."
-  },
-  {
-    "objectID": "slides/slides-05.html#recap",
-    "href": "slides/slides-05.html#recap",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Recap",
-    "text": "Recap\n\nDecision trees: Split data into subsets based on feature values to create decision rules\n\\(k\\)-NNs: Classify based on the majority vote from k nearest neighbors\nSVM RBFs: Create a boundary using an RBF kernel to separate classes"
-  },
-  {
-    "objectID": "slides/slides-05.html#motivation",
-    "href": "slides/slides-05.html#motivation",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Motivation",
-    "text": "Motivation\n\n\nSo far we have seen\n\nThree ML models (decision trees, \\(k\\)-NNs, SVMs with RBF kernel)\nML fundamentals (train-validation-test split, cross-validation, the fundamental tradeoff, the golden rule)\n\nAre we ready to do machine learning on real-world datasets?\n\nVery often real-world datasets need preprocessing before we use them to build ML models."
-  },
-  {
-    "objectID": "slides/slides-05.html#iclicker-exercise-5.1",
-    "href": "slides/slides-05.html#iclicker-exercise-5.1",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "(iClicker) Exercise 5.1",
-    "text": "(iClicker) Exercise 5.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nTake a guess: In your machine learning project, how much time will you typically spend on data preparation and transformation?\n\n\n~80% of the project time\n\n\n~20% of the project time\n\n\n~50% of the project time\n\n\nNone. Most of the time will be spent on model building\n\n\nThe question is adapted from here."
-  },
-  {
-    "objectID": "slides/slides-05.html#preprocessing-motivation-example",
-    "href": "slides/slides-05.html#preprocessing-motivation-example",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Preprocessing motivation: example",
-    "text": "Preprocessing motivation: example\nYou’re trying to find a suitable date based on:\n\nAge (closer to yours is better).\nNumber of Facebook Friends (how should we interpret?)."
-  },
-  {
-    "objectID": "slides/slides-05.html#preprocessing-motivation-example-1",
-    "href": "slides/slides-05.html#preprocessing-motivation-example-1",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Preprocessing motivation: example",
-    "text": "Preprocessing motivation: example\n\nYou are 30 years old and have 250 Facebook friends.\n\n\n\n\n\n\n\n\n\n\n\nPerson\nAge\n#FB Friends\nEuclidean Distance Calculation\nDistance\n\n\n\n\nA\n25\n400\n√(5² + 150²)\n150.08\n\n\nB\n27\n300\n√(3² + 50²)\n50.09\n\n\nC\n30\n500\n√(0² + 250²)\n250.00\n\n\nD\n60\n250\n√(30² + 0²)\n30.00\n\n\n\nBased on the distances, the two nearest neighbors (2-NN) are:\n\nPerson D (Distance: 30.00)\nPerson B (Distance: 50.09)\n\nWhat’s the problem here?"
-  },
-  {
-    "objectID": "slides/slides-05.html#imputation-fill-the-gaps",
-    "href": "slides/slides-05.html#imputation-fill-the-gaps",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Imputation: Fill the gaps! (🟩 🟧 🟦)",
-    "text": "Imputation: Fill the gaps! (🟩 🟧 🟦)\nFill in missing data using a chosen strategy:\n\nMean: Replace missing values with the average of the available data.\nMedian: Use the middle value.\nMost Frequent: Use the most common value (mode).\nKNN Imputation: Fill based on similar neighbors.\n\nExample:\nImputation is like filling in your average or median or most frequent grade for an assessment you missed.\nfrom sklearn.impute import SimpleImputer\nimputer = SimpleImputer(strategy='mean')\nX_imputed = imputer.fit_transform(X)"
-  },
-  {
-    "objectID": "slides/slides-05.html#scaling-everything-to-the-same-range",
-    "href": "slides/slides-05.html#scaling-everything-to-the-same-range",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Scaling: Everything to the same range! (📉 📈)",
-    "text": "Scaling: Everything to the same range! (📉 📈)\nEnsure all features have a comparable range.\n\nStandardScaler: Mean = 0, Standard Deviation = 1.\n\nExample:\nScaling is like adjusting the number of everyone’s Facebook friends so that both the number of friends and their age are on a comparable scale. This way, one feature doesn’t dominate the other when making comparisons.\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)"
-  },
-  {
-    "objectID": "slides/slides-05.html#iclicker-exercise-5.2",
-    "href": "slides/slides-05.html#iclicker-exercise-5.2",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "(iClicker) Exercise 5.2",
-    "text": "(iClicker) Exercise 5.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nStandardScaler ensures a fixed range (i.e., minimum and maximum values) for the features.\n\n\nStandardScaler calculates mean and standard deviation for each feature separately.\n\n\nIn general, it’s a good idea to apply scaling on numeric features before training \\(k\\)-NN or SVM RBF models.\n\n\nThe transformed feature values might be hard to interpret for humans.\n\n\nAfter applying SimpleImputer the transformed data has a different shape than the original data."
-  },
-  {
-    "objectID": "slides/slides-05.html#one-hot-encoding-1-0-0",
-    "href": "slides/slides-05.html#one-hot-encoding-1-0-0",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "One-Hot encoding: 🍎 → 1️⃣ 0️⃣ 0️⃣",
-    "text": "One-Hot encoding: 🍎 → 1️⃣ 0️⃣ 0️⃣\nConvert categorical features into binary columns.\n\nCreates new binary columns for each category.\nUseful for handling categorical data in machine learning models.\n\nExample:\nTurn “Apple, Banana, Orange” into binary columns:\n\n\n\nFruit\n🍎\n🍌\n🍊\n\n\n\n\nApple 🍎\n1\n0\n0\n\n\nBanana 🍌\n0\n1\n0\n\n\nOrange 🍊\n0\n0\n1\n\n\n\nfrom sklearn.preprocessing import OneHotEncoder\nencoder = OneHotEncoder()\nX_encoded = encoder.fit_transform(X)"
-  },
-  {
-    "objectID": "slides/slides-05.html#ordinal-encoding-ranking-matters-3",
-    "href": "slides/slides-05.html#ordinal-encoding-ranking-matters-3",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Ordinal encoding: Ranking matters! (⭐️⭐️⭐️ → 3️⃣)",
-    "text": "Ordinal encoding: Ranking matters! (⭐️⭐️⭐️ → 3️⃣)\nConvert categories into integer values that have a meaningful order.\n\nAssign integers based on order or rank.\nUseful when there is an inherent ranking in the data.\n\nExample:\nTurn “Poor, Average, Good” into 1, 2, 3:\n\n\n\nRating\nOrdinal\n\n\n\n\nPoor\n1\n\n\nAverage\n2\n\n\nGood\n3\n\n\n\nfrom sklearn.preprocessing import OrdinalEncoder\nencoder = OrdinalEncoder()\nX_ordinal = encoder.fit_transform(X)"
-  },
-  {
-    "objectID": "slides/slides-05.html#transformers",
-    "href": "slides/slides-05.html#transformers",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Transformers",
-    "text": "Transformers\n\nAre used to transform or preprocess data.\nImplement the fit and transform methods.\n\nfit(X): Learns parameters from the data.\ntransform(X): Applies the learned transformation to the data.\n\nExamples:\n\nImputation (SimpleImputer): Fills missing values.\nScaling (StandardScaler): Standardizes features.\n\n\n\n\nfit_transform(X): Convenience method for calling fit and then transform on the same data."
-  },
-  {
-    "objectID": "slides/slides-05.html#estimators",
-    "href": "slides/slides-05.html#estimators",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Estimators",
-    "text": "Estimators\n\nUsed to make predictions.\nImplement fit and predict methods.\n\nfit(X, y): Learns from labeled data.\npredict(X): Makes predictions on new data.\n\nExamples: DecisionTreeClassifier, SVC, KNeighborsClassifier\n\n\n\nRegression models are also estimators"
-  },
-  {
-    "objectID": "slides/slides-05.html#how-to-carry-out-cross-validation-improper",
-    "href": "slides/slides-05.html#how-to-carry-out-cross-validation-improper",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "How to carry out cross-validation? (improper)",
-    "text": "How to carry out cross-validation? (improper)"
-  },
-  {
-    "objectID": "slides/slides-05.html#how-to-carry-out-cross-validation-proper",
-    "href": "slides/slides-05.html#how-to-carry-out-cross-validation-proper",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "How to carry out cross-validation? (proper)",
-    "text": "How to carry out cross-validation? (proper)"
-  },
-  {
-    "objectID": "slides/slides-05.html#the-golden-rule-in-feature-transformations",
-    "href": "slides/slides-05.html#the-golden-rule-in-feature-transformations",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "The golden rule in feature transformations",
-    "text": "The golden rule in feature transformations\n\nNever transform the entire dataset at once!\nWhy? It leads to data leakage — using information from the test set in your training process, which can artificially inflate model performance.\nFit transformers like scalers and imputers on the training set only.\nApply the transformations to both the training and test sets separately.\n\nExample:\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)"
-  },
-  {
-    "objectID": "slides/slides-05.html#sklearn-pipelines",
-    "href": "slides/slides-05.html#sklearn-pipelines",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "sklearn Pipelines",
-    "text": "sklearn Pipelines\n\nPipeline is a way to chain multiple steps (e.g., preprocessing + model fitting) into a single workflow.\nSimplify the code and improves readability.\nReduce the risk of data leakage by ensuring proper transformation of the training and test sets.\nAutomatically apply transformations in sequence.\n\nExample:\nChaining a StandardScaler with a KNeighborsClassifier model.\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.neighbors import KNeighborsClassifier\n\npipeline = make_pipeline(StandardScaler(), KNeighborsClassifier())\n\npipeline.fit(X_train, y_train)\ny_pred = pipeline.predict(X_test)"
-  },
-  {
-    "objectID": "slides/slides-05.html#iclicker-exercise-5.3",
-    "href": "slides/slides-05.html#iclicker-exercise-5.3",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "(iClicker) Exercise 5.3",
-    "text": "(iClicker) Exercise 5.3\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nYou can have scaling of numeric features, one-hot encoding of categorical features, and scikit-learn estimator within a single pipeline.\n\n\nOnce you have a scikit-learn pipeline object with an estimator as the last step, you can call fit, predict, and score on it.\n\n\nYou can carry out data splitting within scikit-learn pipeline.\n\n\nWe have to be careful of the order we put each transformation and model in a pipeline."
-  },
-  {
-    "objectID": "lecture-06.html",
-    "href": "lecture-06.html",
-    "title": "Lecture 6: sklearn column transformer and text fearutres",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 6: `sklearn` column transformer and text fearutres"
-    ]
-  },
-  {
-    "objectID": "lecture-06.html#slides",
-    "href": "lecture-06.html#slides",
-    "title": "Lecture 6: sklearn column transformer and text fearutres",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 6: `sklearn` column transformer and text fearutres"
-    ]
-  },
-  {
-    "objectID": "lecture-06.html#outline",
-    "href": "lecture-06.html#outline",
-    "title": "Lecture 6: sklearn column transformer and text fearutres",
-    "section": "Outline",
-    "text": "Outline\n\nRecap\nColumn transformer\nArguments of one-hot encoder\nsklearn CountVectorizer\nincorporating text features in the pipeline",
-    "crumbs": [
-      "Lectures",
-      "Lecture 6: `sklearn` column transformer and text fearutres"
-    ]
-  },
-  {
-    "objectID": "lecture-04.html",
-    "href": "lecture-04.html",
-    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 4: k-nearest neighbours and SVM RBFs"
-    ]
-  },
-  {
-    "objectID": "lecture-04.html#slides",
-    "href": "lecture-04.html#slides",
-    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 4: k-nearest neighbours and SVM RBFs"
-    ]
-  },
-  {
-    "objectID": "lecture-04.html#outline",
-    "href": "lecture-04.html#outline",
-    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
-    "section": "Outline",
-    "text": "Outline\n\nRecap\nSimilarity-based algorithms\n\\(k\\)-nearest neighbours intuitions\nCurse of dimensionality\nSVM with RBF kernel intuition\nInterpretation of C and gamma hyperparameters of SVM RBF",
-    "crumbs": [
-      "Lectures",
-      "Lecture 4: k-nearest neighbours and SVM RBFs"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html",
-    "href": "lecture-02.html",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html#slides",
-    "href": "lecture-02.html#slides",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lecture-02.html#outline",
-    "href": "lecture-02.html#outline",
-    "title": "Lecture 2: Terminology, baselines, decision trees",
-    "section": "Outline",
-    "text": "Outline\n\nFeatures, target, examples, training\nParameters and hyperparameters\nDecision boundary\nClassification vs. regression\nInference vs. prediction\nAccuracy vs. error, baselines\nIntuition of decision trees",
-    "crumbs": [
-      "Lectures",
-      "Lecture 2: Terminology, baselines, decision trees"
-    ]
-  },
-  {
-    "objectID": "lectures.html",
-    "href": "lectures.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Lectures",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "lectures.html#schedule",
-    "href": "lectures.html#schedule",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Lectures",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Welcome to CPSC330! Here, you’ll find slides for CPSC 330 Section 204. These slides are based on the notes present here.\n\nClass times 🕘 11 am to 12:20 pm\nWhere? 📍 Geography Building (GEOG) - 212, 1984 West Mall, Vancouver, BC V6T 1Z2"
-  },
-  {
-    "objectID": "lecture-01.html",
-    "href": "lecture-01.html",
-    "title": "Lecture 1: Course introduction",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-01.html#slides",
-    "href": "lecture-01.html#slides",
-    "title": "Lecture 1: Course introduction",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-01.html#outline",
-    "href": "lecture-01.html#outline",
-    "title": "Lecture 1: Course introduction",
-    "section": "Outline",
-    "text": "Outline\n\nWhat is machine learning\nTypes of machine learning\nLearning to navigate through the course materials\nGetting familiar with the course policies",
-    "crumbs": [
-      "Lectures",
-      "Lecture 1: Course introduction"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html",
-    "href": "lecture-03.html",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html#slides",
-    "href": "lecture-03.html#slides",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-03.html#outline",
-    "href": "lecture-03.html#outline",
-    "title": "Lecture 3: ML fundamentals",
-    "section": "Outline",
-    "text": "Outline\n\nGeneralization, data splitting\nCross-validation\nOverfitting, underfitting, the fundamental tradeoff\nThe golden rule",
-    "crumbs": [
-      "Lectures",
-      "Lecture 3: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "lecture-05.html",
-    "href": "lecture-05.html",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 5: Preprocessing and sklearn pipelines"
-    ]
-  },
-  {
-    "objectID": "lecture-05.html#slides",
-    "href": "lecture-05.html#slides",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 5: Preprocessing and sklearn pipelines"
-    ]
-  },
-  {
-    "objectID": "lecture-05.html#outline",
-    "href": "lecture-05.html#outline",
-    "title": "Lecture 5: Preprocessing and sklearn pipelines",
-    "section": "Outline",
-    "text": "Outline\n\nRecap\nPreprocessing motivation\nCommon transformations in sklearn\nsklearn transformers vs. Estimators\nThe golden rule in the feature transformations\nsklearn pipelines",
-    "crumbs": [
-      "Lectures",
-      "Lecture 5: Preprocessing and sklearn pipelines"
-    ]
-  },
-  {
-    "objectID": "lecture-07.html",
-    "href": "lecture-07.html",
-    "title": "Lecture 7: Linear models",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 7: Linear models"
-    ]
-  },
-  {
-    "objectID": "lecture-07.html#slides",
-    "href": "lecture-07.html#slides",
-    "title": "Lecture 7: Linear models",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Lectures",
-      "Lecture 7: Linear models"
-    ]
-  },
-  {
-    "objectID": "lecture-07.html#outline",
-    "href": "lecture-07.html#outline",
-    "title": "Lecture 7: Linear models",
-    "section": "Outline",
-    "text": "Outline\n\nIntuition behind linear models\nLinear regression and logistic regression\nscikit-learn’s Ridge model\nPrediction probabilities\nInterpret model predictions using coefficients learned by a linear model\nParametric vs. non-parametric models",
-    "crumbs": [
-      "Lectures",
-      "Lecture 7: Linear models"
-    ]
-  },
-  {
     "objectID": "slides/slides-07.html#announcements",
     "href": "slides/slides-07.html#announcements",
     "title": "CPSC 330 Lecture 7: Linear models",
@@ -1238,6 +845,698 @@
     "title": "CPSC 330 Lecture 7: Linear models",
     "section": "Limitations of linear models",
     "text": "Limitations of linear models\n\nIs your data “linearly separable”? Can you draw a hyperplane between these datapoints that separates them with 0 error.\nIf the training examples can be separated by a linear decision rule, they are linearly separable."
+  },
+  {
+    "objectID": "lecture-08.html",
+    "href": "lecture-08.html",
+    "title": "Lecture 8: Hyperparameter Optimization",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 8: Hyperparameter Optimization"
+    ]
+  },
+  {
+    "objectID": "lecture-08.html#slides",
+    "href": "lecture-08.html#slides",
+    "title": "Lecture 8: Hyperparameter Optimization",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 8: Hyperparameter Optimization"
+    ]
+  },
+  {
+    "objectID": "lecture-08.html#outline",
+    "href": "lecture-08.html#outline",
+    "title": "Lecture 8: Hyperparameter Optimization",
+    "section": "Outline",
+    "text": "Outline\n\nWhy hyperparameter optimization?\nHyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV\nOptimization bias",
+    "crumbs": [
+      "Lectures",
+      "Lecture 8: Hyperparameter Optimization"
+    ]
+  },
+  {
+    "objectID": "lecture-06.html",
+    "href": "lecture-06.html",
+    "title": "Lecture 6: sklearn column transformer and text fearutres",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 6: `sklearn` column transformer and text fearutres"
+    ]
+  },
+  {
+    "objectID": "lecture-06.html#slides",
+    "href": "lecture-06.html#slides",
+    "title": "Lecture 6: sklearn column transformer and text fearutres",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 6: `sklearn` column transformer and text fearutres"
+    ]
+  },
+  {
+    "objectID": "lecture-06.html#outline",
+    "href": "lecture-06.html#outline",
+    "title": "Lecture 6: sklearn column transformer and text fearutres",
+    "section": "Outline",
+    "text": "Outline\n\nRecap\nColumn transformer\nArguments of one-hot encoder\nsklearn CountVectorizer\nincorporating text features in the pipeline",
+    "crumbs": [
+      "Lectures",
+      "Lecture 6: `sklearn` column transformer and text fearutres"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html",
+    "href": "lecture-04.html",
+    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: k-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html#slides",
+    "href": "lecture-04.html#slides",
+    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: k-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-04.html#outline",
+    "href": "lecture-04.html#outline",
+    "title": "Lecture 4: k-nearest neighbours and SVM RBFs",
+    "section": "Outline",
+    "text": "Outline\n\nRecap\nSimilarity-based algorithms\n\\(k\\)-nearest neighbours intuitions\nCurse of dimensionality\nSVM with RBF kernel intuition\nInterpretation of C and gamma hyperparameters of SVM RBF",
+    "crumbs": [
+      "Lectures",
+      "Lecture 4: k-nearest neighbours and SVM RBFs"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html",
+    "href": "lecture-02.html",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html#slides",
+    "href": "lecture-02.html#slides",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lecture-02.html#outline",
+    "href": "lecture-02.html#outline",
+    "title": "Lecture 2: Terminology, baselines, decision trees",
+    "section": "Outline",
+    "text": "Outline\n\nFeatures, target, examples, training\nParameters and hyperparameters\nDecision boundary\nClassification vs. regression\nInference vs. prediction\nAccuracy vs. error, baselines\nIntuition of decision trees",
+    "crumbs": [
+      "Lectures",
+      "Lecture 2: Terminology, baselines, decision trees"
+    ]
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\nLecture 8: Hyperparameter Optimization\n\n\nmotivation for hyperparameter optimization, hyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV, optimization bias\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Lectures",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "lectures.html#schedule",
+    "href": "lectures.html#schedule",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\nLecture 8: Hyperparameter Optimization\n\n\nmotivation for hyperparameter optimization, hyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV, optimization bias\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Lectures",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome to CPSC330! Here, you’ll find slides for CPSC 330 Section 204. These slides are based on the notes present here.\n\nClass times 🕘 11 am to 12:20 pm\nWhere? 📍 Geography Building (GEOG) - 212, 1984 West Mall, Vancouver, BC V6T 1Z2"
+  },
+  {
+    "objectID": "lecture-01.html",
+    "href": "lecture-01.html",
+    "title": "Lecture 1: Course introduction",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-01.html#slides",
+    "href": "lecture-01.html#slides",
+    "title": "Lecture 1: Course introduction",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-01.html#outline",
+    "href": "lecture-01.html#outline",
+    "title": "Lecture 1: Course introduction",
+    "section": "Outline",
+    "text": "Outline\n\nWhat is machine learning\nTypes of machine learning\nLearning to navigate through the course materials\nGetting familiar with the course policies",
+    "crumbs": [
+      "Lectures",
+      "Lecture 1: Course introduction"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html",
+    "href": "lecture-03.html",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html#slides",
+    "href": "lecture-03.html#slides",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-03.html#outline",
+    "href": "lecture-03.html#outline",
+    "title": "Lecture 3: ML fundamentals",
+    "section": "Outline",
+    "text": "Outline\n\nGeneralization, data splitting\nCross-validation\nOverfitting, underfitting, the fundamental tradeoff\nThe golden rule",
+    "crumbs": [
+      "Lectures",
+      "Lecture 3: ML fundamentals"
+    ]
+  },
+  {
+    "objectID": "lecture-05.html",
+    "href": "lecture-05.html",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 5: Preprocessing and sklearn pipelines"
+    ]
+  },
+  {
+    "objectID": "lecture-05.html#slides",
+    "href": "lecture-05.html#slides",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 5: Preprocessing and sklearn pipelines"
+    ]
+  },
+  {
+    "objectID": "lecture-05.html#outline",
+    "href": "lecture-05.html#outline",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Outline",
+    "text": "Outline\n\nRecap\nPreprocessing motivation\nCommon transformations in sklearn\nsklearn transformers vs. Estimators\nThe golden rule in the feature transformations\nsklearn pipelines",
+    "crumbs": [
+      "Lectures",
+      "Lecture 5: Preprocessing and sklearn pipelines"
+    ]
+  },
+  {
+    "objectID": "lecture-07.html",
+    "href": "lecture-07.html",
+    "title": "Lecture 7: Linear models",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 7: Linear models"
+    ]
+  },
+  {
+    "objectID": "lecture-07.html#slides",
+    "href": "lecture-07.html#slides",
+    "title": "Lecture 7: Linear models",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 7: Linear models"
+    ]
+  },
+  {
+    "objectID": "lecture-07.html#outline",
+    "href": "lecture-07.html#outline",
+    "title": "Lecture 7: Linear models",
+    "section": "Outline",
+    "text": "Outline\n\nIntuition behind linear models\nLinear regression and logistic regression\nscikit-learn’s Ridge model\nPrediction probabilities\nInterpret model predictions using coefficients learned by a linear model\nParametric vs. non-parametric models",
+    "crumbs": [
+      "Lectures",
+      "Lecture 7: Linear models"
+    ]
+  },
+  {
+    "objectID": "slides/slides-05.html#announcements",
+    "href": "slides/slides-05.html#announcements",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW1 grades have been posted.\n\nSee syllabus about regrade request etiquette.\n\nHomework 1 solutions have been posted on Canvas under Files tab. Please do not share them with anyone or do not post them anywhere.\nSyllabus quiz is due Jan 24.\nHW3 should be available."
+  },
+  {
+    "objectID": "slides/slides-05.html#learning-outcomes",
+    "href": "slides/slides-05.html#learning-outcomes",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nFrom this lecture, you will be able to\n\nExplain motivation for preprocessing in supervised machine learning;\nDiscuss golden rule in the context of feature transformations;\nIdentify when to implement feature transformations such as imputation, scaling, and one-hot encoding in a machine learning model development pipeline;\nUse sklearn transformers for applying feature transformations on your dataset;\nUse sklearn.pipeline.Pipeline and sklearn.pipeline.make_pipeline to build a preliminary machine learning pipeline."
+  },
+  {
+    "objectID": "slides/slides-05.html#recap",
+    "href": "slides/slides-05.html#recap",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Recap",
+    "text": "Recap\n\nDecision trees: Split data into subsets based on feature values to create decision rules\n\\(k\\)-NNs: Classify based on the majority vote from k nearest neighbors\nSVM RBFs: Create a boundary using an RBF kernel to separate classes"
+  },
+  {
+    "objectID": "slides/slides-05.html#motivation",
+    "href": "slides/slides-05.html#motivation",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Motivation",
+    "text": "Motivation\n\n\nSo far we have seen\n\nThree ML models (decision trees, \\(k\\)-NNs, SVMs with RBF kernel)\nML fundamentals (train-validation-test split, cross-validation, the fundamental tradeoff, the golden rule)\n\nAre we ready to do machine learning on real-world datasets?\n\nVery often real-world datasets need preprocessing before we use them to build ML models."
+  },
+  {
+    "objectID": "slides/slides-05.html#iclicker-exercise-5.1",
+    "href": "slides/slides-05.html#iclicker-exercise-5.1",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "(iClicker) Exercise 5.1",
+    "text": "(iClicker) Exercise 5.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nTake a guess: In your machine learning project, how much time will you typically spend on data preparation and transformation?\n\n\n~80% of the project time\n\n\n~20% of the project time\n\n\n~50% of the project time\n\n\nNone. Most of the time will be spent on model building\n\n\nThe question is adapted from here."
+  },
+  {
+    "objectID": "slides/slides-05.html#preprocessing-motivation-example",
+    "href": "slides/slides-05.html#preprocessing-motivation-example",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Preprocessing motivation: example",
+    "text": "Preprocessing motivation: example\nYou’re trying to find a suitable date based on:\n\nAge (closer to yours is better).\nNumber of Facebook Friends (how should we interpret?)."
+  },
+  {
+    "objectID": "slides/slides-05.html#preprocessing-motivation-example-1",
+    "href": "slides/slides-05.html#preprocessing-motivation-example-1",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Preprocessing motivation: example",
+    "text": "Preprocessing motivation: example\n\nYou are 30 years old and have 250 Facebook friends.\n\n\n\n\n\n\n\n\n\n\n\nPerson\nAge\n#FB Friends\nEuclidean Distance Calculation\nDistance\n\n\n\n\nA\n25\n400\n√(5² + 150²)\n150.08\n\n\nB\n27\n300\n√(3² + 50²)\n50.09\n\n\nC\n30\n500\n√(0² + 250²)\n250.00\n\n\nD\n60\n250\n√(30² + 0²)\n30.00\n\n\n\nBased on the distances, the two nearest neighbors (2-NN) are:\n\nPerson D (Distance: 30.00)\nPerson B (Distance: 50.09)\n\nWhat’s the problem here?"
+  },
+  {
+    "objectID": "slides/slides-05.html#imputation-fill-the-gaps",
+    "href": "slides/slides-05.html#imputation-fill-the-gaps",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Imputation: Fill the gaps! (🟩 🟧 🟦)",
+    "text": "Imputation: Fill the gaps! (🟩 🟧 🟦)\nFill in missing data using a chosen strategy:\n\nMean: Replace missing values with the average of the available data.\nMedian: Use the middle value.\nMost Frequent: Use the most common value (mode).\nKNN Imputation: Fill based on similar neighbors.\n\nExample:\nImputation is like filling in your average or median or most frequent grade for an assessment you missed.\nfrom sklearn.impute import SimpleImputer\nimputer = SimpleImputer(strategy='mean')\nX_imputed = imputer.fit_transform(X)"
+  },
+  {
+    "objectID": "slides/slides-05.html#scaling-everything-to-the-same-range",
+    "href": "slides/slides-05.html#scaling-everything-to-the-same-range",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Scaling: Everything to the same range! (📉 📈)",
+    "text": "Scaling: Everything to the same range! (📉 📈)\nEnsure all features have a comparable range.\n\nStandardScaler: Mean = 0, Standard Deviation = 1.\n\nExample:\nScaling is like adjusting the number of everyone’s Facebook friends so that both the number of friends and their age are on a comparable scale. This way, one feature doesn’t dominate the other when making comparisons.\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)"
+  },
+  {
+    "objectID": "slides/slides-05.html#iclicker-exercise-5.2",
+    "href": "slides/slides-05.html#iclicker-exercise-5.2",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "(iClicker) Exercise 5.2",
+    "text": "(iClicker) Exercise 5.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nStandardScaler ensures a fixed range (i.e., minimum and maximum values) for the features.\n\n\nStandardScaler calculates mean and standard deviation for each feature separately.\n\n\nIn general, it’s a good idea to apply scaling on numeric features before training \\(k\\)-NN or SVM RBF models.\n\n\nThe transformed feature values might be hard to interpret for humans.\n\n\nAfter applying SimpleImputer the transformed data has a different shape than the original data."
+  },
+  {
+    "objectID": "slides/slides-05.html#one-hot-encoding-1-0-0",
+    "href": "slides/slides-05.html#one-hot-encoding-1-0-0",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "One-Hot encoding: 🍎 → 1️⃣ 0️⃣ 0️⃣",
+    "text": "One-Hot encoding: 🍎 → 1️⃣ 0️⃣ 0️⃣\nConvert categorical features into binary columns.\n\nCreates new binary columns for each category.\nUseful for handling categorical data in machine learning models.\n\nExample:\nTurn “Apple, Banana, Orange” into binary columns:\n\n\n\nFruit\n🍎\n🍌\n🍊\n\n\n\n\nApple 🍎\n1\n0\n0\n\n\nBanana 🍌\n0\n1\n0\n\n\nOrange 🍊\n0\n0\n1\n\n\n\nfrom sklearn.preprocessing import OneHotEncoder\nencoder = OneHotEncoder()\nX_encoded = encoder.fit_transform(X)"
+  },
+  {
+    "objectID": "slides/slides-05.html#ordinal-encoding-ranking-matters-3",
+    "href": "slides/slides-05.html#ordinal-encoding-ranking-matters-3",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Ordinal encoding: Ranking matters! (⭐️⭐️⭐️ → 3️⃣)",
+    "text": "Ordinal encoding: Ranking matters! (⭐️⭐️⭐️ → 3️⃣)\nConvert categories into integer values that have a meaningful order.\n\nAssign integers based on order or rank.\nUseful when there is an inherent ranking in the data.\n\nExample:\nTurn “Poor, Average, Good” into 1, 2, 3:\n\n\n\nRating\nOrdinal\n\n\n\n\nPoor\n1\n\n\nAverage\n2\n\n\nGood\n3\n\n\n\nfrom sklearn.preprocessing import OrdinalEncoder\nencoder = OrdinalEncoder()\nX_ordinal = encoder.fit_transform(X)"
+  },
+  {
+    "objectID": "slides/slides-05.html#transformers",
+    "href": "slides/slides-05.html#transformers",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Transformers",
+    "text": "Transformers\n\nAre used to transform or preprocess data.\nImplement the fit and transform methods.\n\nfit(X): Learns parameters from the data.\ntransform(X): Applies the learned transformation to the data.\n\nExamples:\n\nImputation (SimpleImputer): Fills missing values.\nScaling (StandardScaler): Standardizes features.\n\n\n\n\nfit_transform(X): Convenience method for calling fit and then transform on the same data."
+  },
+  {
+    "objectID": "slides/slides-05.html#estimators",
+    "href": "slides/slides-05.html#estimators",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "Estimators",
+    "text": "Estimators\n\nUsed to make predictions.\nImplement fit and predict methods.\n\nfit(X, y): Learns from labeled data.\npredict(X): Makes predictions on new data.\n\nExamples: DecisionTreeClassifier, SVC, KNeighborsClassifier\n\n\n\nRegression models are also estimators"
+  },
+  {
+    "objectID": "slides/slides-05.html#how-to-carry-out-cross-validation-improper",
+    "href": "slides/slides-05.html#how-to-carry-out-cross-validation-improper",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "How to carry out cross-validation? (improper)",
+    "text": "How to carry out cross-validation? (improper)"
+  },
+  {
+    "objectID": "slides/slides-05.html#how-to-carry-out-cross-validation-proper",
+    "href": "slides/slides-05.html#how-to-carry-out-cross-validation-proper",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "How to carry out cross-validation? (proper)",
+    "text": "How to carry out cross-validation? (proper)"
+  },
+  {
+    "objectID": "slides/slides-05.html#the-golden-rule-in-feature-transformations",
+    "href": "slides/slides-05.html#the-golden-rule-in-feature-transformations",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "The golden rule in feature transformations",
+    "text": "The golden rule in feature transformations\n\nNever transform the entire dataset at once!\nWhy? It leads to data leakage — using information from the test set in your training process, which can artificially inflate model performance.\nFit transformers like scalers and imputers on the training set only.\nApply the transformations to both the training and test sets separately.\n\nExample:\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)"
+  },
+  {
+    "objectID": "slides/slides-05.html#sklearn-pipelines",
+    "href": "slides/slides-05.html#sklearn-pipelines",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "sklearn Pipelines",
+    "text": "sklearn Pipelines\n\nPipeline is a way to chain multiple steps (e.g., preprocessing + model fitting) into a single workflow.\nSimplify the code and improves readability.\nReduce the risk of data leakage by ensuring proper transformation of the training and test sets.\nAutomatically apply transformations in sequence.\n\nExample:\nChaining a StandardScaler with a KNeighborsClassifier model.\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.neighbors import KNeighborsClassifier\n\npipeline = make_pipeline(StandardScaler(), KNeighborsClassifier())\n\npipeline.fit(X_train, y_train)\ny_pred = pipeline.predict(X_test)"
+  },
+  {
+    "objectID": "slides/slides-05.html#iclicker-exercise-5.3",
+    "href": "slides/slides-05.html#iclicker-exercise-5.3",
+    "title": "Lecture 5: Preprocessing and sklearn pipelines",
+    "section": "(iClicker) Exercise 5.3",
+    "text": "(iClicker) Exercise 5.3\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nYou can have scaling of numeric features, one-hot encoding of categorical features, and scikit-learn estimator within a single pipeline.\n\n\nOnce you have a scikit-learn pipeline object with an estimator as the last step, you can call fit, predict, and score on it.\n\n\nYou can carry out data splitting within scikit-learn pipeline.\n\n\nWe have to be careful of the order we put each transformation and model in a pipeline."
+  },
+  {
+    "objectID": "slides/slides-08.html#announcements",
+    "href": "slides/slides-08.html#announcements",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Announcements",
+    "text": "Announcements\n\nImportant information about midterm 1\n\nhttps://piazza.com/class/m4ujp0s4xgm5o5/post/204\n\nHW3 is due next week Monday, Feb 3rd, 11:59 pm.\nReminder my office hours\n\nTuesday from 12:30 to 1:30 in my office ICCS 353"
+  },
+  {
+    "objectID": "slides/slides-08.html#learning-outcomes",
+    "href": "slides/slides-08.html#learning-outcomes",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nExplain the need for hyperparameter optimization\n\nCarry out hyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV\nExplain different hyperparameters of GridSearchCV\nExplain the importance of selecting a good range for the values.\nExplain optimization bias\nIdentify and reason when to trust and not trust reported accuracies"
+  },
+  {
+    "objectID": "slides/slides-08.html#recap-logistic-regression",
+    "href": "slides/slides-08.html#recap-logistic-regression",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Recap: Logistic regression",
+    "text": "Recap: Logistic regression\n\nA linear model used for binary classification tasks.\n\n(Optional) There is am extension of logistic regression called multinomial logistic regression for multiclass classification.\n\nParameters:\n\nCoefficients (Weights): The model learns a coefficient or a weight associated with each feature that represents its importance.\nBias (Intercept): A constant term added to the linear combination of features and their coefficients."
+  },
+  {
+    "objectID": "slides/slides-08.html#recap-logistic-regression-1",
+    "href": "slides/slides-08.html#recap-logistic-regression-1",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Recap: Logistic regression",
+    "text": "Recap: Logistic regression\n\nThe model computes a weighted sum of the input features’ values, adjusted by their respective coefficients and the bias term.\nThis weighted sum is passed through a sigmoid function to transform it into a probability score, indicating the likelihood of the input belonging to the “positive” class.\n\n\\[\\begin{equation}\n\\hat{p} = \\sigma\\left(\\sum_{j=1}^d w_j x_j + b\\right)\n\\end{equation}\\]\n\n\\(\\hat{p}\\) is the predicted probability of the example belonging to the positive class.\n\\(w_j\\) is the learned weight associated with feature \\(j\\)\n\\(x_j\\) is the value of the input feature \\(j\\)\n\\(b\\) is the bias term"
+  },
+  {
+    "objectID": "slides/slides-08.html#recap-logistic-regression-2",
+    "href": "slides/slides-08.html#recap-logistic-regression-2",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Recap: Logistic regression",
+    "text": "Recap: Logistic regression\n\nFor a dataset with \\(d\\) features, the decision boundary that separates the classes is a \\(d-1\\) dimensional hyperplane.\n\nComplexity hyperparameter: C in sklearn.\n\nHigher C \\(\\rightarrow\\) more complex model meaning larger coefficients\nLower C \\(\\rightarrow\\) less complex model meaning smaller coefficients"
+  },
+  {
+    "objectID": "slides/slides-08.html#recap-countvectorizer-input",
+    "href": "slides/slides-08.html#recap-countvectorizer-input",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Recap: CountVectorizer input",
+    "text": "Recap: CountVectorizer input\n\nPrimarily designed to accept either a pandas.Series of text data or a 1D numpy array. It can also process a list of string data directly.\nUnlike many transformers that handle multiple features (DataFrame or 2D numpy array), CountVectorizer a single text column at a time.\nIf your dataset contains multiple text columns, you will need to instantiate separate CountVectorizer objects for each text feature.\nThis approach ensures that the unique vocabulary and tokenization processes are correctly applied to each specific text column without interference."
+  },
+  {
+    "objectID": "slides/slides-08.html#hyperparameter-optimization",
+    "href": "slides/slides-08.html#hyperparameter-optimization",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Hyperparameter optimization",
+    "text": "Hyperparameter optimization"
+  },
+  {
+    "objectID": "slides/slides-08.html#data",
+    "href": "slides/slides-08.html#data",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Data",
+    "text": "Data\n\nsms_df = pd.read_csv(DATA_DIR + \"spam.csv\", encoding=\"latin-1\")\nsms_df = sms_df.drop(columns = [\"Unnamed: 2\", \"Unnamed: 3\", \"Unnamed: 4\"])\nsms_df = sms_df.rename(columns={\"v1\": \"target\", \"v2\": \"sms\"})\ntrain_df, test_df = train_test_split(sms_df, test_size=0.10, random_state=42)\nX_train, y_train = train_df[\"sms\"], train_df[\"target\"]\nX_test, y_test = test_df[\"sms\"], test_df[\"target\"]\ntrain_df.head(4)\n\n\n\n\n\n\n\n\ntarget\nsms\n\n\n\n\n3130\nspam\nLookAtMe!: Thanks for your purchase of a video...\n\n\n106\nham\nAight, I'll hit you up when I get some cash\n\n\n4697\nham\nDon no da:)whats you plan?\n\n\n856\nham\nGoing to take your babe out ?"
+  },
+  {
+    "objectID": "slides/slides-08.html#model-building",
+    "href": "slides/slides-08.html#model-building",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Model building",
+    "text": "Model building\n\nLet’s define a pipeline\n\n\npipe_svm = make_pipeline(CountVectorizer(), SVC())\n\n\nWhat are some hyperparameters for this pipeline?\n\n\n\nSuppose we want to try out different hyperparameter values.\n\n\nparameters = {\n    \"max_features\": [100, 200, 400],\n    \"gamma\": [0.01, 0.1, 1.0],\n    \"C\": [0.01, 0.1, 1.0],\n}"
+  },
+  {
+    "objectID": "slides/slides-08.html#hyperparameters-the-problem",
+    "href": "slides/slides-08.html#hyperparameters-the-problem",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Hyperparameters: the problem",
+    "text": "Hyperparameters: the problem\n\nIn order to improve the generalization performance, finding the best values for the important hyperparameters of a model is necessary for almost all models and datasets.\nPicking good hyperparameters is important because if we don’t do it, we might end up with an underfit or overfit model."
+  },
+  {
+    "objectID": "slides/slides-08.html#manual-hyperparameter-optimization-procedure",
+    "href": "slides/slides-08.html#manual-hyperparameter-optimization-procedure",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Manual hyperparameter optimization procedure",
+    "text": "Manual hyperparameter optimization procedure\n\nDefine a parameter space.\nIterate through possible combinations.\nEvaluate model performance.\n\n\n\nWhat are some limitations of this approach?"
+  },
+  {
+    "objectID": "slides/slides-08.html#manual-hyperparameter-optimization",
+    "href": "slides/slides-08.html#manual-hyperparameter-optimization",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Manual hyperparameter optimization",
+    "text": "Manual hyperparameter optimization\n\nAdvantage: we may have some intuition about what might work.\n\nE.g. if I’m massively overfitting, try decreasing max_depth or C.\n\nDisadvantages\n\nIt takes a lot of work\nNot reproducible\nIn very complicated cases, our intuition might be worse than a data-driven approach"
+  },
+  {
+    "objectID": "slides/slides-08.html#automated-hyperparameter-optimization",
+    "href": "slides/slides-08.html#automated-hyperparameter-optimization",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Automated hyperparameter optimization",
+    "text": "Automated hyperparameter optimization\n\nFormulate the hyperparamter optimization as a one big search problem.\nOften we have many hyperparameters of different types: categorical, integer, and continuous.\nOften, the search space is quite big and systematic search for optimal values is infeasible."
+  },
+  {
+    "objectID": "slides/slides-08.html#sklearn-methods",
+    "href": "slides/slides-08.html#sklearn-methods",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "sklearn methods",
+    "text": "sklearn methods\n\nsklearn provides two main methods for hyperparameter optimization\n\nGrid Search\nRandom Search"
+  },
+  {
+    "objectID": "slides/slides-08.html#grid-search-overview",
+    "href": "slides/slides-08.html#grid-search-overview",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Grid search overview",
+    "text": "Grid search overview\n\nCovers all possible combinations from the provided grid.\nCan be parallelized easily.\nIntegrates cross-validation."
+  },
+  {
+    "objectID": "slides/slides-08.html#grid-search-in-practice",
+    "href": "slides/slides-08.html#grid-search-in-practice",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Grid search in practice",
+    "text": "Grid search in practice\n\nFor GridSearchCV we need\n\nAn instantiated model or a pipeline\nA parameter grid: A user specifies a set of values for each hyperparameter.\nOther optional arguments\n\n\nThe method considers product of the sets and evaluates each combination one by one."
+  },
+  {
+    "objectID": "slides/slides-08.html#grid-search-example",
+    "href": "slides/slides-08.html#grid-search-example",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Grid search example",
+    "text": "Grid search example\n\nfrom sklearn.model_selection import GridSearchCV\n\npipe_svm = make_pipeline(CountVectorizer(), SVC())\n\nparam_grid = {\n    \"countvectorizer__max_features\": [100, 200, 400],\n    \"svc__gamma\": [0.01, 0.1, 1.0],\n    \"svc__C\": [0.01, 0.1, 1.0],\n}\ngrid_search = GridSearchCV(\n  pipe_svm, \n  param_grid=param_grid, \n  n_jobs=-1, \n  return_train_score=True\n)\ngrid_search.fit(X_train, y_train)\ngrid_search.best_score_\n\nnp.float64(0.9782606272997375)\n\n\n\nnjobs=-1 will use all available cores"
+  },
+  {
+    "objectID": "slides/slides-08.html#problems-with-exhaustive-grid-search",
+    "href": "slides/slides-08.html#problems-with-exhaustive-grid-search",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Problems with exhaustive grid search",
+    "text": "Problems with exhaustive grid search\n\nRequired number of models to evaluate grows exponentially with the dimensionally of the configuration space.\nExample: Suppose you have\n\n5 hyperparameters\n10 different values for each hyperparameter\nYou’ll be evaluating \\(10^5=100,000\\) models! That is you’ll be calling cross_validate 100,000 times!\nExhaustive search may become infeasible fairly quickly.\n\nOther options?"
+  },
+  {
+    "objectID": "slides/slides-08.html#random-search-overview",
+    "href": "slides/slides-08.html#random-search-overview",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Random search overview",
+    "text": "Random search overview\n\nMore efficient than grid search when dealing with large hyperparameter spaces.\nSamples a given number of parameter settings from distributions."
+  },
+  {
+    "objectID": "slides/slides-08.html#random-search-example",
+    "href": "slides/slides-08.html#random-search-example",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Random search example",
+    "text": "Random search example\n\nfrom sklearn.model_selection import RandomizedSearchCV\nfrom scipy.stats import loguniform, randint, uniform\n\npipe_svc = make_pipeline(CountVectorizer(), SVC())\n\nparam_dist = {\n    \"countvectorizer__max_features\": randint(100, 2000), \n    \"svc__C\": uniform(0.1, 1e4),  # loguniform(1e-3, 1e3),\n    \"svc__gamma\": loguniform(1e-5, 1e3),\n}\nrandom_search = RandomizedSearchCV(\n  pipe_svm,                                    \n  param_distributions=param_dist, \n  n_iter=10, \n  n_jobs=-1, \n  return_train_score=True\n)\n\n# Carry out the search\nrandom_search.fit(X_train, y_train)\nrandom_search.best_score_\n\nnp.float64(0.9828480625986312)"
+  },
+  {
+    "objectID": "slides/slides-08.html#n_iter",
+    "href": "slides/slides-08.html#n_iter",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "n_iter",
+    "text": "n_iter\n\nNote the n_iter, we didn’t need this for GridSearchCV.\nLarger n_iter will take longer but it’ll do more searching.\n\nRemember you still need to multiply by number of folds!\n\nYou can set random_state for reproducibility but you don’t have to do it."
+  },
+  {
+    "objectID": "slides/slides-08.html#advantages-of-randomizedsearchcv",
+    "href": "slides/slides-08.html#advantages-of-randomizedsearchcv",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Advantages of RandomizedSearchCV",
+    "text": "Advantages of RandomizedSearchCV\n\nFaster compared to GridSearchCV.\nAdding parameters that do not influence the performance does not affect efficiency.\nWorks better when some parameters are more important than others.\nIn general, I recommend using RandomizedSearchCV rather than GridSearchCV."
+  },
+  {
+    "objectID": "slides/slides-08.html#advantages-of-randomizedsearchcv-1",
+    "href": "slides/slides-08.html#advantages-of-randomizedsearchcv-1",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Advantages of RandomizedSearchCV",
+    "text": "Advantages of RandomizedSearchCV"
+  },
+  {
+    "objectID": "slides/slides-08.html#questions-for-class-discussion",
+    "href": "slides/slides-08.html#questions-for-class-discussion",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Questions for class discussion",
+    "text": "Questions for class discussion\n\nSuppose you have 10 hyperparameters, each with 4 possible values. If you run GridSearchCV with this parameter grid, how many cross-validation experiments will be carried out?\nSuppose you have 10 hyperparameters and each takes 4 values. If you run RandomizedSearchCV with this parameter grid with n_iter=20, how many cross-validation experiments will be carried out?"
+  },
+  {
+    "objectID": "slides/slides-08.html#iclicker-exercise-8.1",
+    "href": "slides/slides-08.html#iclicker-exercise-8.1",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "(iClicker) Exercise 8.1",
+    "text": "(iClicker) Exercise 8.1\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nIf you get best results at the edges of your parameter grid, it might be a good idea to adjust the range of values in your parameter grid.\n\n\nGrid search is guaranteed to find the best hyperparameter values.\n\n\nIt is possible to get different hyperparameters in different runs of RandomizedSearchCV."
+  },
+  {
+    "objectID": "slides/slides-08.html#optimization-bias-motivation",
+    "href": "slides/slides-08.html#optimization-bias-motivation",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Optimization bias (motivation)",
+    "text": "Optimization bias (motivation)\n\nWhy do we need to evaluate the model on the test set in the end?\nWhy not just use cross-validation on the whole dataset?\nWhile carrying out hyperparameter optimization, we usually try over many possibilities.\n\nIf our dataset is small and if your validation set is hit too many times, we suffer from optimization bias or overfitting the validation set."
+  },
+  {
+    "objectID": "slides/slides-08.html#optimization-bias-of-parameter-learning",
+    "href": "slides/slides-08.html#optimization-bias-of-parameter-learning",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Optimization bias of parameter learning",
+    "text": "Optimization bias of parameter learning\n\nOverfitting of the training error\nAn example:\n\nDuring training, we could search over tons of different decision trees.\n\nSo we can get “lucky” and find a tree with low training error by chance."
+  },
+  {
+    "objectID": "slides/slides-08.html#optimization-bias-of-hyper-parameter-learning",
+    "href": "slides/slides-08.html#optimization-bias-of-hyper-parameter-learning",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Optimization bias of hyper-parameter learning",
+    "text": "Optimization bias of hyper-parameter learning\n\nOverfitting of the validation error\nAn example:\n\nHere, we might optimize the validation error over 1000 values of max_depth.\nOne of the 1000 trees might have low validation error by chance."
+  },
+  {
+    "objectID": "slides/slides-08.html#optional-example-1-optimization-bias",
+    "href": "slides/slides-08.html#optional-example-1-optimization-bias",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "(Optional) Example 1: Optimization bias",
+    "text": "(Optional) Example 1: Optimization bias\nConsider a multiple-choice (a,b,c,d) “test” with 10 questions:\n\nIf you choose answers randomly, expected grade is 25% (no bias).\nIf you fill out two tests randomly and pick the best, expected grade is 33%.\n\nOptimization bias of ~8%.\n\nIf you take the best among 10 random tests, expected grade is ~47%.\nIf you take the best among 100, expected grade is ~62%.\nIf you take the best among 1000, expected grade is ~73%.\nIf you take the best among 10000, expected grade is ~82%.\n\nYou have so many “chances” that you expect to do well.\n\n\n\nBut on new questions the “random choice” accuracy is still 25%."
+  },
+  {
+    "objectID": "slides/slides-08.html#optional-example-2-optimization-bias",
+    "href": "slides/slides-08.html#optional-example-2-optimization-bias",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "(Optional) Example 2: Optimization bias",
+    "text": "(Optional) Example 2: Optimization bias\nIf we instead used a 100-question test then:\n\nExpected grade from best over 1 randomly-filled test is 25%.\nExpected grade from best over 2 randomly-filled test is ~27%.\nExpected grade from best over 10 randomly-filled test is ~32%.\nExpected grade from best over 100 randomly-filled test is ~36%.\nExpected grade from best over 1000 randomly-filled test is ~40%.\nExpected grade from best over 10000 randomly-filled test is ~43%.\n\n\n\nThe optimization bias grows with the number of things we try.\n\n“Complexity” of the set of models we search over.\n\n\n\n\n\nBut, optimization bias shrinks quickly with the number of examples.\n\nBut it’s still non-zero and growing if you over-use your validation set!"
+  },
+  {
+    "objectID": "slides/slides-08.html#optimization-bias-overview",
+    "href": "slides/slides-08.html#optimization-bias-overview",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Optimization bias overview",
+    "text": "Optimization bias overview\n\nWhy do we need separate validation and test datasets?"
+  },
+  {
+    "objectID": "slides/slides-08.html#this-is-why-we-need-a-test-set",
+    "href": "slides/slides-08.html#this-is-why-we-need-a-test-set",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "This is why we need a test set",
+    "text": "This is why we need a test set\n\nThe frustrating part is that if our dataset is small then our test set is also small 😔.\nBut we don’t have a lot of better alternatives, unfortunately, if we have a small dataset."
+  },
+  {
+    "objectID": "slides/slides-08.html#when-test-score-is-much-lower-than-cv-score",
+    "href": "slides/slides-08.html#when-test-score-is-much-lower-than-cv-score",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "When test score is much lower than CV score",
+    "text": "When test score is much lower than CV score\n\nWhat to do if your test score is much lower than your cross-validation score:\n\nTry simpler models and use the test set a couple of times; it’s not the end of the world.\nCommunicate this clearly when you report the results."
+  },
+  {
+    "objectID": "slides/slides-08.html#mitigating-optimization-bias.",
+    "href": "slides/slides-08.html#mitigating-optimization-bias.",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Mitigating optimization bias.",
+    "text": "Mitigating optimization bias.\n\nCross-validation\nEnsembles\nRegularization and choosing a simpler model"
+  },
+  {
+    "objectID": "slides/slides-08.html#questions-for-you",
+    "href": "slides/slides-08.html#questions-for-you",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Questions for you",
+    "text": "Questions for you\n\nYou have a dataset and you give me 1/10th of it. The dataset given to me is rather small and so I split it into 96% train and 4% validation split. I carry out hyperparameter optimization using a single 4% validation split and report validation accuracy of 0.97. Would it classify the rest of the data with similar accuracy?\n\nProbably\nProbably not"
+  },
+  {
+    "objectID": "slides/slides-08.html#automated-hyperparameter-optimization-1",
+    "href": "slides/slides-08.html#automated-hyperparameter-optimization-1",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Automated hyperparameter optimization",
+    "text": "Automated hyperparameter optimization\n\nAdvantages\n\nReduce human effort\nLess prone to error and improve reproducibility\nData-driven approaches may be effective\n\nDisadvantages\n\nMay be hard to incorporate intuition\nBe careful about overfitting on the validation set"
+  },
+  {
+    "objectID": "slides/slides-08.html#discussion",
+    "href": "slides/slides-08.html#discussion",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Discussion",
+    "text": "Discussion\nLet’s say that, for a particular feature, the histograms of that feature are identical for the two target classes. Does that mean the feature is not useful for predicting the target class?"
+  },
+  {
+    "objectID": "slides/slides-08.html#group-work-invention-activity",
+    "href": "slides/slides-08.html#group-work-invention-activity",
+    "title": "CPSC 330 Lecture 8: Hyperparameter Optimization",
+    "section": "Group Work: Invention Activity",
+    "text": "Group Work: Invention Activity\nSo far we have looked only at score as a metric for evaluating our metrics.\nWhat else could be used as a possible metric? Think of what else might be important for machine learning practioners and stakeholders?\nIn your group, brainstorm 4 alternative options:"
   },
   {
     "objectID": "slides/slides-01.html#learning-outcomes",
