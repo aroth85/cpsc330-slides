@@ -847,6 +847,174 @@
     "text": "Limitations of linear models\n\nIs your data “linearly separable”? Can you draw a hyperplane between these datapoints that separates them with 0 error.\nIf the training examples can be separated by a linear decision rule, they are linearly separable."
   },
   {
+    "objectID": "slides/slides-09.html#announcements",
+    "href": "slides/slides-09.html#announcements",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Announcements",
+    "text": "Announcements\n\nImportant information about midterm 1\n\nhttps://piazza.com/class/m4ujp0s4xgm5o5/post/204\n\nHW4 has been released. Due next week Monday.\nRemember to attend tutorials!\n\nThis weeks tutorial will cover data imbalance and fairness"
+  },
+  {
+    "objectID": "slides/slides-09.html#learning-outcomes",
+    "href": "slides/slides-09.html#learning-outcomes",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nUnderstand why different classification metrics are necessary\nUnderstand when to use different metrics"
+  },
+  {
+    "objectID": "slides/slides-09.html#ml-workflow",
+    "href": "slides/slides-09.html#ml-workflow",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "ML workflow",
+    "text": "ML workflow"
+  },
+  {
+    "objectID": "slides/slides-09.html#accuracy",
+    "href": "slides/slides-09.html#accuracy",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Accuracy",
+    "text": "Accuracy\n\nSo far we have been measuring model performance using Accuracy.\nAccuracy is the proportion of all classifications that were correct, whether positive or negative. \\[Accuracy = \\frac{\\text{correct classifications}}{\\text{total classifications}}\\]\nHowever, in many real-world applications, the dataset is imbalanced or one kind of mistake is more costly than the other\nIn such cases, it’s better to optimize for one of the other metrics instead."
+  },
+  {
+    "objectID": "slides/slides-09.html#fraud-confusion-matrix",
+    "href": "slides/slides-09.html#fraud-confusion-matrix",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Fraud Confusion matrix",
+    "text": "Fraud Confusion matrix\n\nWhich types of errors would be most critical for the bank to address?"
+  },
+  {
+    "objectID": "slides/slides-09.html#fraud-confusion-matrix-1",
+    "href": "slides/slides-09.html#fraud-confusion-matrix-1",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Fraud Confusion matrix",
+    "text": "Fraud Confusion matrix\n\n\n\n\n\nTN \\(\\rightarrow\\) True negatives\nFP \\(\\rightarrow\\) False positives\nFN \\(\\rightarrow\\) False negatives\nTP \\(\\rightarrow\\) True positives"
+  },
+  {
+    "objectID": "slides/slides-09.html#confusion-matrix-questions",
+    "href": "slides/slides-09.html#confusion-matrix-questions",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Confusion matrix questions",
+    "text": "Confusion matrix questions\nImagine a spam filter model where emails classified as spam are labeled 1 and non-spam emails are labeled 0. If a spam email is incorrectly classified as non-spam, what is this error called?\n\n\nA false positive\n\n\nA true positive\n\n\nA false negative\n\n\nA true negative"
+  },
+  {
+    "objectID": "slides/slides-09.html#confusion-matrix-questions-1",
+    "href": "slides/slides-09.html#confusion-matrix-questions-1",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Confusion matrix questions",
+    "text": "Confusion matrix questions\nIn an intrusion detection system, intrusions are identified as 1 and non-intrusive activities as 0. If the system fails to identify an actual intrusion, wrongly categorizing it as non-intrusive, what is this type of error called?\n\n\nA false positive\n\n\nA true positive\n\n\nA false negative\n\n\nA true negative"
+  },
+  {
+    "objectID": "slides/slides-09.html#confusion-matrix-questions-2",
+    "href": "slides/slides-09.html#confusion-matrix-questions-2",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Confusion matrix questions",
+    "text": "Confusion matrix questions\nIn a medical test for a disease, diseased states are labeled as 1 and healthy states as 0. If a healthy patient is incorrectly diagnosed with the disease, what is this error known as?\n\n\nA false positive\n\n\nA true positive\n\n\nA false negative\n\n\nA true negative"
+  },
+  {
+    "objectID": "slides/slides-09.html#precision-and-recall",
+    "href": "slides/slides-09.html#precision-and-recall",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Precision and Recall",
+    "text": "Precision and Recall"
+  },
+  {
+    "objectID": "slides/slides-09.html#f1-score",
+    "href": "slides/slides-09.html#f1-score",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "F1-score",
+    "text": "F1-score\n\nF1-score combines precision and recall to give one score, which could be used in hyperparameter optimization, for instance.\nF1-score is a harmonic mean of precision and recall.\n\n\\[ F1 = 2 \\times \\frac{ precision \\times recall}{precision + recall}\\]"
+  },
+  {
+    "objectID": "slides/slides-09.html#iclicker-exercise-9.1",
+    "href": "slides/slides-09.html#iclicker-exercise-9.1",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "iClicker Exercise 9.1",
+    "text": "iClicker Exercise 9.1\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nIn medical diagnosis, false positives are more damaging than false negatives (assume “positive” means the person has a disease, “negative” means they don’t).\n\n\nIn spam classification, false positives are more damaging than false negatives (assume “positive” means the email is spam, “negative” means they it’s not).\n\n\nIf method A gets a higher accuracy than method B, that means its precision is also higher.\n\n\nIf method A gets a higher accuracy than method B, that means its recall is also higher."
+  },
+  {
+    "objectID": "slides/slides-09.html#counter-examples",
+    "href": "slides/slides-09.html#counter-examples",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Counter examples",
+    "text": "Counter examples\nMethod A - higher accuracy but lower precision\n\n\n\nNegative\nPositive\n\n\n\n\n90\n5\n\n\n5\n0\n\n\n\nMethod B - lower accuracy but higher precision\n\n\n\nNegative\nPositive\n\n\n\n\n80\n15\n\n\n0\n5"
+  },
+  {
+    "objectID": "slides/slides-09.html#thresholding",
+    "href": "slides/slides-09.html#thresholding",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Thresholding",
+    "text": "Thresholding\n\nThe above metrics assume a fixed threshold.\nWe use thresholding to get the binary prediction.\nA typical threshold is 0.5.\n\nA prediction of 0.90 \\(\\rightarrow\\) a high likelihood that the transaction is fraudulent and we predict fraud\nA prediction of 0.20 \\(\\rightarrow\\) a low likelihood that the transaction is non-fraudulent and we predict Non fraud\n\nWhat happens if the predicted score is equal to the chosen threshold?\nPlay with classification thresholds"
+  },
+  {
+    "objectID": "slides/slides-09.html#iclicker-exercise-9.2",
+    "href": "slides/slides-09.html#iclicker-exercise-9.2",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "iClicker Exercise 9.2",
+    "text": "iClicker Exercise 9.2\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nIf we increase the classification threshold, both true and false positives are likely to decrease.\n\n\nIf we increase the classification threshold, both true and false negatives are likely to decrease.\n\n\nLowering the classification threshold generally increases the model’s recall.\n\n\n\nRaising the classification threshold can improve the precision of the model if it effectively reduces the number of false positives without significantly affecting true positives."
+  },
+  {
+    "objectID": "slides/slides-09.html#pr-curve",
+    "href": "slides/slides-09.html#pr-curve",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "PR curve",
+    "text": "PR curve\n\nCalculate precision and recall (TPR) at every possible threshold and graph them.\nBetter choice for highly imbalanced datasets"
+  },
+  {
+    "objectID": "slides/slides-09.html#roc-curve",
+    "href": "slides/slides-09.html#roc-curve",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "ROC curve",
+    "text": "ROC curve\n\nCalculate the true positive rate (TPR) and false positive rate (FPR) at every possible thresholding and graph TPR over FPR.\nGood choice when the datasets are roughly balanced."
+  },
+  {
+    "objectID": "slides/slides-09.html#auc",
+    "href": "slides/slides-09.html#auc",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "AUC",
+    "text": "AUC\n\nThe area under the ROC curve (AUC) represents the probability that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative."
+  },
+  {
+    "objectID": "slides/slides-09.html#roc-auc-questions",
+    "href": "slides/slides-09.html#roc-auc-questions",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "ROC AUC questions",
+    "text": "ROC AUC questions\nConsider the points A, B, and C in the following diagram, each representing a threshold. Which threshold would you pick in each scenario?\n\n\n\n\n\n\nIf false positives (false alarms) are highly costly\n\n\nIf false positives are cheap and false negatives (missed true positives) highly costly\n\n\nIf the costs are roughly equivalent"
+  },
+  {
+    "objectID": "slides/slides-09.html#questions-for-you",
+    "href": "slides/slides-09.html#questions-for-you",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Questions for you",
+    "text": "Questions for you\n\n\n\n\n\nWhat’s the AUC of a baseline model?\n\n\nSource"
+  },
+  {
+    "objectID": "slides/slides-09.html#questions-for-you-1",
+    "href": "slides/slides-09.html#questions-for-you-1",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Questions for you",
+    "text": "Questions for you\n\nWhat’s the difference between the average precision (AP) score and F1-score?\nWhich model would you pick?\n\n\nSource"
+  },
+  {
+    "objectID": "slides/slides-09.html#questions-for-you-2",
+    "href": "slides/slides-09.html#questions-for-you-2",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Questions for you",
+    "text": "Questions for you\n\n\n\n\n\nWhich model would you pick?"
+  },
+  {
+    "objectID": "slides/slides-09.html#dealing-with-class-imbalance",
+    "href": "slides/slides-09.html#dealing-with-class-imbalance",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "Dealing with class imbalance",
+    "text": "Dealing with class imbalance\n\nUnder sampling\nOversampling\nclass weight=\"balanced\" (preferred method for this course)\nSMOTE"
+  },
+  {
+    "objectID": "slides/slides-09.html#what-did-we-learn-today",
+    "href": "slides/slides-09.html#what-did-we-learn-today",
+    "title": "CPSC 330 Lecture 9: Classification Metrics",
+    "section": "What did we learn today?",
+    "text": "What did we learn today?\n\nA number of possible ways to evaluate machine learning classification models\nWhat precision, recall, confusion matrix etc. are\nHow thresholds can change performance\nThe difference between metrics at a single threshold (f1) and metrics for all thresholds (AP)"
+  },
+  {
     "objectID": "lecture-08.html",
     "href": "lecture-08.html",
     "title": "Lecture 8: Hyperparameter Optimization",
@@ -983,7 +1151,7 @@
     "href": "lectures.html",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\nLecture 8: Hyperparameter Optimization\n\n\nMotivation for hyperparameter optimization, hyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV, optimization bias\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\nLecture 8: Hyperparameter Optimization\n\n\nMotivation for hyperparameter optimization, hyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV, optimization bias\n\n\n\n\nLecture 9: Classification metrics\n\n\nconfusion metrics, precision, recall, f1-score, PR curves, AP score, ROC curve, ROC AUC, class imbalance\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Lectures",
       "Overview"
@@ -994,7 +1162,7 @@
     "href": "lectures.html#schedule",
     "title": "Overview",
     "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\nLecture 8: Hyperparameter Optimization\n\n\nMotivation for hyperparameter optimization, hyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV, optimization bias\n\n\n\n\n\nNo matching items",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nLecture 1: Course introduction\n\n\nWhat is machine learning, types of machine learning, learning to navigate through the course materials, getting familiar with the course policies\n\n\n\n\nLecture 2: Terminology, baselines, decision trees\n\n\nSupervised machine learning terminology: Features, target, examples, training, parameters and hyperparameters, Decision boundary, classification vs. regression, inference vs. prediction, accuracy vs. error, baselines, intuition of decision trees\n\n\n\n\nLecture 3: ML fundamentals\n\n\nGeneralization, data splitting, cross-validation, overfitting, underfitting, the fundamental tradeoff, the golden rule\n\n\n\n\nLecture 4: k-nearest neighbours and SVM RBFs\n\n\nIntroduction to KNNs, hyperparameter n_neighbours or \\(k\\), C and gamma hyperparameters of SVM RBF, decision boundaries with different values of hyperparameters.\n\n\n\n\nLecture 5: Preprocessing and sklearn pipelines\n\n\nPreprocessing motivation, Common transformations in sklearn, sklearn transformers vs. Estimators, The golden rule in the feature transformations, sklearn pipelines\n\n\n\n\nLecture 6: sklearn column transformer and text fearutres\n\n\nColumn transformer, arguments of OHE, encoding text features, incorporating text features in an ML pipeline\n\n\n\n\nLecture 7: Linear models\n\n\nIntuition behind linear models, linear regression and logistic regression, scikit-learn’s Ridge model, prediction probabilities, interpret model predictions using coefficients learned by a linear model, parametric vs. non-parametric models\n\n\n\n\nLecture 8: Hyperparameter Optimization\n\n\nMotivation for hyperparameter optimization, hyperparameter optimization using sklearn’s GridSearchCV and RandomizedSearchCV, optimization bias\n\n\n\n\nLecture 9: Classification metrics\n\n\nconfusion metrics, precision, recall, f1-score, PR curves, AP score, ROC curve, ROC AUC, class imbalance\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Lectures",
       "Overview"
@@ -1137,6 +1305,39 @@
     "crumbs": [
       "Lectures",
       "Lecture 7: Linear models"
+    ]
+  },
+  {
+    "objectID": "lecture-09.html",
+    "href": "lecture-09.html",
+    "title": "Lecture 9: Classification metrics",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 9: Classification metrics"
+    ]
+  },
+  {
+    "objectID": "lecture-09.html#slides",
+    "href": "lecture-09.html#slides",
+    "title": "Lecture 9: Classification metrics",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Lectures",
+      "Lecture 9: Classification metrics"
+    ]
+  },
+  {
+    "objectID": "lecture-09.html#outline",
+    "href": "lecture-09.html#outline",
+    "title": "Lecture 9: Classification metrics",
+    "section": "Outline",
+    "text": "Outline\n\nIssues with using accuracy\nComponents of a confusion matrix\nPrecision, recall, and f1-score and use them to evaluate different classifiers\nPrecision-recall curves\nAverage precision score\nROC curves and ROC AUC using scikit-learn\nDealing with class imbalance\nModel performance on specific groups in a dataset.",
+    "crumbs": [
+      "Lectures",
+      "Lecture 9: Classification metrics"
     ]
   },
   {
