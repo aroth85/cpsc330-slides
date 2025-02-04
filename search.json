@@ -872,7 +872,7 @@
     "href": "slides/slides-09.html#accuracy",
     "title": "CPSC 330 Lecture 9: Classification Metrics",
     "section": "Accuracy",
-    "text": "Accuracy\n\nSo far we have been measuring model performance using Accuracy.\nAccuracy is the proportion of all classifications that were correct, whether positive or negative. \\[Accuracy = \\frac{\\text{correct classifications}}{\\text{total classifications}}\\]\nHowever, in many real-world applications, the dataset is imbalanced or one kind of mistake is more costly than the other\nIn such cases, it’s better to optimize for one of the other metrics instead."
+    "text": "Accuracy\n\nSo far we have been measuring classification model performance using Accuracy.\nAccuracy is the proportion of all classifications that were correct, whether positive or negative. \\[Accuracy = \\frac{\\text{correct classifications}}{\\text{total classifications}}\\]\nHowever, in many real-world applications, the dataset is imbalanced or one kind of mistake is more costly than the other\nIn such cases, it’s better to optimize for one of the other metrics instead."
   },
   {
     "objectID": "slides/slides-09.html#fraud-confusion-matrix",

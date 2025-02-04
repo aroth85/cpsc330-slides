@@ -52,7 +52,7 @@ DATA_DIR = 'data/'
 ![](img/ml-workflow.png)
 
 ## Accuracy
-- So far we have been measuring model performance using **Accuracy**. 
+- So far we have been measuring classification model performance using **Accuracy**. 
 - **Accuracy** is the proportion of all classifications that were correct, whether *positive* or *negative*. 
 $$Accuracy = \frac{\text{correct classifications}}{\text{total classifications}}$$
 - However, in many real-world applications, the dataset is imbalanced or one kind of mistake is more costly than the other
