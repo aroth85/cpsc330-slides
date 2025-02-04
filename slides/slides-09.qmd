@@ -145,7 +145,7 @@ Method B - lower accuracy but higher precision
 | 80      | 15|
 | 0      | 5|
 
-# [Classification metrics class demo](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/lectures/102-Varada-lectures/class_demos/demo_09-classification-metrics.ipynb)
+# [Classification metrics class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_09-classification-metrics.ipynb)
 
 ## Thresholding 
 
@@ -185,7 +185,7 @@ Method B - lower accuracy but higher precision
 ## AUC 
 - The area under the ROC curve (AUC) represents the probability that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.
 
-# [Classification metrics class demo](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/lectures/102-Varada-lectures/class_demos/demo_09-classification-metrics.ipynb)
+# [Classification metrics class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_09-classification-metrics.ipynb)
 
 ## ROC AUC questions
 
