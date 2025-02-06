@@ -87,6 +87,17 @@ $$ precision = \frac{TP}{TP + FP} $$
 $$ FPR  = \frac{FP}{FP + TN}$$ 
 - The area under the ROC curve (AUC) represents the probability that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.
 
+## Recap: ROC Curve {.smaller}
+
+:::: {.columns}
+:::{.column width="60%"}
+![](img/roc-curve-which-model.png)
+:::
+:::{.column width="40%"}
+- Which model would you pick? 
+:::
+::::
+
 ## Questions for you {.smaller}
 :::: {.columns}
 :::{.column width="60%"}
@@ -99,16 +110,6 @@ $$ FPR  = \frac{FP}{FP + TN}$$
 
 [Source](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)
 
-## Questions for you {.smaller}
-
-:::: {.columns}
-:::{.column width="60%"}
-![](img/roc-curve-which-model.png)
-:::
-:::{.column width="40%"}
-- Which model would you pick? 
-:::
-::::
 
 ## Dealing with class imbalance
 - Under sampling 
@@ -116,6 +117,7 @@ $$ FPR  = \frac{FP}{FP + TN}$$
 - `class weight="balanced"` (preferred method for this course)
 - SMOTE
 
+# Liquid biopsy aside
 
 # [Regression metrics class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_10-regression-metrics.ipynb)
 
