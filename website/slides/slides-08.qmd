@@ -1,0 +1,426 @@
+---
+title: "CPSC 330 Lecture 8: Hyperparameter Optimization"
+author: "Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)"
+description: "Linear regression, logistic regression"
+description-short: "Linear regression, logistic regression, prediction probabilities, sigmoid, interpretation of coefficients"
+format:
+  revealjs:
+    embed-resources: true
+    slide-number: true
+    smaller: true
+    center: true
+    logo: img/UBC-CS-logo.png
+    resources:
+      - data/
+      - img/  
+---
+
+## Announcements 
+
+- Important information about midterm 1
+  - https://piazza.com/class/m4ujp0s4xgm5o5/post/204
+- HW3 is due next week Monday, Feb 3rd, 11:59 pm. 
+- Reminder my office hours
+  - Tuesday from 12:30 to 1:30 in my office ICCS 353
+
+
+```{python}
+import os
+import sys
+import pandas as pd 
+import numpy as np
+from sklearn import datasets
+from sklearn.svm import SVC
+from sklearn.model_selection import cross_val_score, cross_validate, train_test_split
+from sklearn.pipeline import Pipeline, make_pipeline
+from sklearn.linear_model import LogisticRegression
+import matplotlib.pyplot as plt
+from sklearn.feature_extraction.text import CountVectorizer
+from scipy.stats import expon, lognorm, loguniform, randint, uniform, norm, randint
+%matplotlib inline
+import mglearn
+DATA_DIR = 'data/' 
+```
+
+## Learning outcomes
+
+- Explain the need for hyperparameter optimization  
+- Carry out hyperparameter optimization using `sklearn`'s `GridSearchCV` and `RandomizedSearchCV` 
+- Explain different hyperparameters of `GridSearchCV`
+- Explain the importance of selecting a good range for the values. 
+- Explain optimization bias
+- Identify and reason when to trust and not trust reported accuracies 
+
+# Recap
+
+## Recap: Logistic regression
+- A **linear model used for binary classification** tasks. 
+  - (Optional) There is am extension of logistic regression called multinomial logistic regression for multiclass classification.
+- Parameters: 
+  - **Coefficients (Weights)**: The model learns a coefficient or a weight associated with each feature that represents its importance.
+  - **Bias (Intercept)**: A constant term added to the linear combination of features and their coefficients.
+
+## Recap: Logistic regression 
+- The model computes a weighted sum of the input features’ values, adjusted by their respective coefficients and the bias term.
+- This weighted sum is passed through a sigmoid function to transform it into a probability score, indicating the likelihood of the input belonging to the "positive" class.
+
+\begin{equation}
+\hat{p} = \sigma\left(\sum_{j=1}^d w_j x_j + b\right) 
+\end{equation}
+
+- $\hat{p}$ is the predicted probability of the example belonging to the positive class. 
+- $w_j$ is the learned weight associated with feature $j$
+- $x_j$ is the value of the input feature $j$
+- $b$ is the bias term 
+
+## Recap: Logistic regression
+
+- For a dataset with $d$ features, the decision boundary that 
+separates the classes is a $d-1$ dimensional hyperplane.  
+- Complexity hyperparameter: `C` in `sklearn`. 
+  - Higher `C` $\rightarrow$ more complex model meaning larger coefficients
+  - Lower `C` $\rightarrow$ less complex model meaning smaller coefficients
+
+## Interpretation of coefficients in linear models 
+
+- The $j$th coefficient tells us how feature $j$ affects the prediction
+  - if $w_j > 0$ then increasing $x_{ij}$ moves us toward predicting $+1$
+  - if $w_j < 0$ then increasing $x_{ij}$ moves us toward prediction $-1$
+  - if $w_j = 0$ then the feature is not used in making a prediction
+
+## Importance of scaling 
+- When you are interpreting the model coefficients, scaling is crucial. 
+- If you do not scale the data, features with smaller magnitude are going to get coefficients with bigger magnitude whereas features with bigger scale are going to get coefficients with smaller magnitude.
+- That said, when you scale the data, feature values become hard to interpret for humans!
+
+## Limitations of linear models 
+
+- Is your data "linearly separable"? Can you draw a hyperplane between these datapoints that separates them with 0 error. 
+- If the training examples can be separated by a linear decision rule, they are **linearly separable**.
+
+
+## Recap: `CountVectorizer` input 
+
+- Primarily designed to accept either a `pandas.Series` of text data or a 1D `numpy` array. It can also process a list of string data directly.
+- Unlike many transformers that handle multiple features (`DataFrame` or 2D `numpy` array), `CountVectorizer` a single text column at a time.
+- If your dataset contains multiple text columns, you will need to instantiate separate `CountVectorizer` objects for each text feature.
+- This approach ensures that the unique vocabulary and tokenization processes are correctly applied to each specific text column without interference.
+
+# Motivation
+
+## Hyperparameter optimization
+
+![](img/hyperparam-optimization.png)
+
+
+## Data
+
+```{python}
+#| echo: true
+sms_df = pd.read_csv(DATA_DIR + "spam.csv", encoding="latin-1")
+sms_df = sms_df.drop(columns = ["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"])
+sms_df = sms_df.rename(columns={"v1": "target", "v2": "sms"})
+train_df, test_df = train_test_split(sms_df, test_size=0.10, random_state=42)
+X_train, y_train = train_df["sms"], train_df["target"]
+X_test, y_test = test_df["sms"], test_df["target"]
+train_df.head(4)
+```
+
+## Model building 
+
+- Let's define a pipeline 
+
+```{python}
+#| echo: true
+
+pipe_svm = make_pipeline(CountVectorizer(), SVC())
+```
+
+- What are some hyperparameters for this pipeline?
+
+. . .
+
+
+- Suppose we want to try out different hyperparameter values. 
+```{python}
+#| echo: true
+
+parameters = {
+    "max_features": [100, 200, 400],
+    "gamma": [0.01, 0.1, 1.0],
+    "C": [0.01, 0.1, 1.0],
+}
+```
+
+## Hyperparameters: the problem
+
+- In order to improve the generalization performance, finding the best values for the important hyperparameters of a model is necessary for almost all models and datasets. 
+
+- Picking good hyperparameters is important because if we don't do it, we might end up with an underfit or overfit model. 
+
+## Manual hyperparameter optimization procedure
+
+- Define a parameter space.
+- Iterate through possible combinations.
+- Evaluate model performance.
+
+. . .
+
+- What are some limitations of this approach? 
+
+## Manual hyperparameter optimization
+
+- Advantage: we may have some intuition about what might work.
+  - E.g. if I'm massively overfitting, try decreasing `max_depth` or `C`.
+
+- Disadvantages
+    - It takes a lot of work
+    - Not reproducible
+    - In very complicated cases, our intuition might be worse than a data-driven approach
+
+## Automated hyperparameter optimization 
+
+- Formulate the hyperparamter optimization as a one big search problem. 
+
+- Often we have many hyperparameters of different types: categorical, integer, and continuous.
+
+- Often, the search space is quite big and systematic search for optimal values is infeasible. 
+
+## `sklearn` methods 
+
+- `sklearn` provides two main methods for hyperparameter optimization
+  - Grid Search
+  - Random Search
+
+# Grid search
+
+## Grid search overview
+
+- Covers all possible combinations from the provided grid. 
+- Can be parallelized easily.
+- Integrates cross-validation.
+
+## Grid search in practice
+
+- For `GridSearchCV` we need
+    - An instantiated model or a pipeline
+    - A parameter grid: A user specifies a set of values for each hyperparameter. 
+    - Other optional arguments 
+
+The method considers product of the sets and evaluates each combination one by one.  
+
+## Grid search example 
+```{python}
+#| echo: true
+
+from sklearn.model_selection import GridSearchCV
+
+pipe_svm = make_pipeline(CountVectorizer(), SVC())
+
+param_grid = {
+    "countvectorizer__max_features": [100, 200, 400],
+    "svc__gamma": [0.01, 0.1, 1.0],
+    "svc__C": [0.01, 0.1, 1.0],
+}
+grid_search = GridSearchCV(
+  pipe_svm, 
+  param_grid=param_grid, 
+  n_jobs=-1, 
+  return_train_score=True
+)
+grid_search.fit(X_train, y_train)
+grid_search.best_score_
+```
+
+> `njobs=-1` will use all available cores
+
+## Problems with exhaustive grid search 
+
+- Required number of models to evaluate grows exponentially with the dimensionally of the configuration space. 
+
+- Example: Suppose you have
+    - 5 hyperparameters 
+    
+    - 10 different values for each hyperparameter
+
+    - You'll be evaluating $10^5=100,000$ models! That is you'll be calling `cross_validate` 100,000 times!
+
+    - Exhaustive search may become infeasible fairly quickly. 
+
+- Other options? 
+
+# Random search
+
+## Random search overview
+
+- More efficient than grid search when dealing with large hyperparameter spaces.
+- Samples a given number of parameter settings from distributions.
+
+## Random search example 
+
+```{python}
+#| echo: true
+
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import loguniform, randint, uniform
+
+pipe_svc = make_pipeline(CountVectorizer(), SVC())
+
+param_dist = {
+    "countvectorizer__max_features": randint(100, 2000), 
+    "svc__C": uniform(0.1, 1e4),  # loguniform(1e-3, 1e3),
+    "svc__gamma": loguniform(1e-5, 1e3),
+}
+random_search = RandomizedSearchCV(
+  pipe_svm,                                    
+  param_distributions=param_dist, 
+  n_iter=10, 
+  n_jobs=-1, 
+  return_train_score=True
+)
+
+# Carry out the search
+random_search.fit(X_train, y_train)
+random_search.best_score_
+```
+
+## `n_iter`
+
+- Note the `n_iter`, we didn't need this for `GridSearchCV`.
+- Larger `n_iter` will take longer but it'll do more searching.
+  - Remember you still need to multiply by number of folds!
+- You can set `random_state` for reproducibility but you don't have to do it.
+
+
+## Advantages of `RandomizedSearchCV`
+
+- Faster compared to `GridSearchCV`.
+- Adding parameters that do not influence the performance does not affect efficiency.
+- Works better when some parameters are more important than others. 
+- In general, I recommend using `RandomizedSearchCV` rather than `GridSearchCV`.
+
+
+## Advantages of `RandomizedSearchCV`
+
+![](img/randomsearch_bergstra.png)
+
+## Questions for class discussion
+
+- Suppose you have 10 hyperparameters, each with 4 possible values. If you run `GridSearchCV` with this parameter grid, how many cross-validation experiments will be carried out? 
+- Suppose you have 10 hyperparameters and each takes 4 values. If you run `RandomizedSearchCV` with this parameter grid with `n_iter=20`, how many cross-validation experiments will be carried out? 
+
+## (iClicker) Exercise 8.1
+
+iClicker cloud join link: **https://join.iclicker.com/VYFJ**
+
+Select all of the following statements which are TRUE.
+
+- (A) If you get best results at the edges of your parameter grid, it might be a good idea to adjust the range of values in your parameter grid.
+- (B) Grid search is guaranteed to find the best hyperparameter values.
+- (C) It is possible to get different hyperparameters in different runs of RandomizedSearchCV.
+
+# Optimization bias
+
+## Optimization bias (motivation) 
+
+- Why do we need to evaluate the model on the test set in the end?
+- Why not just use cross-validation on the whole dataset? 
+- While carrying out hyperparameter optimization, we usually try over many possibilities.  
+- If our dataset is small and if your validation set is hit too many times, we suffer from **optimization bias** or **overfitting the validation set**. 
+
+## Optimization bias of parameter learning
+- Overfitting of the training error
+- An example: 
+    - During training, we could search over tons of different decision trees.    
+    - So we can get "lucky" and find a tree with low training error by chance.
+
+## Optimization bias of hyper-parameter learning
+
+- Overfitting of the validation error
+- An example: 
+    - Here, we might optimize the validation error over 1000 values of `max_depth`.
+    - One of the 1000 trees might have low validation error by chance.
+
+## (Optional) Example 1: Optimization bias
+
+Consider a multiple-choice (a,b,c,d) "test" with 10 questions:
+
+- If you choose answers randomly, expected grade is 25% (no bias).
+- If you fill out two tests randomly and pick the best, expected grade is 33%.
+    - Optimization bias of ~8%.
+- If you take the best among 10 random tests, expected grade is ~47%.
+- If you take the best among 100, expected grade is ~62%.
+- If you take the best among 1000, expected grade is ~73%.
+- If you take the best among 10000, expected grade is ~82%.
+    - You have so many "chances" that you expect to do well.
+
+. . .
+
+**But on new questions the "random choice" accuracy is still 25%.**
+
+## (Optional) Example 2: Optimization bias {.smaller}
+
+If we instead used a 100-question test then:
+
+- Expected grade from best over 1 randomly-filled test is 25%.
+- Expected grade from best over 2 randomly-filled test is ~27%.
+- Expected grade from best over 10 randomly-filled test is ~32%.
+- Expected grade from best over 100 randomly-filled test is ~36%.
+- Expected grade from best over 1000 randomly-filled test is ~40%.
+- Expected grade from best over 10000 randomly-filled test is ~43%.
+
+. . .
+
+- The optimization bias **grows with the number of things we try**.
+    - “Complexity” of the set of models we search over.
+
+. . .
+
+- But, optimization bias **shrinks quickly with the number of examples**.
+    - But it’s still non-zero and growing if you over-use your validation set!    
+
+## Optimization bias overview
+
+- Why do we need separate validation and test datasets? 
+
+![](img/optimization-bias.png)
+
+
+## This is why we need a test set
+- The frustrating part is that if our dataset is small then our test set is also small 😔. 
+- But we don't have a lot of better alternatives, unfortunately, if we have a small dataset. 
+
+## When test score is much lower than CV score
+- What to do if your test score is much lower than your cross-validation score:
+    - Try simpler models and use the test set a couple of times; it's not the end of the world.
+    - Communicate this clearly when you report the results. 
+
+## Mitigating optimization bias.
+  - Cross-validation
+  - Ensembles 
+  - Regularization and choosing a simpler model  
+
+## Questions for you
+
+- You have a dataset and you give me 1/10th of it. The dataset given to me is rather small and so I split it into 96% train and 4% validation split. I carry out hyperparameter optimization using a single 4% validation split and report validation accuracy of 0.97. Would it classify the rest of the data with similar accuracy?
+  - Probably
+  - Probably not
+
+# Summary
+
+## Automated hyperparameter optimization
+
+- Advantages 
+    - Reduce human effort
+    - Less prone to error and improve reproducibility
+    - Data-driven approaches may be effective
+
+- Disadvantages
+    - May be hard to incorporate intuition
+    - Be careful about overfitting on the validation set
+
+# Extra
+
+## Discussion
+
+Let's say that, for a particular feature, the histograms of that feature are identical for the two target classes. Does that mean the feature is not useful for predicting the target class?
