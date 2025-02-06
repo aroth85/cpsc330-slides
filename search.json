@@ -1251,11 +1251,11 @@
     "text": "Recap: PR curve\n\nCalculate precision and recall (TPR) at every possible threshold and graph them.\nBetter choice for highly imbalanced datasets because it focuses on the performance of the positive class."
   },
   {
-    "objectID": "slides/slides-10.html#questions-for-you",
-    "href": "slides/slides-10.html#questions-for-you",
+    "objectID": "slides/slides-10.html#recap-point-vs-curve-metrics",
+    "href": "slides/slides-10.html#recap-point-vs-curve-metrics",
     "title": "CPSC 330 Lecture 10: Regression Metrics",
-    "section": "Questions for you",
-    "text": "Questions for you\n\nWhat’s the difference between the average precision (AP) score and F1-score?\nWhich model would you pick?"
+    "section": "Recap: Point vs curve metrics",
+    "text": "Recap: Point vs curve metrics\n\nWhat’s the difference between the average precision (AP) score and F1-score?\nWhich model would you pick?"
   },
   {
     "objectID": "slides/slides-10.html#recap-roc-curve",
@@ -1272,15 +1272,15 @@
     "text": "Recap: ROC Curve\n\nNot a great choice when there is an extreme imbalance because FPR can remain relatively low even if the number of false positives is high, simply because the number of negatives is very large.\n\\[ FPR  = \\frac{FP}{FP + TN}\\]\nThe area under the ROC curve (AUC) represents the probability that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative."
   },
   {
-    "objectID": "slides/slides-10.html#questions-for-you-1",
-    "href": "slides/slides-10.html#questions-for-you-1",
+    "objectID": "slides/slides-10.html#questions-for-you",
+    "href": "slides/slides-10.html#questions-for-you",
     "title": "CPSC 330 Lecture 10: Regression Metrics",
     "section": "Questions for you",
     "text": "Questions for you\n\n\n\n\n\nWhat’s the AUC of a baseline model?\n\n\nSource"
   },
   {
-    "objectID": "slides/slides-10.html#questions-for-you-2",
-    "href": "slides/slides-10.html#questions-for-you-2",
+    "objectID": "slides/slides-10.html#questions-for-you-1",
+    "href": "slides/slides-10.html#questions-for-you-1",
     "title": "CPSC 330 Lecture 10: Regression Metrics",
     "section": "Questions for you",
     "text": "Questions for you\n\n\n\n\n\nWhich model would you pick?"

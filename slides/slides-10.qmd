@@ -70,7 +70,7 @@ $$ precision = \frac{TP}{TP + FP} $$
 ![](img/pr-curve-example.png)
 
 
-## Questions for you 
+## Recap: Point vs curve metrics 
 
 - What's the difference between the average precision (AP) score and F1-score? 
 - Which model would you pick? 
@@ -117,7 +117,7 @@ $$ FPR  = \frac{FP}{FP + TN}$$
 - SMOTE
 
 
-# [Regression metrics class demo](https://github.com/UBC-CS/cpsc330-2024W1/blob/main/lectures/102-Varada-lectures/class_demos/demo_10-regression-metrics.ipynb)
+# [Regression metrics class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_10-regression-metrics.ipynb)
 
 ## Ridge and RidgeCV
 - **Ridge Regression**: `alpha` hyperparameter controls model complexity.
