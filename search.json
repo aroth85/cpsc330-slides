@@ -928,7 +928,7 @@
     "href": "slides/slides-09.html#iclicker-exercise-9.1",
     "title": "CPSC 330 Lecture 9: Classification Metrics",
     "section": "iClicker Exercise 9.1",
-    "text": "iClicker Exercise 9.1\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nIn medical diagnosis, false positives are more damaging than false negatives (assume “positive” means the person has a disease, “negative” means they don’t).\n\n\nIn spam classification, false positives are more damaging than false negatives (assume “positive” means the email is spam, “negative” means they it’s not).\n\n\nIf method A gets a higher accuracy than method B, that means its precision is also higher.\n\n\nIf method A gets a higher accuracy than method B, that means its recall is also higher."
+    "text": "iClicker Exercise 9.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nIn medical diagnosis, false positives are more damaging than false negatives (assume “positive” means the person has a disease, “negative” means they don’t).\n\n\nIn spam classification, false positives are more damaging than false negatives (assume “positive” means the email is spam, “negative” means they it’s not).\n\n\nIf method A gets a higher accuracy than method B, that means its precision is also higher.\n\n\nIf method A gets a higher accuracy than method B, that means its recall is also higher."
   },
   {
     "objectID": "slides/slides-09.html#counter-examples",
@@ -949,7 +949,7 @@
     "href": "slides/slides-09.html#iclicker-exercise-9.2",
     "title": "CPSC 330 Lecture 9: Classification Metrics",
     "section": "iClicker Exercise 9.2",
-    "text": "iClicker Exercise 9.2\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nIf we increase the classification threshold, both true and false positives are likely to decrease.\n\n\nIf we increase the classification threshold, both true and false negatives are likely to decrease.\n\n\nLowering the classification threshold generally increases the model’s recall.\n\n\n\nRaising the classification threshold can improve the precision of the model if it effectively reduces the number of false positives without significantly affecting true positives."
+    "text": "iClicker Exercise 9.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nIf we increase the classification threshold, both true and false positives are likely to decrease.\n\n\nIf we increase the classification threshold, both true and false negatives are likely to decrease.\n\n\nLowering the classification threshold generally increases the model’s recall.\n\n\n\nRaising the classification threshold can improve the precision of the model if it effectively reduces the number of false positives without significantly affecting true positives."
   },
   {
     "objectID": "slides/slides-09.html#pr-curve",
@@ -1191,14 +1191,14 @@
     "href": "slides/slides-11.html#iclicker-exercise-10.1",
     "title": "CPSC 330 Lecture 11: Midterm review",
     "section": "iClicker Exercise 10.1",
-    "text": "iClicker Exercise 10.1\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nPrice per square foot would be a good feature to add in our X.\n\n\nThe alpha hyperparameter of Ridge has similar interpretation of C hyperparameter of LogisticRegression; higher alpha means more complex model.\n\n\nIn Ridge, smaller alpha means bigger coefficients whereas bigger alpha means smaller coefficients."
+    "text": "iClicker Exercise 10.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nPrice per square foot would be a good feature to add in our X.\n\n\nThe alpha hyperparameter of Ridge has similar interpretation of C hyperparameter of LogisticRegression; higher alpha means more complex model.\n\n\nIn Ridge, smaller alpha means bigger coefficients whereas bigger alpha means smaller coefficients."
   },
   {
     "objectID": "slides/slides-11.html#iclicker-exercise-10.2",
     "href": "slides/slides-11.html#iclicker-exercise-10.2",
     "title": "CPSC 330 Lecture 11: Midterm review",
     "section": "iClicker Exercise 10.2",
-    "text": "iClicker Exercise 10.2\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nWe can use still use precision and recall for regression problems but now we have other metrics we can use as well.\n\n\nIn sklearn for regression problems, using r2_score() and .score() (with default values) will produce the same results.\n\n\nRMSE is always going to be non-negative.\n\n\nMSE does not directly provide the information about whether the model is underpredicting or overpredicting.\n\n\nWe can pass multiple scoring metrics to GridSearchCV or RandomizedSearchCV for regression as well as classification problems."
+    "text": "iClicker Exercise 10.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nWe can use still use precision and recall for regression problems but now we have other metrics we can use as well.\n\n\nIn sklearn for regression problems, using r2_score() and .score() (with default values) will produce the same results.\n\n\nRMSE is always going to be non-negative.\n\n\nMSE does not directly provide the information about whether the model is underpredicting or overpredicting.\n\n\nWe can pass multiple scoring metrics to GridSearchCV or RandomizedSearchCV for regression as well as classification problems."
   },
   {
     "objectID": "slides/slides-11.html#ridge-and-ridgecv",
@@ -1493,14 +1493,14 @@
     "href": "slides/slides-10.html#iclicker-exercise-10.1",
     "title": "CPSC 330 Lecture 10: Regression Metrics",
     "section": "iClicker Exercise 10.1",
-    "text": "iClicker Exercise 10.1\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nPrice per square foot would be a good feature to add in our X.\n\n\nThe alpha hyperparameter of Ridge has similar interpretation of C hyperparameter of LogisticRegression; higher alpha means more complex model.\n\n\nIn Ridge, smaller alpha means bigger coefficients whereas bigger alpha means smaller coefficients."
+    "text": "iClicker Exercise 10.1\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nPrice per square foot would be a good feature to add in our X.\n\n\nThe alpha hyperparameter of Ridge has similar interpretation of C hyperparameter of LogisticRegression; higher alpha means more complex model.\n\n\nIn Ridge, smaller alpha means bigger coefficients whereas bigger alpha means smaller coefficients."
   },
   {
     "objectID": "slides/slides-10.html#iclicker-exercise-10.2",
     "href": "slides/slides-10.html#iclicker-exercise-10.2",
     "title": "CPSC 330 Lecture 10: Regression Metrics",
     "section": "iClicker Exercise 10.2",
-    "text": "iClicker Exercise 10.2\niClicker cloud join link: https://join.iclicker.com/VYFJ\nSelect all of the following statements which are TRUE.\n\n\nWe can use still use precision and recall for regression problems but now we have other metrics we can use as well.\n\n\nIn sklearn for regression problems, using r2_score() and .score() (with default values) will produce the same results.\n\n\nRMSE is always going to be non-negative.\n\n\nMSE does not directly provide the information about whether the model is underpredicting or overpredicting.\n\n\nWe can pass multiple scoring metrics to GridSearchCV or RandomizedSearchCV for regression as well as classification problems."
+    "text": "iClicker Exercise 10.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nWe can use still use precision and recall for regression problems but now we have other metrics we can use as well.\n\n\nIn sklearn for regression problems, using r2_score() and .score() (with default values) will produce the same results.\n\n\nRMSE is always going to be non-negative.\n\n\nMSE does not directly provide the information about whether the model is underpredicting or overpredicting.\n\n\nWe can pass multiple scoring metrics to GridSearchCV or RandomizedSearchCV for regression as well as classification problems."
   },
   {
     "objectID": "lecture-01.html",

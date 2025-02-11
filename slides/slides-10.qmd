@@ -148,7 +148,7 @@ $$ FPR  = \frac{FP}{FP + TN}$$
 
 ## iClicker Exercise 10.1
 
-**iClicker cloud join link: https://join.iclicker.com/VYFJ**
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
 
 **Select all of the following statements which are TRUE.**
 
@@ -159,7 +159,7 @@ $$ FPR  = \frac{FP}{FP + TN}$$
 
 ## iClicker Exercise 10.2
 
-**iClicker cloud join link: https://join.iclicker.com/VYFJ**
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
 
 **Select all of the following statements which are TRUE.**
 

@@ -120,7 +120,7 @@ $$ F1 = 2 \times \frac{ precision \times recall}{precision + recall}$$
 
 ## iClicker Exercise 9.1
 
-**iClicker cloud join link: https://join.iclicker.com/VYFJ**
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
 
 **Select all of the following statements which are TRUE.**
 
@@ -160,7 +160,7 @@ Method B - lower accuracy but higher precision
 
 ## iClicker Exercise 9.2
 
-**iClicker cloud join link: https://join.iclicker.com/VYFJ**
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
 
 **Select all of the following statements which are TRUE.**
 
