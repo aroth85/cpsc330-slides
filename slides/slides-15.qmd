@@ -1,0 +1,107 @@
+---
+title: 'CPSC 330 Lecture 15: K-Means'
+author: "Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)"
+description: "Unsupervised paradigm, motivation and potential applications of clustering, K-Means algorithm, pros and cons of K-Means, the Elbow plot and Silhouette plots for a given dataset,  importance of input data representation in clustering."
+format:
+    revealjs:
+        html-math-method: plain
+        slide-number: true
+        slide-level: 2
+        theme:
+          - slides.scss
+        center: true
+        logo: img/UBC-CS-logo.png
+        resources:
+          - data/
+          - img/
+
+editor:
+  render-on-save: true
+---
+
+## Announcements 
+
+- MT2 registartion open. See Piazza.
+- Final exam dates and registration posted. See Piazza.
+- MT1 marked. Viewing in CBTF bookings open. See Piazza.
+- HW5 is due March 10th (start now!)
+- HW6 is posted
+
+
+## (iClicker) Midterm poll {.smaller}
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) I'm happy with my progress and learning in this course.
+- (B) I find the course content interesting, but the pace is a bit overwhelming. Balancing this course with other responsibilities is challenging
+- (C) I'm doing okay, but I feel stressed and worried about upcoming assessments.
+- (D) I'm confused about some concepts and would appreciate more clarification or review sessions.
+- (E) I'm struggling to keep up with the material. I am not happy with my learning in this course and my morale is low :(. 
+
+# [Class notebook (recap)](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/14_feature_selection.ipynb)
+
+## (iClicker) Exercise 14.2 
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) L2 regularized logistic regression sets correlated coefficients to zero
+- (B) Lasso regression predicts values using $$\hat{y}_{i} = \sum_j w_j x_{i j} + b$$
+- (C) Lasso and Ridge regression optimize different measures of "error" between predicted and observe target values
+- (D) KNN and SVM RBF can be used with SelectFromModel
+- (E) I saw way to much math last lecture!
+
+
+## (iClicker) Exercise 14.3 
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) Simple association-based feature selection approaches do not take into account the interaction between features.
+- (B) You can carry out feature selection using linear models by pruning the features which have very small weights (i.e., coefficients less than a threshold).
+- (C) The order of features removed given by `rfe.ranking_` is the same as the order of original feature importances given by the model.
+- (D) If you remove 10 features in a single step based on feature importance, the same 10 features would be removed if we performed sequential removal calculating feature importance after removing each feature.
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/15_clustering_intro_kmeans.ipynb)
+
+## 15.1 Select all of the following statements which are **True** (iClicker)
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all that are true.**
+
+- (A) K-Means algorithm always converges to the same solution.
+- (B) $K$ in K-Means should always be $\leq$ # of features.
+- (C) In K-Means, it makes sense to have $K$ $\leq$ # of examples. 
+- (D) In K-Means, in some iterations some points may be left unassigned. 
+
+## 15.2 Select all of the following statements which are **True** (iClicker)
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all that are true.**
+
+- (A) K-Means is sensitive to initialization and the solution may change depending upon the initialization. 
+- (B) K-means terminates when the number of clusters does not increase between iterations.
+- (C) K-means terminates when the centroid locations do not change between iterations.
+- (D) K-Means is guaranteed to find the optimal solution.
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/15_clustering_intro_kmeans.ipynb)
+
+## 15.3 Select all of the following statements which are **True** (iClicker)
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all that are TRUE.**
+
+- (A) If you train K-Means with `n_clusters`= the number of examples, the inertia value will be 0. 
+- (B) The elbow plot shows the tradeoff between within cluster distance and the number of clusters.
+- (C) Unlike the Elbow method, the Silhouette method is not dependent on the notion of cluster centers.
+- (D) The elbow plot is not a reliable method to obtain the optimal number of clusters in all cases. 
+- (E) The Silhouette scores ranges between -1 and 1 where higher scores indicates better cluster assignments.
+
+# [Class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_15-kmeans.ipynb)
