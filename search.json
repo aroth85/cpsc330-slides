@@ -1653,14 +1653,14 @@
     "href": "slides/slides-15.html#iclicker-exercise-14.2",
     "title": "CPSC 330 Lecture 15: K-Means",
     "section": "(iClicker) Exercise 14.2",
-    "text": "(iClicker) Exercise 14.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nL2 regularized logistic regression sets correlated coefficients to zero\n\n\nLasso regression predicts values using ŷi = ∑jwjxij + b\n\n\nLasso and Ridge regression optimize different measures of “error” between predicted and observe target values\n\n\nKNN and SVM RBF can be used with SelectFromModel\n\n\nI saw way to much math last lecture!"
+    "text": "(iClicker) Exercise 14.2\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nL2 regularized logistic regression sets correlated coefficients to zero *\n\n\nLasso regression predicts values using ŷi = ∑jwjxij + b *\n\n\nLasso and Ridge regression optimize different measures of “error” between predicted and observe target values *\n\n\nKNN and SVM RBF can be used with SelectFromModel\n\n\nI saw way to much math today! *\n\n\n* Denotes optional details only covered in our section"
   },
   {
     "objectID": "slides/slides-15.html#iclicker-exercise-14.3",
     "href": "slides/slides-15.html#iclicker-exercise-14.3",
     "title": "CPSC 330 Lecture 15: K-Means",
     "section": "(iClicker) Exercise 14.3",
-    "text": "(iClicker) Exercise 14.3\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nSimple association-based feature selection approaches do not take into account the interaction between features.\n\n\nYou can carry out feature selection using linear models by pruning the features which have very small weights (i.e., coefficients less than a threshold).\n\n\nThe order of features removed given by rfe.ranking_ is the same as the order of original feature importances given by the model.\n\n\nIf you remove 10 features in a single step based on feature importance, the same 10 features would be removed if we performed sequential removal calculating feature importance after removing each feature."
+    "text": "(iClicker) Exercise 14.3\niClicker cloud join link: https://join.iclicker.com/HTRZ\nSelect all of the following statements which are TRUE.\n\n\nSimple association-based feature selection approaches do not take into account the interaction between features.\n\n\nYou can carry out feature selection using linear models by pruning the features which have very small weights (i.e., coefficients less than a threshold).\n\n\nThe order of features removed given by rfe.ranking_ is the same as the order of original feature importances given by the model.\n\n\nIf you remove 10 features in a single step based on feature importance, the same 10 features would be removed if we performed sequential removal calculating feature importance after removing each feature.\n\n\nForward search is guaranteed to find the best feature set. *\n\n\n* Denotes optional question"
   },
   {
     "objectID": "slides/slides-15.html#select-all-of-the-following-statements-which-are-true-iclicker",

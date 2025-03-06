@@ -48,11 +48,13 @@ editor:
 
 **Select all of the following statements which are TRUE.**
 
-- (A) L2 regularized logistic regression sets correlated coefficients to zero
-- (B) Lasso regression predicts values using $$\hat{y}_{i} = \sum_j w_j x_{i j} + b$$
-- (C) Lasso and Ridge regression optimize different measures of "error" between predicted and observe target values
+- (A) L2 regularized logistic regression sets correlated coefficients to zero *
+- (B) Lasso regression predicts values using $\hat{y}_i = \sum_j w_j x_{i j} + b$ *
+- (C) Lasso and Ridge regression optimize different measures of "error" between predicted and observe target values *
 - (D) KNN and SVM RBF can be used with SelectFromModel
-- (E) I saw way to much math last lecture!
+- (E) I saw way to much math today! *
+
+\* Denotes optional details only covered in our section
 
 
 ## (iClicker) Exercise 14.3 
@@ -65,6 +67,9 @@ editor:
 - (B) You can carry out feature selection using linear models by pruning the features which have very small weights (i.e., coefficients less than a threshold).
 - (C) The order of features removed given by `rfe.ranking_` is the same as the order of original feature importances given by the model.
 - (D) If you remove 10 features in a single step based on feature importance, the same 10 features would be removed if we performed sequential removal calculating feature importance after removing each feature.
+- (E) Forward search is guaranteed to find the best feature set. *
+
+\* Denotes optional question
 
 # [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/15_clustering_intro_kmeans.ipynb)
 
