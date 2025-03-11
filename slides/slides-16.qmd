@@ -1,0 +1,58 @@
+---
+title: 'CPSC 330 Lecture 16: DBSCAN, Hierarchical Clustering'
+author: "Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)"
+description: "Unsupervised paradigm, motivation and potential applications of clustering, K-Means algorithm, pros and cons of K-Means, the Elbow plot and Silhouette plots for a given dataset,  importance of input data representation in clustering."
+format:
+    revealjs:
+        html-math-method: plain
+        slide-number: true
+        slide-level: 2
+        theme:
+          - slides.scss
+        center: true
+        logo: img/UBC-CS-logo.png
+        resources:
+          - data/
+          - img/
+
+editor:
+  render-on-save: true
+---
+
+## Announcements 
+
+- MT2 next week! See Piazza.
+- Final exam dates and registration posted. See Piazza.
+- HW6 is posted
+
+## 16.1 Select all of the following statements which are **True** (iClicker)
+**iClicker join link: https://join.iclicker.com/HTRZ**
+
+- (A) Similar to K-nearest neighbours, K-Means is a non parametric model.
+- (B) The meaning of $K$ in K-nearest neighbours and K-Means clustering is very similar. 
+- (C) Scaling of input features is crucial in clustering.  
+- (D) In clustering, it's almost always a good idea to find equal-sized clusters. 
+
+# [Class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_15-kmeans.ipynb)
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/15_clustering_intro_kmeans.ipynb)
+
+## 16.2 Select all of the following statements which are **True** (iClicker)
+**iClicker join link: https://join.iclicker.com/HTRZ**
+
+- (A) With tiny epsilon (`eps` in `sklearn`) and min samples=1 (`min_samples=1` in `sklearn`) we are likely to end up with each point in its own cluster. 
+- (B) With a smaller value of `eps` and larger number for `min_samples` we are likely to end up with one big cluster. 
+- (C) K-Means is more susceptible to outliers compared to DBSCAN.  
+- (D) In DBSCAN to be part of a cluster, each point must have at least `min_samples` neighbours in a given radius (including itself). 
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/16_dbscan.ipynb)
+
+## 16.3 Select all of the following statements which are **True** 
+
+**iClicker join link: https://join.iclicker.com/HTRZ**
+
+- (A) In hierarchical clustering we do not have to worry about initialization. 
+- (B) Hierarchical clustering can only be applied to smaller datasets because dendrograms are hard to visualize for large datasets.
+- (C) In all the clustering methods we have seen (K-Means, GMMs, DBSCAN, hierarchical clustering), there is a way to decide the granularity of clustering (i.e., how many clusters to pick). 
+- (D) To get robust clustering we can naively ensemble cluster labels (e.g., pick the most popular label) produced by different clustering methods. 
+- (E) If you have a high Silhouette score and very clean and robust clusters, it means that the algorithm has captured the semantic meaning in the data of our interest.  
