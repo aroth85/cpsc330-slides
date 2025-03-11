@@ -35,7 +35,7 @@ editor:
 
 # [Class demo](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/class_demos/demo_15-kmeans.ipynb)
 
-# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/15_clustering_intro_kmeans.ipynb)
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/16_dbscan.ipynb)
 
 ## 16.2 Select all of the following statements which are **True** (iClicker)
 **iClicker join link: https://join.iclicker.com/HTRZ**
