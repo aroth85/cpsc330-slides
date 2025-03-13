@@ -23,6 +23,8 @@ editor:
 ## Announcements 
 
 - MT2 next week! See Piazza.
+- MT2 practice exam available.
+  - Review in tutorials.
 - Final exam dates and registration posted. See Piazza.
 - HW6 is due next Monday (March 17th)
 
