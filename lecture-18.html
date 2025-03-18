@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Random forests, gradient boosting, averaging, and stacking">
 
-<title>Lecture 12: Ensembles – CPSC 330</title>
+<title>Lecture 18: Natural Language Processing – CPSC 330</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lecture-13.html" rel="next">
-<link href="./lecture-11.html" rel="prev">
+<link href="./lecture-17.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +67,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+ 
+  <style>
+  .slide-deck {
+      border: 3px solid #dee2e6;
+      width: 100%;
+  }
+  </style>
+  
 
 
 </head>
@@ -109,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lecture-12.html">Lecture 12: Ensembles</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lecture-18.html">Lecture 18: Natural Language Processing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -195,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lecture-12.html" class="sidebar-item-text sidebar-link active">
+  <a href="./lecture-12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 12: Ensembles</span></a>
   </div>
 </li>
@@ -231,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lecture-18.html" class="sidebar-item-text sidebar-link">
+  <a href="./lecture-18.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lecture 18: Natural Language Processing</span></a>
   </div>
 </li>
@@ -246,14 +252,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 12: Ensembles</h1>
+<h1 class="title">Lecture 18: Natural Language Processing</h1>
 </div>
 
-<div>
-  <div class="description">
-    Random forests, gradient boosting, averaging, and stacking
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -270,16 +271,18 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<p><a href="https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/12_ensembles.ipynb">Notebook</a></p>
+    <p><a href="slides/slides-18.html" target="_blank">View slides in full screen</a></p>
+       <div class="ratio ratio-16x9">
+      <iframe class="slide-deck" src="slides/slides-18.html" height="600px"></iframe>
+    </div>
+  
 </section>
 <section id="outline" class="level2">
 <h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
-<li>Motivation</li>
-<li>Random forests</li>
-<li>Gradient boosting</li>
-<li>Averaging</li>
-<li>Stacking</li>
+<li>Word embeddings</li>
+<li>Topic modeling</li>
+<li>Text preprocessing</li>
 </ul>
 
 
@@ -708,14 +711,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./lecture-11.html" class="pagination-link" aria-label="Lecture 11: Midterm review">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lecture 11: Midterm review</span>
+      <a href="./lecture-17.html" class="pagination-link" aria-label="Lecture 17: Recommender systems">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lecture 17: Recommender systems</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lecture-13.html" class="pagination-link" aria-label="Lecture 13: Feature importances">
-        <span class="nav-page-text">Lecture 13: Feature importances</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

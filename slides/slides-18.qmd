@@ -1,0 +1,32 @@
+---
+title: 'CPSC 330 Lecture 18: Introduction to Natural Language Processing'
+author: "Andrew Roth (Slides adapted from Varada Kolhatkar and Firas Moosvi)"
+description: "Introduction to NLP, Topic Modelling and Text Preprocesing."
+format:
+    revealjs:
+        html-math-method: plain
+        slide-number: true
+        slide-level: 2
+        theme:
+          - slides.scss
+        center: true
+        logo: img/UBC-CS-logo.png
+        resources:
+          - data/
+          - img/
+
+editor:
+  render-on-save: true
+---
+
+
+## Announcements 
+
+- MT2 this week. Good luck!
+  - Does not cover todays material.
+- MT2 practice exam available.
+- HW7 is due next Monday (March 24th)
+- iClicker note on piazza.
+- Final exam dates and registration posted. See Piazza.
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/18_intro_nlp.ipynb)
