@@ -1,0 +1,49 @@
+---
+title: "CPSC 330 Lecture 19: Introduction to deep learning and computer vision"
+author: "Andrew Roth"
+format: 
+    revealjs:
+      embed-resources: true
+      slide-number: true
+      smaller: true
+      center: true
+      logo: img/UBC-CS-logo.png
+      resources:
+        - data/
+        - img/        
+---
+
+## Announcements
+
+- HW7 was due date extended to Wednesday
+- HW8 has been released due April 7th
+  - If you already started please check the github again as a new question was added!
+- HW9 has been scrapped
+  - Course policy is till to drop lowest HW grade
+- Midterm 2 grading is in progress
+
+## iClicker 19.0
+
+iClicker cloud join link: **https://join.iclicker.com/HTRZ**
+
+**Select all of the following statements which are TRUE for you.**
+
+- (A) I found the multiple-choice questions challenging.
+- (B) The coding questions took a lot of time.
+- (C) I didn't like the format of the midterm.
+- (D) I appreciated the mix of coding, conceptual, and multiple-choice questions.
+- (E) I felt the midterm was a good reflection of what we cover in the lectures and homework assignments.
+
+## iClicker 19.1
+
+iClicker cloud join link: **https://join.iclicker.com/HTRZ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) It's possible to use word2vec embedding representations for text classification instead of bag-of-words representation. 
+- (B) The topic model approach we used in the last lecture, Latent Dirichlet Allocation (LDA), is an unsupervised approach. 
+- (C) In an LDA topic model, the same word can be associated with two different topics with high probability.
+- (D) In an LDA topic model, a document is a mixture of multiple topics. 
+- (E) If I train a topic model on a large collection of news articles with K = 10, I would get 10 topic labels (e.g., sports, culture, politics, finance) as output. 
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/19_intro_to_computer-vision.ipynb)

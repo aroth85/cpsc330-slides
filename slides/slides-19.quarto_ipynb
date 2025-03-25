@@ -1,0 +1,99 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"CPSC 330 Lecture 19: Introduction to deep learning and computer vision\"\n",
+        "author: \"Andrew Roth\"\n",
+        "format: \n",
+        "    revealjs:\n",
+        "      embed-resources: true\n",
+        "      slide-number: true\n",
+        "      smaller: true\n",
+        "      center: true\n",
+        "      logo: img/UBC-CS-logo.png\n",
+        "      resources:\n",
+        "        - data/\n",
+        "        - img/        \n",
+        "---"
+      ],
+      "id": "5367ddcb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import mglearn\n",
+        "import json\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import sys, os\n",
+        "sys.path.append(os.path.join(os.path.abspath(\".\"), \"code\"))\n",
+        "from deep_learning_code import *\n",
+        "import matplotlib.pyplot as plt\n",
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from torchvision import datasets, models, transforms, utils\n",
+        "from sklearn.pipeline import Pipeline, make_pipeline\n",
+        "from sklearn.preprocessing import StandardScaler\n",
+        "import matplotlib.image as mpimg\n",
+        "%matplotlib inline"
+      ],
+      "id": "ee98a5ed",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Announcements\n",
+        "\n",
+        "- HW7 was due date extended to Wednesday\n",
+        "- HW8 has been released due April 7th\n",
+        "  - If you already started please check the github again as a new question was added!\n",
+        "- HW9 has been scrapped\n",
+        "  - Course policy is till to drop lowest HW grade\n",
+        "- Midterm 2 grading is in progress\n",
+        "\n",
+        "## iClicker 19.0\n",
+        "\n",
+        "iClicker cloud join link: **https://join.iclicker.com/HTRZ**\n",
+        "\n",
+        "**Select all of the following statements which are TRUE for you.**\n",
+        "\n",
+        "- (A) I found the multiple-choice questions challenging.\n",
+        "- (B) The coding questions took a lot of time.\n",
+        "- (C) I didn't like the format of the midterm.\n",
+        "- (D) I appreciated the mix of coding, conceptual, and multiple-choice questions.\n",
+        "- (E) I felt the midterm was a good reflection of what we cover in the lectures and homework assignments.\n",
+        "\n",
+        "## iClicker 19.1\n",
+        "\n",
+        "iClicker cloud join link: **https://join.iclicker.com/HTRZ**\n",
+        "\n",
+        "**Select all of the following statements which are TRUE.**\n",
+        "\n",
+        "- (A) It's possible to use word2vec embedding representations for text classification instead of bag-of-words representation. \n",
+        "- (B) The topic model approach we used in the last lecture, Latent Dirichlet Allocation (LDA), is an unsupervised approach. \n",
+        "- (C) In an LDA topic model, the same word can be associated with two different topics with high probability.\n",
+        "- (D) In an LDA topic model, a document is a mixture of multiple topics. \n",
+        "- (E) If I train a topic model on a large collection of news articles with K = 10, I would get 10 topic labels (e.g., sports, culture, politics, finance) as output. \n",
+        "\n",
+        "# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/19_intro_to_computer-vision.ipynb)"
+      ],
+      "id": "3205c2bb"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/home/andrew/.install/opt/mamba/envs/cpsc330/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
