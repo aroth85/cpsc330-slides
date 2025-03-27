@@ -1,0 +1,34 @@
+---
+title: "CPSC 330 Lecture 20: Time series"
+author: "Andrew Roth"
+format: 
+    revealjs:
+      embed-resources: true
+      slide-number: true
+      smaller: true
+      center: true
+      logo: img/UBC-CS-logo.png
+      resources:
+        - data/
+        - img/        
+---
+
+
+## Announcements
+
+- OH today after class
+- HW8 has been released due April 7th
+  - If you already started please check the github again as a new question was added!
+  - Last HW!
+- Midterm 2 grading is in progress
+
+## Autoencoders (optional)
+
+- One of the most interesting aspects of deep learning has been finding ways to use neural networks without labelled data.
+
+- Autoencoders are one of the older ideas, but still highly applicable
+
+[Reducing the Dimensionality of Data with Neural Networks](https://www.science.org/doi/10.1126/science.1127647)
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/20_time_series.ipynb) 
+
