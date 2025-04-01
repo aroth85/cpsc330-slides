@@ -1,0 +1,52 @@
+---
+title: "CPSC 330 Lecture 21: Survival analysis"
+author: "Andrew Roth"
+format: 
+    revealjs:
+      embed-resources: true
+      slide-number: true
+      smaller: true
+      center: true
+      logo: img/UBC-CS-logo.png
+      resources:
+        - data/
+        - img/        
+---
+
+
+## Announcements
+
+- Midterm 2 grades released.
+  - CBTF viewing bookings open.
+- Ethics worksheet for bonus points this week in tutorials.
+  - Due Friday April 11th (no extensions)
+  - See Piazza
+- HW8 due April 7th
+  - Check the version you are working on is up to date.
+  - Last HW!
+
+## (iClicker) Exercise 21.1 
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) We need to be careful when splitting the data when working with time series data. 
+- (B) Cross-validation in time series can be randomly applied like in other machine learning tasks.
+- (C) In time series forecasting, the future value of a series can only be predicted based on its past values and cannot incorporate other variables.
+- (D) When we used `RandomForestRegressor` model on the POSIX time feature, it predicted a straight line on the test data because tree-based models are inherently unable to extrapolate (i.e., make predictions outside the range of the training data).     
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/21_survival.ipynb) 
+
+## (iClicker) Exercise 21.2
+
+**iClicker cloud join link: https://join.iclicker.com/HTRZ**
+
+**Select all of the following statements which are TRUE.**
+
+- (A) Right censoring occurs when the endpoint of event has not been observed for all study subjects by the end of the study period.
+- (B) Right censoring implies that the data is missing completely at random.
+- (C) In the presence of right-censored data, binary classification models can be applied directly without any modifications or special considerations.
+- (D) If we apply the `Ridge` regression model to predict tenure in right censored data, we are likely to underestimate it because the tenure observed in our data is shorter than what it would be in reality.
+
+# [Class notebook](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/21_survival.ipynb)
