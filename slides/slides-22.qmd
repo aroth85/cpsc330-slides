@@ -1,0 +1,16 @@
+---
+title: "CPSC 330 Lecture 22: Ethics"
+author: "Andrew Roth"
+format: 
+    revealjs:
+      embed-resources: true
+      slide-number: true
+      smaller: true
+      center: true
+      logo: img/UBC-CS-logo.png
+      resources:
+        - data/
+        - img/        
+---
+
+# [Slides](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/204-Andy-lectures/22_AIcsCoreFairness.pptx) 
