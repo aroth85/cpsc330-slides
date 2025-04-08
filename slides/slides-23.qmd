@@ -1,0 +1,35 @@
+---
+title: "CPSC 330 Lecture 23: Communication and LLMs"
+author: "Andrew Roth"
+format: 
+    revealjs:
+      embed-resources: true
+      slide-number: true
+      smaller: true
+      center: true
+      logo: img/UBC-CS-logo.png
+      resources:
+        - data/
+        - img/        
+---
+
+## Annoucements
+
+- Ethics worksheet due Friday
+- Final exam next week!
+- Final exam covers everything in the course except LLMs from today
+
+## Plan for today
+
+- Short discussion of misleading visualisations
+- 10 min break to fill in class survey
+- Introduction to large language models (ChatGPT)
+
+## Learning objectives
+
+- Identify misleading visualizations
+- Understand what LLMs are
+- Understand how ChatGPT works (high level)
+- Identify the potential pitfalls of using LLMs
+
+# [Slides](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/notes/23_LLMs-intro.pdf) 
