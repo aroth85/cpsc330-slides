@@ -19,6 +19,18 @@ format:
 - Final exam next week!
 - Final exam covers everything in the course except LLMs from today
 
+## Recap - Ethics
+
+- Aspects of responsible AI
+  - Fairness
+  - Accountability
+  - Transparency
+- Data bias
+  - Represenation bias
+  - Measurement bias
+  - Historical bias
+- Alternative metrics for measuring fairness
+
 ## Plan for today
 
 - Short discussion of misleading visualisations
@@ -33,3 +45,7 @@ format:
 - Identify the potential pitfalls of using LLMs
 
 # [Slides](https://github.com/UBC-CS/cpsc330-2024W2/blob/main/lectures/notes/23_LLMs-intro.pdf) 
+
+## References
+
+[An Introduction to Transformers](https://arxiv.org/abs/2304.10557)

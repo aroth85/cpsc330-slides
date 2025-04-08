@@ -1949,6 +1949,13 @@
     "text": "Annoucements\n\nEthics worksheet due Friday\nFinal exam next week!\nFinal exam covers everything in the course except LLMs from today"
   },
   {
+    "objectID": "slides/slides-23.html#recap---ethics",
+    "href": "slides/slides-23.html#recap---ethics",
+    "title": "CPSC 330 Lecture 23: Communication and LLMs",
+    "section": "Recap - Ethics",
+    "text": "Recap - Ethics\n\nAspects of responsible AI\n\nFairness\nAccountability\nTransparency\n\nData bias\n\nRepresenation bias\nMeasurement bias\nHistorical bias\n\nAlternative metrics for measuring fairness"
+  },
+  {
     "objectID": "slides/slides-23.html#plan-for-today",
     "href": "slides/slides-23.html#plan-for-today",
     "title": "CPSC 330 Lecture 23: Communication and LLMs",
@@ -1961,6 +1968,13 @@
     "title": "CPSC 330 Lecture 23: Communication and LLMs",
     "section": "Learning objectives",
     "text": "Learning objectives\n\nIdentify misleading visualizations\nUnderstand what LLMs are\nUnderstand how ChatGPT works (high level)\nIdentify the potential pitfalls of using LLMs"
+  },
+  {
+    "objectID": "slides/slides-23.html#references",
+    "href": "slides/slides-23.html#references",
+    "title": "CPSC 330 Lecture 23: Communication and LLMs",
+    "section": "References",
+    "text": "References\nAn Introduction to Transformers"
   },
   {
     "objectID": "lecture-02.html",
